@@ -1,1 +1,1 @@
-let integrantes = ["Vero", "Noemi", "Ale", "Fer", "Pablo"];
+let integrantes = ["Erika", "Noemi", "Ale", "Fer", "Pablo"];
