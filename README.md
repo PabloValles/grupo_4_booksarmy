@@ -28,7 +28,7 @@ Estamos orientados al público joven y adulto mediante la venta retail con una g
 - **Ale Navarro**: <br />
   Breve descripción de el.
 - **Fernando Videla**: <br />
-  Breve descripción de el.
+  Hola, soy Fernando Videla, profesor y estudiante en programación FullStack. Mi campo es la educación pero mi pasión está la programación. 
 
 ## Páginas que nos inspiraron:
 
