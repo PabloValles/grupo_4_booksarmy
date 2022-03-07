@@ -26,7 +26,7 @@ Estamos orientados al público joven y adulto mediante la venta retail con una g
   Hola mi nombre es Pablo Valles, tengo 29 años y soy técnico analista y programador de sistemas, soy una persona muy activa, me encanta estar aprendiendo cosas nuevas y afrontar nuevos desafíos. Tengo una hija hermosa de 9 años y ella es mi motor para seguir adelante y no rendirme. <br />
   De éste curso espero poder adquirir los conocimientos necesarios para poder cambiar un poco el rumbo de mi vida y poder dedicarme a lo que me gusta.
 - **Ale Navarro**: <br />
-  Breve descripción de el.
+  Hola mi nombre es Alejandro Navarro, tengo 32 años y soy estudiante de ingeniería en sistemas de información, actualmente me dedico a dar clases de apoyo en Matemática, Física y Química a alumnos de secundario, tamabién preparo a alumnos para los ingresos a carreras universitarias.
 - **Fernando Videla**: <br />
   Hola, soy Fernando Videla, profesor y estudiante en programación FullStack. Mi campo es la educación pero mi pasión está la programación. 
 
