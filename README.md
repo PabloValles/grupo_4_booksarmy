@@ -31,7 +31,7 @@ Estamos orientados al público joven y adulto mediante la venta retail con una g
 - **Ale Navarro**: <br />
   Hola mi nombre es Alejandro Navarro, tengo 32 años y soy estudiante de ingeniería en sistemas de información, actualmente me dedico a dar clases de apoyo en Matemática, Física y Química a alumnos de secundario, tamabién preparo a alumnos para los ingresos a carreras universitarias.
 - **Fernando Videla**: <br />
-  Hola, soy Fernando Videla, profesor y estudiante en programación FullStack. Mi campo es la educación pero mi pasión está la programación.
+  Hola, smi nombre es Fernando Videla. Soy profesor. Actualmente soy estudiante en programación FullStack. Mi campo es la educación pero mi pasión está la programación.
 
 ## Páginas que nos inspiraron:
 
