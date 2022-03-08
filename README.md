@@ -22,7 +22,7 @@ Estamos orientados al público joven y adulto mediante la venta retail con una g
 ### 📌 Nuestro equipo está compuesto por 5 integrantes:
 
 - **Erika Kowanz**: <br />
-  Breve descripción de ella.
+  Hola, yo soy Erika. Soy docente de secundaria. Estoy estudiando FullStack porque descubrí que me encanta el campo de las tecnologías. 
 - **Noemí Cantero**: <br />
   Breve descripción de ella.
 - **Pablo Valles**: <br />
