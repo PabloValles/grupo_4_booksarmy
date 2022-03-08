@@ -1,4 +1,4 @@
-# ⭐ Grupo 4 - "Nombre del proyecto"
+# ⭐ Grupo 4 - Booksarmy
 
 > Proyecto integrador Digital House <br />
 
