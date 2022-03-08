@@ -8,6 +8,9 @@
 ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
+### Link al proyecto en figma:
+<img src="https://img.icons8.com/color/24/000000/figma--v1.png"/>  [Echá un vistazo a nuestros wireframes](https://www.figma.com/file/n1njq1fNKftSE4bcTy7Tue/Booksarmy?node-id=0%3A1) ✔️
+
 ### 🚀 ¿Qué productos o servicios brindará nuestro sitio?
 
 Somos una empresa argentina de más de 20 años de trayectoria focalizada en la venta de libros. Nuestra misión es generar la satisfacción de nuestros clientes ofreciendo la más amplia variedad de literatura a través de la constante incorporación de libros de origen nacional e internacional.
