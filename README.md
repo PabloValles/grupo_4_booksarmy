@@ -54,6 +54,7 @@ Estamos orientados al público joven y adulto mediante la venta retail con una g
   <img src="./public/wireframes/Register.jpg" width="300px">
 </div>
 
+</br>
 <div align="center">
  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="45px"> <br/><br/><br/>
  <img src="https://i.ibb.co/ctF0sBC/image-9.jpg" width="50%">
