@@ -47,9 +47,9 @@ Estamos orientados al público joven y adulto mediante la venta retail con una g
 [Mirá nuestro prototipo:](https://www.figma.com/proto/n1njq1fNKftSE4bcTy7Tue/Booksarmy?node-id=7%3A2744&scaling=min-zoom&page-id=2%3A3&starting-point-node-id=7%3A2744&show-proto-sidebar=1) ✔️
 
 <div style="display: flex; align-items: stretch">
-  <img src="./public/wireframes/%231%20Home.jpg" width="300px">
-  <img src="./public/wireframes/%233%20Detalle%20producto.jpg" width="300px">
-  <img src="./public/wireframes/%234%20Carrito%20de%20compras%20(1).jpg" width="300px">
+  <img src="./public/wireframes/Home.jpg" width="300px">
+  <img src="./public/wireframes/Detalle producto.jpg" width="300px">
+  <img src="./public/wireframes/Carrito de compras paso 1.jpg" width="300px">
   <img src="./public/wireframes/Login.jpg" width="300px">
   <img src="./public/wireframes/Register.jpg" width="300px">
 </div>
