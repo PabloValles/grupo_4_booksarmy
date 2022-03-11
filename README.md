@@ -42,9 +42,9 @@ Estamos orientados al público joven y adulto mediante la venta retail con una g
 - 🌍 [Planeta de libros](https://www.planetadelibros.com.ar/)
 - 🌍 [Cupside](https://www.cuspide.com/)
 
-## ✨ Wireframes
+## ✨ Prototipo
 
-[Mirá nuestro prototipo:](https://www.figma.com/proto/n1njq1fNKftSE4bcTy7Tue/Booksarmy?node-id=7%3A2744&scaling=min-zoom&page-id=2%3A3&starting-point-node-id=7%3A2744&show-proto-sidebar=1) ✔️
+[Mirá nuestro prototipo en <img src="https://img.icons8.com/color/24/000000/figma--v1.png"/>:](https://www.figma.com/proto/n1njq1fNKftSE4bcTy7Tue/Booksarmy?node-id=7%3A2744&scaling=min-zoom&page-id=2%3A3&starting-point-node-id=7%3A2744&show-proto-sidebar=1) ✔️
 
 <div align="center">
  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="45px"> <br/><br/><br/>
