@@ -22,8 +22,6 @@ Estamos orientados al público joven y adulto mediante la venta retail con una g
 
 ### 📌 Nuestro equipo está compuesto por 5 integrantes:
 
-- **Erika Kowanz**: <br />
-  Hola, yo soy Erika. Soy docente de secundaria. Estoy estudiando FullStack porque descubrí que me encanta el campo de las tecnologías.
 - **Noemí Cantero**: <br />
   Mi nombre es Noemi. Soy Licenciada en Comunicaciones y trabajo en la industria de la hospitalidad, en el hotel Marriott Buenos Aires. Estudio FullStack porque me apasiona la programación.
 - **Pablo Valles**: <br />
@@ -31,8 +29,6 @@ Estamos orientados al público joven y adulto mediante la venta retail con una g
   De éste curso espero poder adquirir los conocimientos necesarios para poder cambiar un poco el rumbo de mi profesión y poder dedicarme a lo que me gusta.
 - **Ale Navarro**: <br />
   Hola mi nombre es Alejandro Navarro, tengo 32 años y soy estudiante de ingeniería en sistemas de información, actualmente me dedico a dar clases de apoyo en Matemática, Física y Química a alumnos de secundario, tamabién preparo a alumnos para los ingresos a carreras universitarias.
-- **Fernando Videla**: <br />
-  Hola, mi nombre es Fernando Videla. Soy profesor. Actualmente soy estudiante en programación FullStack. Mi campo es la educación pero mi pasión está la programación.
 
 ## 🌐 Páginas que nos inspiraron:
 
