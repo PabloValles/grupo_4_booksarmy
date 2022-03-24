@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booksarmy</title>
+    <script
+      src="https://kit.fontawesome.com/79d4a4a910.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <div class="navbar__top-bar">
+            <div class="logo">
+              <img src="img/logos/Logo 6-green.svg" alt="" />
+            </div>
+            <div class="form">
+              <input
+                type="search"
+                name="search"
+                id="search"
+                placeholder="Buscar libors, autores, géneros..."
+              />
+              <button class="btn">
+                <i class="fas fa-search fa-lg"></i>
+              </button>
+            </div>
+            <div class="icons">
+              <a href="productCart.html"
+                ><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i
+              ></a>
+              <i class="fa-solid fa-bell fa-lg"></i>
+              <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+            </div>
+            <button class="btn btn-secondary-booksarmy" id="btn-navbar">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </div>
+          <div class="navbar__bottom-bar">
+            <div class="links">
+              <a href="#">Inicio</a>
+              <a href="#">Nosotros</a>
+              <a href="#">Libros</a>
+              <a href="#">Categorías</a>
+              <a href="#">Contacto</a>
+            </div>
+            <div class="contact">
+              <a href="login.html"><i class="fas fa-sign-in"></i> Ingresar</a>
+              <a href="register.html"
+                ><i class="fas fa-address-book"></i> Crear cuenta</a
+              >
+            </div>
+          </div>
+          <div class="navbar__bottom-bar-mobile">
+            <ul>
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Nosotros</a></li>
+              <li><a href="#">Libros</a></li>
+              <li><a href="#">Categorías</a></li>
+              <li><a href="#">Contacto</a></li>
+            </ul>
+            <div class="form-mobile" id="form-mobile">
+              <input
+                type="search"
+                name="search"
+                id="search"
+                placeholder="Buscar libors, autores, géneros..."
+              />
+              <button class="btn">
+                <i class="fas fa-search fa-lg"></i>
+              </button>
+            </div>
+            <div class="contact">
+              <a href="login.html"><i class="fas fa-sign-in"></i> Ingresar</a>
+              <a href="register.html"
+                ><i class="fas fa-address-book"></i> Crear cuenta</a
+              >
+            </div>
+          </div>
+        </nav>
+
+        <div class="hero">
+          <div class="hero__title">
+            <h2>Conocé nuestros libros</h2>
+            <div class="hero__btns">
+              <button class="btn btn-secondary-booksarmy">Ver libros</button>
+              <button class="btn btn-primary-booksarmy">Nosotros</button>
+            </div>
+          </div>
+          <div class="hero__img">
+            <img src="img/bg-hero.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="container categorias">
+        <h2>Categorias</h2>
+        <div class="container">
+          <div class="card_banner oferta">
+            <h3>Ofertas</h3>
+          </div>
+          <div class="card_banner genero">
+            <h3>Generos</h3>
+          </div>
+          <div class="card_banner vendidos">
+            <h3>Más vendidos</h3>
+          </div>
+          <div class="card_banner colecciones">
+            <h3>Colecciones</h3>
+          </div>
+        </div>
+      </section>
+
+      <section class="container recomendaciones">
+        <h2>Recomendaciones</h2>
+        <div class="recomendaciones__cards">
+          <div class="card">
+            <img src="/img/books/mockups/alquimista.png" alt="" />
+
+            <h3 class="card-title">El Alquimista</h3>
+
+            <div class="card-footer">
+              <div class="card-precio">
+                <p>$ 6.000</p>
+              </div>
+              <div class="card-icons">
+                <i class="fas fa-heart fa-lg"></i>
+                <i class="fas fa-share fa-lg"></i>
+                <i class="fas fa-cart-arrow-down fa-lg"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img src="/img/books/mockups/cien-anios-soledad.png" alt="" />
+            <h3 class="card-title">Cien años de soledad</h3>
+            <div class="card-footer">
+              <div class="card-precio">
+                <p>$ 2.000</p>
+              </div>
+              <div class="card-icons">
+                <i class="fas fa-heart fa-lg"></i>
+                <i class="fas fa-share fa-lg"></i>
+                <i class="fas fa-cart-arrow-down fa-lg"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img src="/img/books/mockups/codigo-davinci.png" alt="" />
+            <h3 class="card-title">El Código Da Vinci</h3>
+            <div class="card-footer">
+              <div class="card-precio">
+                <p>$ 1.000</p>
+              </div>
+              <div class="card-icons">
+                <i class="fas fa-heart fa-lg"></i>
+                <i class="fas fa-share fa-lg"></i>
+                <i class="fas fa-cart-arrow-down fa-lg"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img src="/img/books/mockups/divina-comedia.png" alt="" />
+            <h3 class="card-title">La Divina Comedia</h3>
+            <div class="card-footer">
+              <div class="card-precio">
+                <p>$ 800</p>
+              </div>
+              <div class="card-icons">
+                <i class="fas fa-heart fa-lg"></i>
+                <i class="fas fa-share fa-lg"></i>
+                <i class="fas fa-cart-arrow-down fa-lg"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img src="/img/books/mockups/don-quijote-de-la-mancha.png" alt="" />
+            <h3 class="card-title">Don Quijote de la Mancha</h3>
+            <div class="card-footer">
+              <div class="card-precio">
+                <p>$ 1.000</p>
+              </div>
+              <div class="card-icons">
+                <i class="fas fa-heart fa-lg"></i>
+                <i class="fas fa-share fa-lg"></i>
+                <i class="fas fa-cart-arrow-down fa-lg"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              src="/img/books/mockups/el-señor-de-los-anillos-lacomunidaddelanillo.png"
+              alt=""
+            />
+            <h3 class="card-title">El señor de los anillos</h3>
+            <div class="card-footer">
+              <div class="card-precio">
+                <p>$ 1.000</p>
+              </div>
+              <div class="card-icons">
+                <i class="fas fa-heart fa-lg"></i>
+                <i class="fas fa-share fa-lg"></i>
+                <i class="fas fa-cart-arrow-down fa-lg"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="articulos">
+        <div class="articulos__item">
+          <div class="articulos__card">
+            <h3>Titulo</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non error
+              alias quasi
+            </p>
+          </div>
+        </div>
+        <div class="articulos__item">
+          <div class="articulos__card">
+            <h3>Titulo</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non error
+              alias quasi
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="ofertas-increibles">
+        <div class="container">
+          <div class="ofertas-increibles__title">
+            <h2>Ofertas imperdibles</h2>
+          </div>
+
+          <div class="ofertas-increibles__slider">
+            <div class="slider__card">
+              <img
+                src="/img/books/portadas/El julguero-Donna-Tartt.jpg"
+                alt=""
+              />
+              <p>Precio</p>
+            </div>
+            <div class="slider__card">
+              <img
+                src="/img/books/portadas/El alquimista - Coelho.jpg"
+                alt=""
+              />
+              <p>Precio</p>
+            </div>
+            <div class="slider__card">
+              <img src="/img/books/portadas/Rayuela-Cortazar.jpg" alt="" />
+              <p>Precio</p>
+            </div>
+            <div class="slider__card">
+              <img
+                src="/img/books/portadas/El hobbit - JRR Tolkien.jpg"
+                alt=""
+              />
+              <p>Precio</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="important">
+        <div class="container call-to-action">
+          <div class="call-to-action__descripcion">
+            <h4>Queres estár al día con nuestras promociones</h4>
+            <p>Lorem ipsum dolor siasda sa deserunt illo quo</p>
+          </div>
+
+          <div class="call-to-action__btns">
+            <a
+              name=""
+              id=""
+              class="btn btn-primary-booksarmy"
+              href="#"
+              role="button"
+              >Suscribirme</a
+            >
+            <a
+              name=""
+              id=""
+              class="btn btn-gray-700-booksarmy"
+              href="#"
+              role="button"
+              >Contacto</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container">
+      <div class="footer-top">
+        <div class="footer-top__log">
+          <img src="/img/logos/Logo 6-green.svg" alt="" />
+        </div>
+        <div class="footer-top__links">
+          <a href="#">Inicio</a>
+          <a href="#">Nosotros</a>
+          <a href="#">Libros</a>
+          <a href="#">Categorías</a>
+          <a href="#">Contacto</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom__social">
+          <i class="fa fa-facebook fa-xl"></i>
+          <i class="fa fa-instagram fa-xl"></i>
+          <i class="fa fa-twitter fa-xl"></i>
+        </div>
+        <div class="footer-bottom__copy">
+          <p>©2022 - Booksarmy | All right reserved</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      let btnnav = document.querySelector("#btn-navbar");
+      let navMobile = document.querySelector(".navbar__bottom-bar-mobile");
+      navMobile.classList.add("hidden");
+
+      btnnav.addEventListener("click", (e) => {
+        navMobile.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
