@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booksarmy</title>
+    <script
+      src="https://kit.fontawesome.com/79d4a4a910.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+  </head>
+  <body>
+    <header class="book-header">
+      <div class="container">
+        <nav class="navbar">
+          <div class="navbar__top-bar">
+            <div class="logo">
+              <img src="./img/logos/Logo 6-green.svg" alt="" />
+            </div>
+            <div class="form">
+              <input
+                type="search"
+                name="search"
+                id="search"
+                placeholder="Buscar libors, autores, géneros..."
+              />
+              <button class="btn">
+                <i class="fas fa-search fa-lg"></i>
+              </button>
+            </div>
+            <div class="icons">
+              <a href="productCart.html"
+                ><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i
+              ></a>
+              <i class="fa-solid fa-bell fa-lg"></i>
+              <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+            </div>
+            <button class="btn btn-secondary-booksarmy" id="btn-navbar">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </div>
+          <div class="navbar__bottom-bar">
+            <div class="links">
+              <a href="#">Inicio</a>
+              <a href="#">Nosotros</a>
+              <a href="#">Libros</a>
+              <a href="#">Categorías</a>
+              <a href="#">Contacto</a>
+            </div>
+            <div class="contact">
+              <a href="login.html"><i class="fas fa-sign-in"></i> Ingresar</a>
+              <a href="register.html"
+                ><i class="fas fa-address-book"></i> Crear cuenta</a
+              >
+            </div>
+          </div>
+          <div class="navbar__bottom-bar-mobile">
+            <ul>
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Nosotros</a></li>
+              <li><a href="#">Libros</a></li>
+              <li><a href="#">Categorías</a></li>
+              <li><a href="#">Contacto</a></li>
+            </ul>
+            <div class="form-mobile" id="form-mobile">
+              <input
+                type="search"
+                name="search"
+                id="search"
+                placeholder="Buscar libors, autores, géneros..."
+              />
+              <button class="btn">
+                <i class="fas fa-search fa-lg"></i>
+              </button>
+            </div>
+            <div class="contact">
+              <a href="login.html"><i class="fas fa-sign-in"></i> Ingresar</a>
+              <a href="register.html"
+                ><i class="fas fa-address-book"></i> Crear cuenta</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="hero-pages">
+        <div class="container hero-flex">
+          <div class="hero__title">
+            <img src="./img/book.png" alt="" />
+            <h1>Nombre del Libro</h1>
+            <p>Autor: Nombre y apellido del autor</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="book">
+        <div class="container">
+          <div class="book-portada">
+            <h2 class="titulo">Nombre del libro</h2>
+            <div class="imagen">
+              <img
+                src="././img/books/mockups/codigo-davinci.png"
+                alt="Libros"
+              />
+            </div>
+          </div>
+
+          <div class="book-descripcion">
+            <h2 class="book-descripcion-title">Nombre del libro</h2>
+            <p>Autor</p>
+
+            <div class="book-descripcion-estrellas">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star-half" aria-hidden="true"></i>
+            </div>
+
+            <h2 class="book-descripcion-precio">$1.100</h2>
+
+            <p class="book-descripcion-resumen">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
+              voluptas dicta voluptate expedita, repellendus porro vero
+              exercitationem similique saepe, minima quidem sit dolore aliquam
+              impedit nostrum deleniti autem atque tenetur?
+            </p>
+
+            <div class="book-descripcion-cantidad">
+              <p>Cantidad</p>
+              <input type="number" />
+            </div>
+
+            <div class="book-descripcion-links mt-3">
+              <button class="btn btn-info-booksarmy">Comprar</button>
+              <a href="#" class="btn btn-default"> Agregar al carrito </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="book-author">
+        <div class="container">
+          <div class="book-author-detalles">
+            <h2 class="dato-libro">Datos del libro</h2>
+
+            <div class="accordion accordion-flush" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    # Editorial:
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <strong>Nombre de la editorial del libro.</strong> Lorem
+                    ipsum dolor sit amet consectetur adipisicing elit. Itaque
+                    impedit inventore totam. Provident ipsa temporibus.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    # Temática:
+                  </button>
+                </h2>
+                <div
+                  id="collapseTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingTwo"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <strong>Temática del libro.</strong>
+                    It is hidden by default, until the collapse plugin adds the
+                    appropriate classes that we use...
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    # Fecha de publicación:
+                  </button>
+                </h2>
+                <div
+                  id="collapseThree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingThree"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <strong>Fecha de publicación: </strong> Resumen ...
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="acordion-sinopsis">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseSinopsis"
+                    aria-expanded="false"
+                    aria-controls="collapseSinopsis"
+                  >
+                    # Sinopsis del libro:
+                  </button>
+                </h2>
+                <div
+                  id="collapseSinopsis"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="acordion-sinopsis"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <strong>Sinopsis: </strong> Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Hic qui ab consequatur facilis
+                    porro officiis fuga consectetur similique cupiditate,
+                    aliquid, magnam temporibus aperiam eaque rem ipsum inventore
+                    architecto. Harum, qui?
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="accordion-formato">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFormato"
+                    aria-expanded="false"
+                    aria-controls="collapseFormato"
+                  >
+                    # Formato e idioma
+                  </button>
+                </h2>
+                <div
+                  id="collapseFormato"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="accordion-formato"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <strong>Formato e idioma: </strong> Lorem ipsum dolor sit
+                    amet consectetur adipisicing.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="accordion-isbn">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseIsbn"
+                    aria-expanded="false"
+                    aria-controls="collapseIsbn"
+                  >
+                    # ISBN
+                  </button>
+                </h2>
+                <div
+                  id="collapseIsbn"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="accordion-formato"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <strong>ISBN: </strong> 4546456 316ASDQW
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="book-author-biography">
+        <div class="container">
+          <div class="author-bio">
+            <div class="author-bio_img">
+              <img
+                src="https://via.placeholder.com/550"
+                alt="Imágen del autor"
+              />
+            </div>
+            <div class="author-bio_desc">
+              <h3>Nombre y apellido del autor</h3>
+              <h5>Fecha de nacimiento</h5>
+
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum
+                aliquid vel quaerat beatae qui at incidunt quos. Nemo minus odio
+                optio. Maxime, soluta. Optio, maiores quos repellendus
+                repudiandae ea blanditiis.
+              </p>
+
+              <a href="#" class="btn btn-warning-booksarmy">Conocé más...</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="book-anothers">
+        <div class="container">
+          <h2>Otros libros que pueden gustarte</h2>
+          <div class="slider-cards">
+            <a href="" class="slider-cards_item">
+              <img
+                src="./img/books/portadas/El principito - Antoine de Saint-Exupery.jpg"
+                alt="Slider 1"
+              />
+              <p>Librsadsadsadsadsao</p>
+            </a>
+            <a href="" class="slider-cards_item">
+              <img
+                src="./img/books/portadas/Diario de Anne Frank.jpg"
+                alt="Slider 1"
+              />
+              <p>Libro</p>
+            </a>
+            <a href="" class="slider-cards_item">
+              <img
+                src="./img/books/portadas/Rayuela-Cortazar.jpg"
+                alt="Slider 1"
+              />
+              <p>Libro</p>
+            </a>
+            <a href="" class="slider-cards_item">
+              <img
+                src="./img/books/portadas/Don Quijote de la Mancha-Miguel de Cervantes-2.jpg"
+                alt="Slider 1"
+              />
+              <p>Libro</p>
+            </a>
+            <a href="" class="slider-cards_item">
+              <img
+                src="./img/books/portadas/El principito - Antoine de Saint-Exupery.jpg"
+                alt="Slider 1"
+              />
+              <p>Libro</p>
+            </a>
+            <a href="" class="slider-cards_item">
+              <img
+                src="./img/books/portadas/HarryPotter-La piedra filosofal- Rowling.jpg"
+                alt="Slider 1"
+              />
+              <p>Libro</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container">
+      <div class="footer-top">
+        <div class="footer-top__log">
+          <img src="./img/logos/Logo 6-green.svg" alt="" />
+        </div>
+        <div class="footer-top__links">
+          <a href="#">Inicio</a>
+          <a href="#">Nosotros</a>
+          <a href="#">Libros</a>
+          <a href="#">Categorías</a>
+          <a href="#">Contacto</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom__social">
+          <i class="fa fa-facebook fa-xl"></i>
+          <i class="fa fa-instagram fa-xl"></i>
+          <i class="fa fa-twitter fa-xl"></i>
+        </div>
+        <div class="footer-bottom__copy">
+          <p>©2022 - Booksarmy | All right reserved</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      let btnnav = document.querySelector("#btn-navbar");
+      let navMobile = document.querySelector(".navbar__bottom-bar-mobile");
+      navMobile.classList.add("hidden");
+
+      btnnav.addEventListener("click", (e) => {
+        navMobile.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
