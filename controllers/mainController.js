@@ -10,6 +10,9 @@ let mainController = {
   register: function (req, res, next) {
     res.sendFile(path.join(__dirname, "../views/register.html"));
   },
+  about: function (req, res, next) {
+    res.sendFile(path.join(__dirname, "../views/about.html"));
+  },
 };
 
 module.exports = mainController;
