@@ -234,40 +234,6 @@
       </section>
     </main>
 
-    <footer class="container">
-      <div class="footer-top">
-        <div class="footer-top__log">
-          <img src="/img/logos/Logo 6-green.svg" alt="" />
-        </div>
-        <div class="footer-top__links">
-          <a href="#">Inicio</a>
-          <a href="#">Nosotros</a>
-          <a href="#">Libros</a>
-          <a href="#">Categorías</a>
-          <a href="#">Contacto</a>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div class="footer-bottom__social">
-          <i class="fa fa-facebook fa-xl"></i>
-          <i class="fa fa-instagram fa-xl"></i>
-          <i class="fa fa-twitter fa-xl"></i>
-        </div>
-        <div class="footer-bottom__copy">
-          <p>©2022 - Booksarmy | All right reserved</p>
-        </div>
-      </div>
-    </footer>
-
-    <script>
-      let btnnav = document.querySelector("#btn-navbar");
-      let navMobile = document.querySelector(".navbar__bottom-bar-mobile");
-      navMobile.classList.add("hidden");
-
-      btnnav.addEventListener("click", (e) => {
-        navMobile.classList.toggle("hidden");
-      });
-    </script>
+    <%- include("partials/footer")  %> 
   </body>
 </html>
