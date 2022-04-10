@@ -29,75 +29,7 @@
   <body>
     <header class="cart-header">
       <div class="container">
-        <nav class="navbar">
-          <div class="navbar__top-bar">
-            <div class="logo">
-              <img src="/img/logos/Logo 6-green.svg" alt="" />
-            </div>
-            <div class="form">
-              <input
-                type="search"
-                name="search"
-                id="search"
-                placeholder="Buscar libors, autores, géneros..."
-              />
-              <button class="btn">
-                <i class="fas fa-search fa-lg"></i>
-              </button>
-            </div>
-            <div class="icons">
-              <a href="cart"
-                ><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i
-              ></a>
-              <i class="fa-solid fa-bell fa-lg"></i>
-              <i class="fa fa-user fa-lg" aria-hidden="true"></i>
-            </div>
-            <button class="btn btn-primary" id="btn-navbar">
-              <i class="fa-solid fa-bars"></i>
-            </button>
-          </div>
-          <div class="navbar__bottom-bar">
-            <div class="links">
-              <a href="/">Inicio</a>
-              <a href="#">Nosotros</a>
-              <a href="#">Libros</a>
-              <a href="#">Categorías</a>
-              <a href="#">Contacto</a>
-            </div>
-            <div class="contact">
-              <a href="../login"><i class="fas fa-sign-in"></i> Ingresar</a>
-              <a href="../register"
-                ><i class="fas fa-address-book"></i> Crear cuenta</a
-              >
-            </div>
-          </div>
-          <div class="navbar__bottom-bar-mobile">
-            <ul>
-              <li><a href="/">Inicio</a></li>
-              <li><a href="/about">Nosotros</a></li>
-              <li><a href="#">Libros</a></li>
-              <li><a href="#">Categorías</a></li>
-              <li><a href="#">Contacto</a></li>
-            </ul>
-            <div class="form-mobile" id="form-mobile">
-              <input
-                type="search"
-                name="search"
-                id="search"
-                placeholder="Buscar libors, autores, géneros..."
-              />
-              <button class="btn">
-                <i class="fas fa-search fa-lg"></i>
-              </button>
-            </div>
-            <div class="contact">
-              <a href="/login"><i class="fas fa-sign-in"></i> Ingresar</a>
-              <a href="/register"
-                ><i class="fas fa-address-book"></i> Crear cuenta</a
-              >
-            </div>
-          </div>
-        </nav>
+        <%- include("partials/nabvar") %>
       </div>
 
       <div class="hero-pages">
