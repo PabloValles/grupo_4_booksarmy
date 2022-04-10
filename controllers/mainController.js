@@ -6,13 +6,13 @@ let mainController = {
    res.render('index');
   },
   login: function (req, res, next) {
-    res.sendFile(path.join(__dirname, "../views/login.html"));
+    res.render('login')
   },
   register: function (req, res, next) {
-    res.sendFile(path.join(__dirname, "../views/register.html"));
+    res.render('register')
   },
   about: function (req, res, next) {
-    res.sendFile(path.join(__dirname, "../views/about.html"));
+    res.render('about')
   },
 };
 
