@@ -1,0 +1,63 @@
+.btn {
+  font-size: 1rem;
+  padding: 0.375rem 0.75rem;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  border: 1px solid transparent;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@mixin btn($color) {
+  background-color: $color;
+  border-color: $color;
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba($color, 0.25);
+  }
+
+  &:active {
+    box-shadow: inset 0 3px 5px rgba($dark-color, 0.125);
+  }
+}
+
+.btn-primary-booksarmy {
+  @include btn(#00ebc7);
+  color: #000;
+  font-weight: 500;
+}
+.btn-secondary-booksarmy {
+  @include btn(#00214d);
+  color: #fff;
+}
+
+.btn-danger-booksarmy {
+  @include btn(#ff5470);
+  color: #fff;
+}
+
+.btn-success-booksarmy {
+  @include btn(#3edd4e);
+  color: $color-success-900;
+  font-weight: 700;
+}
+.btn-info-booksarmy {
+  @include btn(#147dff);
+  color: #fff;
+}
+.btn-warning-booksarmy {
+  @include btn(#fde24f);
+  color: $blue-color;
+}
+.btn-gray-700-booksarmy {
+  @include btn(#454f5b);
+  color: #fff;
+}
+
+.btn-xl {
+  padding: 1.2rem 2rem;
+  font-weight: 700;
+}
