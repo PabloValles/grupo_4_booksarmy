@@ -6,13 +6,13 @@
       <div class="hero-pages">
         <div class="container hero-flex">
           <div class="hero__title">
-            <img src="/img/add-product.png" alt="" />
-            <h1><span>Agregar</span> libro</h1>
+            <img src="/img/box.png" alt="" />
+            <h1><span>Editar</span> libro</h1>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Add product</li>
+                <li class="breadcrumb-item active" aria-current="page">Edit product</li>
               </ol>
             </nav>
           </div>
@@ -27,7 +27,7 @@
             <div class="col-12">
               <div class="about-us__title">
                 <i class="fa-solid fa-circle-plus fa-2xl"></i>
-                <h4>Formulario para agregar un libro</h4>
+                <h4>Formulario para Editar un libro</h4>
               </div>
               <form class="row g-3 needs-validation mb-5 py-4" novalidate>
                 <div class="col-md-8">
@@ -39,7 +39,7 @@
                     class="form-control"
                     id="name-product"
                     name="name"
-                    placeholder="Ejemplo: La Divina Comedia"
+                    value="Ejemplo: La Divina Comedia"
                     required
                   />
                   <div class="valid-feedback">Looks good!</div>
@@ -192,8 +192,8 @@
                   <div class="valid-feedback">Looks good!</div>
                 </div>
                 <div class="d-grid gap-2 d-md-block mt-4">
-                  <button class="btn btn-primary-booksarmy " type="submit">
-                    Cargar producto
+                  <button class="btn btn-warning" type="submit">
+                    Editar libro
                   </button>
                 </div>
               </form>

@@ -4,7 +4,7 @@
 header {
   position: relative;
   .hero-pages {
-    height: 520px;
+    height: 50%;
     width: 100%;
     background-size: cover;
     background-position: center center;
@@ -21,6 +21,10 @@ header {
         text-align: center;
         padding: 0 2rem;
 
+        span{
+          color: $color-primary-500;
+        }
+
         img {
           display: none;
         }
@@ -30,8 +34,8 @@ header {
           padding-top: 5rem;
           color: #fff;
         }
-        p {
-          color: #fff;
+        p, .breadcrumb li a {
+          color: rgb(212, 212, 212);
         }
       }
 
@@ -70,8 +74,26 @@ nav.navbar {
 
 main {
   section.cart-table {
-    height: 100%;
     padding: 6rem 0;
+
+    .cart-table__title{
+      background-color: #fff;
+      padding: 1.5rem;
+      border-left: 4px solid $color-primary-600;
+
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+      i{
+        color: $color-primary-600;
+      }
+
+      h4{
+        margin-bottom: 0;
+      }
+    }
 
     .table-responsive {
       margin-top: 1.5rem;
@@ -196,6 +218,28 @@ main {
           margin-bottom: 0;
           font-weight: 500;
         }
+      }
+    }
+  }
+
+  section.about-us{
+    background-color: $forms-bg;
+    
+    .about-us__title{
+      background-color: #fff;
+      padding: 1.5rem;
+      border-top: 5px solid $color-primary-600;
+
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      i{
+        color: $color-primary-600;
+      }
+
+      h4{
+        margin-bottom: 0;
       }
     }
   }

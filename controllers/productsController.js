@@ -12,6 +12,9 @@ let productsController = {
   addProduct: function (req, res) {
     res.render("products/addProduct");
   },
+  editProduct: function (req, res) {
+    res.render("products/editProduct");
+  },
 };
 
 module.exports = productsController;
