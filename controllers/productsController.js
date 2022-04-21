@@ -1,19 +1,25 @@
 const path = require("path");
+const productModel = require("../models/productModel");
+let libros = productModel.get();
 
 let productsController = {
+  productList: function (req, res) {
+    res.render("products/products", { libros });
+  },
   cart: function (req, res) {
     res.render("products/productCart");
-    // res.sendFile(path.join(__dirname, "../views/products/productCart.html"));
   },
   detailsProduct: function (req, res) {
-    let id = req.params.id;
-    res.render("products/productDetail", { id: id });
+    let libroObjeto = productModel.getById(req.params.id);
+
+    res.render("products/productDetail", { libro: libroObjeto });
   },
-  addProduct: function (req, res) {
-    res.render("products/addProduct");
+  createProduct: function (req, res) {
+    res.render("products/createProduct", { libros });
   },
   editProduct: function (req, res) {
-    res.render("products/editProduct");
+    let libroObjeto = productModel.getById(req.params.id);
+    res.render("products/editProduct", { libro: libroObjeto });
   },
 };
 

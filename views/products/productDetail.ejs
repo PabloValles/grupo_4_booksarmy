@@ -9,8 +9,8 @@
         <div class="container hero-flex">
           <div class="hero__title">
             <img src="/img/book.png" alt="" />
-            <h1>Nombre del Libro</h1>
-            <p>Autor: Nombre y apellido del autor</p>
+            <h1><%= libro.name %> </h1>
+            <p>Autor: <%= libro.autor %> </p>
           </div>
         </div>
       </div>
@@ -20,15 +20,15 @@
       <section class="book">
         <div class="container">
           <div class="book-portada">
-            <h2 class="titulo">Nombre del libro</h2>
+            <h2 class="titulo"><%= libro.name %></h2>
             <div class="imagen">
               <img src="/img/books/mockups/codigo-davinci.png" alt="Libros" />
             </div>
           </div>
 
           <div class="book-descripcion">
-            <h2 class="book-descripcion-title">Nombre del libro</h2>
-            <p>Autor</p>
+            <h2 class="book-descripcion-title"><%= libro.name %></h2>
+            <p><%= libro.autor %></p>
 
             <div class="book-descripcion-estrellas">
               <i class="fa fa-star" aria-hidden="true"></i>
@@ -40,12 +40,7 @@
 
             <h2 class="book-descripcion-precio">$1.100</h2>
 
-            <p class="book-descripcion-resumen">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-              voluptas dicta voluptate expedita, repellendus porro vero
-              exercitationem similique saepe, minima quidem sit dolore aliquam
-              impedit nostrum deleniti autem atque tenetur?
-            </p>
+            <p class="book-descripcion-resumen"><%= libro.description %></p>
 
             <div class="book-descripcion-cantidad">
               <p>Cantidad</p>

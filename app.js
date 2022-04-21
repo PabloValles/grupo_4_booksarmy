@@ -4,6 +4,8 @@ const app = express();
 const path = require("path");
 const { allowedNodeEnvironmentFlags } = require("process");
 
+const methodOverride = require("method-override"); // para poder usar los métodos PUT y DELETE
+
 /*======> Requerimos nuestros routers <======*/
 const mainRouter = require("./routers/main");
 const productsRouter = require("./routers/products");
@@ -13,6 +15,7 @@ const PORT = process.env.PORT || 3000;
 
 /*======> Utlizaremos ejs como motor de vistas <======*/
 app.set("view engine", "ejs");
+app.use(methodOverride("_method")); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 
 /*======> Definimos los archivos que serán estáticos <======*/
 const publicPath = path.resolve(__dirname, "./public");

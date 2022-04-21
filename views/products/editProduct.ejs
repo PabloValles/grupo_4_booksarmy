@@ -6,13 +6,13 @@
       <div class="hero-pages">
         <div class="container hero-flex">
           <div class="hero__title">
-            <img src="/img/box.png" alt="" />
-            <h1><span>Editar</span> libro</h1>
+            <img src="/img/uploads/<%= libro.image %> " alt="" />
+            <h1><span>Libro: </span> <%= libro.name %></h1>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit product</li>
+                <li class="breadcrumb-item active" aria-current="page">Libro: <%= libro.name %></li>
               </ol>
             </nav>
           </div>
@@ -27,7 +27,7 @@
             <div class="col-12">
               <div class="about-us__title">
                 <i class="fa-solid fa-circle-plus fa-2xl"></i>
-                <h4>Formulario para Editar un libro</h4>
+                <h4><%= libro.name %> </h4>
               </div>
               <form class="row g-3 needs-validation mb-5 py-4" novalidate>
                 <div class="col-md-8">
@@ -39,7 +39,7 @@
                     class="form-control"
                     id="name-product"
                     name="name"
-                    value="Ejemplo: La Divina Comedia"
+                    value="<%= libro.name %>"
                     required
                   />
                   <div class="valid-feedback">Looks good!</div>
@@ -70,8 +70,8 @@
                       class="form-control"
                       name="description"
                       id="description"
-                      rows="3"
-                    ></textarea>
+                      rows="5"
+                    ><%= libro.description %></textarea>
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -100,6 +100,7 @@
                     class="form-control"
                     id="name-autor"
                     name="name-autor"
+                    value="<%= libro.autor %>"
                     required
                   />
                   <div class="valid-feedback">Looks good!</div>
@@ -111,7 +112,7 @@
                     class="form-control"
                     id="editorial"
                     name="editorial"
-                    required
+                    value="<%= libro.editorial %>"
                   />
                   <div class="valid-feedback">Looks good!</div>
                 </div>
@@ -122,23 +123,10 @@
                     class="form-control"
                     id="isbn"
                     name="isbn"
+                    value="<%= libro.isbn %>"
                     required
                   />
                   <div class="valid-feedback">Looks good!</div>
-                </div>
-
-                <div class="col-md-12">
-                  <div class="mb-3">
-                    <label for="resumen" class="form-label"
-                      >Breve resúmen del libro</label
-                    >
-                    <textarea
-                      class="form-control"
-                      name="resumen"
-                      id="resumen"
-                      rows="4"
-                    ></textarea>
-                  </div>
                 </div>
 
                 <div class="col-md-12">
@@ -154,6 +142,7 @@
                     class="form-control"
                     id="precio"
                     name="precio"
+                    value="<%= libro.price %>"
                     required
                   />
                   <div class="valid-feedback">Looks good!</div>
@@ -165,6 +154,7 @@
                     class="form-control"
                     id="stock"
                     name="stock"
+                    value="<%= libro.stock %>"
                     required
                   />
                   <div class="valid-feedback">Looks good!</div>
@@ -176,6 +166,7 @@
                     class="form-control"
                     id="material"
                     name="material"
+                    value="<%= libro.material %>"
                     required
                   />
                   <div class="valid-feedback">Looks good!</div>
@@ -187,6 +178,7 @@
                     class="form-control"
                     id="formato"
                     name="formato"
+                    value="<%= libro.format %>"
                     required
                   />
                   <div class="valid-feedback">Looks good!</div>
