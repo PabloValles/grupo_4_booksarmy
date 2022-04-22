@@ -1,18 +1,19 @@
 const path = require("path");
+const productModel = require("../models/productModel");
+let libros = productModel.get();
 
 let mainController = {
   index: function (req, res, next) {
-   // res.sendFile(path.join(__dirname, "../views/index.html"));
-   res.render('index');
+    res.render("index", { libros });
   },
   login: function (req, res, next) {
-    res.render('login')
+    res.render("login");
   },
   register: function (req, res, next) {
-    res.render('register')
+    res.render("register");
   },
   about: function (req, res, next) {
-    res.render('about')
+    res.render("about");
   },
 };
 

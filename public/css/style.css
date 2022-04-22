@@ -370,29 +370,21 @@ header .hero {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  background-color: #f2f4f6;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: linear-gradient(45deg, #C7F5FE 10%, #C7F5FE 40%, #FCC8F8 40%, #FCC8F8 60%, #EAB4F8 60%, #EAB4F8 65%, #F3F798 65%, #F3F798 90%);
+  gap: 2rem;
 }
 
 header .hero .hero__title {
   text-align: center;
 }
 
-header .hero .hero__title a {
-  text-decoration: none;
-  font-weight: 500;
-}
-
-header .hero .hero__title a.ml-1 {
-  margin-left: 1rem;
-  color: #00214d;
-}
-
-header .hero .hero__img img {
-  width: 100%;
-  height: 100%;
+header .hero .hero__title h2 {
+  font-weight: 600;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
 }
 
 main {
@@ -438,9 +430,7 @@ main .categorias .oferta {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: oferta;
-  background-image: url("../img/pratiksha-mohanty-Fxn-syKB7VU-unsplash.jpg");
-  background-size: cover;
-  background-position: bottom center;
+  background: #94BAFF;
   height: 260px;
 }
 
@@ -448,9 +438,7 @@ main .categorias .genero {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: genero;
-  background-image: url("../img/reading-mountain.jpg");
-  background-size: cover;
-  background-position: bottom center;
+  background: #C7F5FE;
   height: 260px;
 }
 
@@ -458,16 +446,14 @@ main .categorias .vendidos {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: vendidos;
-  background-image: url("../img/vendidos.jpg");
-  background-size: cover;
+  background: #FCC8F8;
 }
 
 main .categorias .colecciones {
   -ms-grid-row: 4;
   -ms-grid-column: 1;
   grid-area: colecciones;
-  background-image: url("../img/colection-book.jpg");
-  background-size: cover;
+  background: #44536B;
   height: 260px;
   color: #fffffe;
 }
@@ -785,14 +771,6 @@ footer .footer-bottom__copy {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    background-color: #f2f4f6;
-  }
-  header .hero .hero__img img {
-    width: 100%;
-    height: 80%;
   }
   main .call-to-action {
     margin-top: 1rem;
@@ -839,9 +817,10 @@ footer .footer-bottom__copy {
     color: #1b2d45;
     text-transform: uppercase;
     font-size: 14px;
+    font-weight: 600;
   }
   header .navbar__bottom-bar .links a.active {
-    font-weight: 600;
+    font-weight: 800;
   }
   header .hero {
     height: 60vh;
@@ -854,24 +833,16 @@ footer .footer-bottom__copy {
             justify-content: space-between;
     gap: 1.5rem;
     background-color: #fff;
+    border-radius: 1rem;
   }
   header .hero .hero__title {
     text-align: left;
     padding: 0 2rem;
     width: 50%;
   }
-  header .hero .hero__img {
-    -webkit-box-ordinal-group: 0;
-        -ms-flex-order: -1;
-            order: -1;
-    text-align: right;
-    background-image: url(../img/bg-hero.jpg);
-    background-size: cover;
-    width: 50%;
-    height: 100%;
-  }
-  header .hero .hero__img img {
-    display: none;
+  header .hero .hero__title h2 {
+    margin-bottom: 3.4rem;
+    padding-left: 0 !important;
   }
   main .categorias .container {
     display: -ms-grid;
@@ -1068,20 +1039,10 @@ footer .footer-bottom__copy {
   }
   header .hero .hero__title {
     text-align: left;
-    padding: 0 2rem;
     width: 55%;
   }
   header .hero .hero__title h2 {
     font-size: 3.441rem;
-  }
-  header .hero .hero__img {
-    background-image: url(../img/bg-hero.jpg);
-    background-size: cover;
-    background-position: center center;
-    -webkit-box-ordinal-group: 0;
-        -ms-flex-order: -1;
-            order: -1;
-    width: 45%;
   }
   main .recomendaciones__cards {
     -webkit-box-pack: center;

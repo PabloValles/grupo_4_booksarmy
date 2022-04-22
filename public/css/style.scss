@@ -101,24 +101,17 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    background-color: $gray-color;
+    justify-content: center;
+
+    background: linear-gradient(45deg, #C7F5FE 10%, #C7F5FE 40%, #FCC8F8 40%, #FCC8F8 60%, #EAB4F8 60%, #EAB4F8 65%, #F3F798 65%, #F3F798 90%);
+    gap: 2rem;
 
     .hero__title {
       text-align: center;
-      a {
-        text-decoration: none;
-        font-weight: 500;
-      }
-      a.ml-1 {
-        margin-left: 1rem;
-        color: $blue-color;
-      }
-    }
-    .hero__img {
-      img {
-        width: 100%;
-        height: 100%;
+      h2{
+        font-weight: 600;
+        padding: 0 1rem;
+        margin-bottom: 2rem;
       }
     }
   }
@@ -156,30 +149,24 @@ main {
 
     .oferta {
       grid-area: oferta;
-      background-image: url("../img/pratiksha-mohanty-Fxn-syKB7VU-unsplash.jpg");
-      background-size: cover;
-      background-position: bottom center;
+      background:  #94BAFF;
       height: 260px;
     }
 
     .genero {
       grid-area: genero;
-      background-image: url("../img/reading-mountain.jpg");
-      background-size: cover;
-      background-position: bottom center;
+      background:  #C7F5FE;
       height: 260px;
     }
 
     .vendidos {
       grid-area: vendidos;
-      background-image: url("../img/vendidos.jpg");
-      background-size: cover;
+      background:  #FCC8F8;
     }
 
     .colecciones {
       grid-area: colecciones;
-      background-image: url("../img/colection-book.jpg");
-      background-size: cover;
+      background:  #44536B;
       height: 260px;
       color: $white-color;
     }
@@ -417,15 +404,6 @@ footer {
     .hero {
       height: 80vh;
       align-items: center;
-      justify-content: space-between;
-      background-color: $gray-color;
-
-      .hero__img {
-        img {
-          width: 100%;
-          height: 80%;
-        }
-      }
     }
   }
 
@@ -476,9 +454,10 @@ footer {
           color: $dark-color;
           text-transform: uppercase;
           font-size: 14px;
+          font-weight: 600;
         }
         .links a.active{
-          font-weight: 600;
+          font-weight: 800;
         }
       }
     }
@@ -490,25 +469,18 @@ footer {
       justify-content: space-between;
       gap: 1.5rem;
       background-color: #fff;
+      border-radius: 1rem;
 
       .hero__title {
         text-align: left;
         padding: 0 2rem;
         width: 50%;
-      }
-
-      .hero__img {
-        order: -1;
-        text-align: right;
-        background-image: url(../img/bg-hero.jpg);
-        background-size: cover;
-        width: 50%;
-        height: 100%;
-
-        img {
-          display: none;
+        h2{
+          margin-bottom: 3.4rem;
+          padding-left: 0 !important;
         }
       }
+
     }
   }
   main {
@@ -705,19 +677,11 @@ footer {
 
       .hero__title {
         text-align: left;
-        padding: 0 2rem;
         width: 55%;
 
         h2 {
           font-size: 3.441rem;
         }
-      }
-      .hero__img {
-        background-image: url(../img/bg-hero.jpg);
-        background-size: cover;
-        background-position: center center;
-        order: -1;
-        width: 45%;
       }
     }
   }
