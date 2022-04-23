@@ -9,8 +9,7 @@
         <div class="container hero-flex">
           <div class="hero__title">
             <img src="/img/target.png" alt="target" />
-            <h1><span>Administrador</span> de libros</h1>
-            <p>Si usted es administrador, puede editar los libros</p>
+            <h1><span>Todos</span> nuestros libros</h1>
           </div>
         </div>
       </div>
@@ -21,44 +20,7 @@
         <div class="container">
           <div class="row">
             <div class="col-12">
-              <div class="table-responsive">
-                <table class="table table-striped table-hover align-middle">
-                  <thead>
-                    <tr>
-                      <th>Portada</th>
-                      <th>Nombre</th>
-                      <th>Autor</th>
-                      <th>Stock</th>
-                      <th>#</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% libros.forEach(libro => { %>
-                      <tr>
-                        <td scope="row">
-                          <img
-                            src="/img/uploads/<%= libro.image %> "
-                            alt=""
-                            width="100px"
-                          />
-                        </td>
-                        <td><%= libro.name %> </td>
-                        <td><%= libro.autor %></td>
-                        <td><%= libro.stock %></td>
-                        <td>
-                          <!-- Falta crear el form para editar -->
-                          <a href="/products/editProduct/<%= libro.id %> " class="btn btn-success btn-xs">Edit</a>
-                          
-                          <form action="/products/delete/<%= libro.id %>/?_method=DELETE" method="POST">
-                            <button type="submit" class="btn btn-danger btn-lg">Eliminar</button>
-                          </form>
-                        </td>
-                      </tr>
-                    <% }) %>
-                    
-                  </tbody>
-                </table>
-              </div>
+              // sector de libros
             </div>
           </div>
         </div>

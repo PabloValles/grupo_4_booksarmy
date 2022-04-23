@@ -1,0 +1,70 @@
+<%- include("../partials/head-pages") %>
+  <body>
+    <header class="cart-header">
+      <div class="container">
+        <%- include("../partials/nabvar") %>
+      </div>
+
+      <div class="hero-pages">
+        <div class="container hero-flex">
+          <div class="hero__title">
+            <img src="/img/target.png" alt="target" />
+            <h1><span>Administrador</span> de libros</h1>
+            <p>Si usted es administrador, puede editar los libros</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="cart-table">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle">
+                  <thead>
+                    <tr>
+                      <th>Portada</th>
+                      <th>Nombre</th>
+                      <th>Autor</th>
+                      <th>Stock</th>
+                      <th>#</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% libros.forEach(libro => { %>
+                      <tr>
+                        <td scope="row">
+                          <img
+                            src="/img/uploads/<%= libro.image %> "
+                            alt=""
+                            width="100px"
+                          />
+                        </td>
+                        <td><%= libro.name %> </td>
+                        <td><%= libro.autor %></td>
+                        <td><%= libro.stock %></td>
+                        <td>
+                          <!-- Falta crear el form para editar -->
+                          <a href="/products/admin/edit/<%= libro.id %> " class="btn btn-success btn-xs">Edit</a>
+                          
+                          <form action="/products/admin/delete/<%= libro.id %>/?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-danger btn-lg">Eliminar</button>
+                          </form>
+                        </td>
+                      </tr>
+                    <% }) %>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include("../partials/footer")  %> 
+  </body>
+</html>

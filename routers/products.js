@@ -3,10 +3,14 @@ const router = express.Router();
 
 const productsController = require("../controllers/productsController");
 
-router.get("/", productsController.productList);
+// Modificar para vista solo de usuarios
+router.get("/", productsController.all);
 router.get("/detail/:id", productsController.detailsProduct);
 router.get("/cart", productsController.cart);
-router.get("/create", productsController.createProduct);
-router.get("/editProduct/:id", productsController.editProduct);
+
+// Solo los administradores pueden ingresar a estas rutas
+router.get("/admin/create", productsController.createProduct);
+router.get("/admin/edit/:id", productsController.editProduct);
+router.get("/admin/", productsController.productList);
 
 module.exports = router;
