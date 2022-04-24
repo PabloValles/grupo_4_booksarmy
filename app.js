@@ -26,4 +26,4 @@ app.use("/", mainRouter);
 app.use("/products", productsRouter);
 
 /*======> Iniciamos nuestra app <======*/
-app.listen(PORT, () => console.log(`Server runing in port ${PORT}`));
+app.listen(PORT, () => console.log(`Server runing: http://localhost:${PORT}`));

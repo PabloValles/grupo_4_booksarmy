@@ -28,7 +28,7 @@ router.get("/cart", productsController.cart);
 router.get("/admin/edit/:id", productsController.editProduct);
 router.get("/admin/", productsController.productList);
 router.get("/admin/create", productsController.createProduct);
-router.post("/admin/create", upload.single("imagen"), productsController.store);
+router.post("/admin/create", upload.single("image"), productsController.store);
 router.put(
   "/admin/edit/:id",
   upload.single("imagen"),
