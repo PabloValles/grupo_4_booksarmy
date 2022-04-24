@@ -1032,7 +1032,8 @@ footer .footer-bottom__copy {
     gap: 2rem;
   }
   header .hero {
-    height: 80vh;
+    padding: 0 2rem;
+    height: 60vh;
     margin-top: 0.5rem;
     overflow: hidden;
     gap: 0;

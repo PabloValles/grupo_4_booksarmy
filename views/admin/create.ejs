@@ -29,7 +29,7 @@
               <i class="fa-solid fa-circle-plus fa-2xl"></i>
               <h4>Formulario para agregar un libro</h4>
             </div>
-            <form class="row g-3 needs-validation mb-5 py-4" novalidate>
+            <form method="post" action="/products/admin/create" enctype="multipart/form-data" class="row g-3 needs-validation mb-5 py-4" novalidate>
               <div class="col-md-8">
                 <label for="name-product" class="form-label"
                   >Nombre del libro</label
@@ -49,14 +49,17 @@
                 <select
                   multiple
                   class="form-select"
-                  name="genero"
+                  name="gender"
                   id="genero"
                 >
-                  <option>Acción</option>
-                  <option>Comedia</option>
-                  <option>Drama</option>
-                  <option>Románticos</option>
-                  <option>Ciencia Ficción</option>
+                <option value="Acción">Acción</option>
+                <option value="Comedia">Comedia</option>
+                <option value="Drama">Drama</option>
+                <option value="Ciencia">Ciencia Ficción</option>
+                <option value="Novelas">Novelas</option>
+                <option value="Terror">Terror</option>
+                <option value="Suspenso">Suspenso</option>
+                <option value="Documentales">Documentales</option>
                 </select>
                 <div class="valid-feedback">Looks good!</div>
               </div>
@@ -125,20 +128,6 @@
                   required
                 />
                 <div class="valid-feedback">Looks good!</div>
-              </div>
-
-              <div class="col-md-12">
-                <div class="mb-3">
-                  <label for="resumen" class="form-label"
-                    >Breve resúmen del libro</label
-                  >
-                  <textarea
-                    class="form-control"
-                    name="resumen"
-                    id="resumen"
-                    rows="4"
-                  ></textarea>
-                </div>
               </div>
 
               <div class="col-md-12">

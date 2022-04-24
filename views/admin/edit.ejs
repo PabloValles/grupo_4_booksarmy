@@ -29,7 +29,7 @@
                 <i class="fa-solid fa-book fa-2xl"></i>
                 <h4><%= libro.name %> </h4>
               </div>
-              <form class="row g-3 needs-validation mb-5 py-4" novalidate>
+              <form action="/products/admin/edit/<%= libro.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="row g-3 needs-validation mb-5 py-4" novalidate>
                 <div class="col-md-8">
                   <label for="name-product" class="form-label"
                     >Nombre del libro</label
@@ -49,16 +49,31 @@
                   <select
                     multiple
                     class="form-select"
-                    name="genero"
+                    name="gender"
                     id="genero"
-                  >
-                    <option>Acción</option>
-                    <option>Comedia</option>
-                    <option>Drama</option>
-                    <option>Románticos</option>
-                    <option>Ciencia Ficción</option>
+                  > 
+                    <% let generos = libro['gender'] %> 
+
+                    <% if (Array.isArray(generos)) { %>
+                      <% generos.forEach(genero => { %>
+                        <option value="<%= genero %>" selected><%= genero %></option>
+                      <% }) %>
+                    <% } else {%>
+                      <option value="<%= libro['gender'] %>" selected><%= libro['gender'] %></option>  
+                    <% } %>
+                      
+                    <option></option>
+                    <option value="Acción">Acción</option>
+                    <option value="Comedia">Comedia</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Ciencia">Ciencia Ficción</option>
+                    <option value="Novelas">Novelas</option>
+                    <option value="Terror">Terror</option>
+                    <option value="Suspenso">Suspenso</option>
+                    <option value="Documentales">Documentales</option>
                   </select>
                   <div class="valid-feedback">Looks good!</div>
+                  <p class="muted">Géneros: <%= libro['gender'] %> </p>
                 </div>
 
                 <div class="col-md-8">
@@ -99,7 +114,7 @@
                     type="text"
                     class="form-control"
                     id="name-autor"
-                    name="name-autor"
+                    name="autor"
                     value="<%= libro.autor %>"
                     required
                   />
@@ -147,7 +162,7 @@
                   />
                   <div class="valid-feedback">Looks good!</div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-1">
                   <label for="stock" class="form-label">Stock</label>
                   <input
                     type="text"
@@ -159,7 +174,19 @@
                   />
                   <div class="valid-feedback">Looks good!</div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-1">
+                  <label for="discount" class="form-label">Descuento</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="discount"
+                    name="discount"
+                    value="<%= libro.discount %>"
+                    required
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                </div>
+                <div class="col-md-4">
                   <label for="material" class="form-label">Material</label>
                   <input
                     type="text"
@@ -177,7 +204,7 @@
                     type="text"
                     class="form-control"
                     id="formato"
-                    name="formato"
+                    name="format"
                     value="<%= libro.format %>"
                     required
                   />
