@@ -102,9 +102,12 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    background: linear-gradient(45deg, #C7F5FE 10%, #C7F5FE 40%, #FCC8F8 40%, #FCC8F8 60%, #EAB4F8 60%, #EAB4F8 65%, #F3F798 65%, #F3F798 90%);
     gap: 2rem;
+
+    //background: linear-gradient(45deg, #C7F5FE 10%, #C7F5FE 40%, #FCC8F8 40%, #FCC8F8 60%, #EAB4F8 60%, #EAB4F8 65%, #F3F798 65%, #F3F798 90%);
+    background: #f3f7fe;
+    
+    
 
     .hero__title {
       text-align: center;
@@ -113,6 +116,9 @@ header {
         padding: 0 1rem;
         margin-bottom: 2rem;
       }
+    }
+    .hero__img{
+      display: none;
     }
   }
 }
@@ -149,24 +155,24 @@ main {
 
     .oferta {
       grid-area: oferta;
-      background:  #94BAFF;
+      background:  #63f9c6;
       height: 260px;
     }
 
     .genero {
       grid-area: genero;
-      background:  #C7F5FE;
+      background:  #4ea5ff;
       height: 260px;
     }
 
     .vendidos {
       grid-area: vendidos;
-      background:  #FCC8F8;
+      background:  #fef195;
     }
 
     .colecciones {
       grid-area: colecciones;
-      background:  #44536B;
+      background:  #ff5470;
       height: 260px;
       color: $white-color;
     }
@@ -202,7 +208,7 @@ main {
         }
 
         img {
-          width: 100%;
+          width: 80%;
           position: relative;
         }
 
@@ -454,7 +460,7 @@ footer {
           color: $dark-color;
           text-transform: uppercase;
           font-size: 14px;
-          font-weight: 600;
+          font-weight: 500;
         }
         .links a.active{
           font-weight: 800;
@@ -468,7 +474,6 @@ footer {
       flex-direction: row;
       justify-content: space-between;
       gap: 1.5rem;
-      background-color: #fff;
       border-radius: 1rem;
 
       .hero__title {
@@ -672,8 +677,8 @@ footer {
     .hero {
       padding: 0 2rem; 
       height: 60vh;
-      margin-top: 0.5rem;
-      overflow: hidden;
+      margin-top: 1.5rem;
+      //overflow: hidden;
       gap: 0;
 
       .hero__title {
@@ -682,6 +687,18 @@ footer {
 
         h2 {
           font-size: 3.441rem;
+        }
+      }
+      .hero__img{
+        display: block;
+        position: relative;
+        height: 100%;
+
+        img {
+          width: 600px;
+          position: absolute;
+          right: -20px;
+          bottom: -100px;
         }
       }
     }

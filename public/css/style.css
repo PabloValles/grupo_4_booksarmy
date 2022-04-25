@@ -373,8 +373,8 @@ header .hero {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: linear-gradient(45deg, #C7F5FE 10%, #C7F5FE 40%, #FCC8F8 40%, #FCC8F8 60%, #EAB4F8 60%, #EAB4F8 65%, #F3F798 65%, #F3F798 90%);
   gap: 2rem;
+  background: #f3f7fe;
 }
 
 header .hero .hero__title {
@@ -385,6 +385,10 @@ header .hero .hero__title h2 {
   font-weight: 600;
   padding: 0 1rem;
   margin-bottom: 2rem;
+}
+
+header .hero .hero__img {
+  display: none;
 }
 
 main {
@@ -430,7 +434,7 @@ main .categorias .oferta {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: oferta;
-  background: #94BAFF;
+  background: #63f9c6;
   height: 260px;
 }
 
@@ -438,7 +442,7 @@ main .categorias .genero {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: genero;
-  background: #C7F5FE;
+  background: #4ea5ff;
   height: 260px;
 }
 
@@ -446,14 +450,14 @@ main .categorias .vendidos {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: vendidos;
-  background: #FCC8F8;
+  background: #fef195;
 }
 
 main .categorias .colecciones {
   -ms-grid-row: 4;
   -ms-grid-column: 1;
   grid-area: colecciones;
-  background: #44536B;
+  background: #ff5470;
   height: 260px;
   color: #fffffe;
 }
@@ -507,7 +511,7 @@ main .recomendaciones__cards .card:hover {
 }
 
 main .recomendaciones__cards .card img {
-  width: 100%;
+  width: 80%;
   position: relative;
 }
 
@@ -817,7 +821,7 @@ footer .footer-bottom__copy {
     color: #1b2d45;
     text-transform: uppercase;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
   }
   header .navbar__bottom-bar .links a.active {
     font-weight: 800;
@@ -832,7 +836,6 @@ footer .footer-bottom__copy {
         -ms-flex-pack: justify;
             justify-content: space-between;
     gap: 1.5rem;
-    background-color: #fff;
     border-radius: 1rem;
   }
   header .hero .hero__title {
@@ -1034,8 +1037,7 @@ footer .footer-bottom__copy {
   header .hero {
     padding: 0 2rem;
     height: 60vh;
-    margin-top: 0.5rem;
-    overflow: hidden;
+    margin-top: 1.5rem;
     gap: 0;
   }
   header .hero .hero__title {
@@ -1044,6 +1046,17 @@ footer .footer-bottom__copy {
   }
   header .hero .hero__title h2 {
     font-size: 3.441rem;
+  }
+  header .hero .hero__img {
+    display: block;
+    position: relative;
+    height: 100%;
+  }
+  header .hero .hero__img img {
+    width: 600px;
+    position: absolute;
+    right: -20px;
+    bottom: -100px;
   }
   main .recomendaciones__cards {
     -webkit-box-pack: center;
