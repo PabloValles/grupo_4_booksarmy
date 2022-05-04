@@ -76,7 +76,7 @@ input:focus, textarea:focus, select:focus {
           box-shadow: none !important;
 }
 
-.btn {
+.btn-b {
   font-size: 1rem;
   padding: 0.375rem 0.75rem;
   white-space: nowrap;
@@ -510,7 +510,12 @@ main .recomendaciones__cards .card:hover {
           box-shadow: 4px 16px 19px -3px rgba(0, 0, 0, 0.1);
 }
 
-main .recomendaciones__cards .card img {
+main .recomendaciones__cards .card a {
+  width: 100%;
+  text-align: center;
+}
+
+main .recomendaciones__cards .card a img {
   width: 80%;
   position: relative;
 }
@@ -613,7 +618,7 @@ main .articulos__item {
 
 main .articulos__item:first-child {
   background-color: #00214d;
-  background-image: url("../img/reading-mountain.jpg");
+  background-image: url("../img/bg-hero2.jpg");
   background-size: cover;
   background-position: center center;
 }
@@ -623,13 +628,14 @@ main .articulos__card {
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 1rem;
+  padding: 1.4rem;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(17, 25, 40, 0.75);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
   color: #fff;
+  text-align: center;
 }
 
 main .ofertas-increibles {
@@ -1142,11 +1148,20 @@ footer .footer-bottom__copy {
     width: 100%;
   }
   main .articulos__card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
     -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
         align-self: center;
     width: 65%;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
   main .articulos__card h3,
   main .articulos__card p {

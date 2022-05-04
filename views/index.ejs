@@ -41,7 +41,9 @@
           <div class="recomendaciones__cards">
             <% for( let i = 0; i < 9; i++ ) { %> 
               <div class="card">
-                <img src="/img/uploads/<%= libros[i].image %>" alt="" />
+                <a href="/products/detail/<%= libros[i].id %>">  
+                  <img src="/img/uploads/<%= libros[i].image %>" alt="" />
+                </a>
   
                 <h3 class="card-title"><%= libros[i].name %> </h3>
   
@@ -64,20 +66,22 @@
       <section class="articulos">
         <div class="articulos__item">
           <div class="articulos__card">
-            <h3>Titulo</h3>
+            <h3> 🔍 Los más buscados</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Non error
               alias quasi
             </p>
+            <a class="btn-b btn-danger-booksarmy" href="#" role="button">Ver libros</a>
           </div>
         </div>
         <div class="articulos__item">
           <div class="articulos__card">
-            <h3>Titulo</h3>
+            <h3>☝️ Los más vendidos</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Non error
               alias quasi
             </p>
+            <a class="btn-b btn-primary-booksarmy" href="#" role="button">Ver libros</a>
           </div>
         </div>
       </section>
@@ -126,23 +130,9 @@
           </div>
 
           <div class="call-to-action__btns">
-            <a
-              name=""
-              id=""
-              class="btn btn-primary-booksarmy"
-              href="#"
-              role="button"
-              >Suscribirme</a
-            >
-            <a
-              name=""
-              id=""
-              class="btn btn-gray-700-booksarmy"
-              href="#"
-              role="button"
-              >Contacto</a
-            >
-          </div>
+              <a class="btn-b btn-primary-booksarmy" href="#" role="button">Contacto</a>
+              <a class="btn-b btn-gray-700-booksarmy" href="#" role="button">Contacto</a>
+            </div>
         </div>
       </section>
     </main>

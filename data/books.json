@@ -37,14 +37,17 @@
         "id": 3,
         "name": "1984",
         "autor": "George Orwell",
-        "description": "consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id",
-        "gender": "Drama|Musical|Romance",
-        "image": "default-img.png",
+        "description": "1984 (en su versión original en inglés: Nineteen Eighty-Four) es una novela política de ficción distópica, escrita por George Orwell entre 1947 y 1948 y publicada el 8 de junio de 1949. La novela popularizó los conceptos del omnipresente y vigilante Gran Hermano o Hermano Mayor, de la notoria habitación 101, de la ubicua policía del Pensamiento y de la neolengua, adaptación del idioma inglés en la que se reduce y se transforma el léxico con fines represivos, basándose en el principio de que lo que no forma parte de la lengua, no puede ser pensado...",
+        "gender": [
+            "Drama",
+            "Novelas"
+        ],
+        "image": "1651690940790-img.png",
         "editorial": "Durgan Inc",
         "isbn": "258990844-X",
-        "price": 3127.34,
-        "discount": 3,
-        "stock": 3,
+        "price": "3127.34",
+        "discount": "10",
+        "stock": "3",
         "material": "Papel offset",
         "format": "NORMAL"
     },
@@ -377,19 +380,5 @@
         "stock": 26,
         "material": "Papel ahuesado o marfil",
         "format": "NORMAL"
-    },
-    {
-        "id": 28,
-        "name": "prueba",
-        "gender": "Ciencia",
-        "description": "prueba",
-        "autor": "prueba",
-        "editorial": "prueba",
-        "isbn": "123",
-        "price": "123",
-        "stock": "123",
-        "material": "papel",
-        "format": "epub",
-        "image": "1650820481446-img.png"
     }
 ]

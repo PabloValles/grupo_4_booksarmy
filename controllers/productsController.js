@@ -8,11 +8,11 @@ const librosArray = "";
 
 let productsController = {
   get: function () {
-    librosArray = productModel.get();
+    librosArray = productModel.getData();
     return librosArray;
   },
   all: function (req, res) {
-    let librosThis = this.get;
+    let librosThis = productModel.getData();
     res.render("products/products", { librosThis });
   },
   cart: function (req, res) {

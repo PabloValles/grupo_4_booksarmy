@@ -1,6 +1,6 @@
 const path = require("path");
 const productModel = require("../models/productModel");
-let libros = productModel.get();
+let libros = productModel.getData();
 
 let mainController = {
   index: function (req, res, next) {

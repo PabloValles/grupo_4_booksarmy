@@ -16,44 +16,34 @@
       </div>
     </header>
 
-    <main>
-      <section class="book">
-        <div class="container">
-          <div class="book-portada">
-            <h2 class="titulo"><%= libro.name %></h2>
-            <div class="imagen">
-              <img src="/img/books/mockups/codigo-davinci.png" alt="Libros" />
-            </div>
-          </div>
-
-          <div class="book-descripcion">
-            <h2 class="book-descripcion-title"><%= libro.name %></h2>
-            <p><%= libro.autor %></p>
-
-            <div class="book-descripcion-estrellas">
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star-half" aria-hidden="true"></i>
-            </div>
-
-            <h2 class="book-descripcion-precio">$1.100</h2>
-
-            <p class="book-descripcion-resumen"><%= libro.description %></p>
-
-            <div class="book-descripcion-cantidad">
-              <p>Cantidad</p>
-              <input type="number" />
-            </div>
-
-            <div class="book-descripcion-links mt-3">
-              <button class="btn btn-info-booksarmy">Comprar</button>
-              <a href="#" class="btn btn-default"> Agregar al carrito </a>
+    <main><!-- Product section-->
+      <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+          <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="/img/uploads/<%= libro.image %>" alt="..." /></div>
+            <div class="col-md-6">
+              <div class="small mb-1">ISBN: <%= libro.isbn %> </div>
+              <h1 class="display-5 fw-bolder"><%= libro.name %></h1>
+              <div class="fs-5 mb-5">
+                  <span class="text-decoration-line-through">$ <%= libro.price %></span>
+                  <span class="text-primary">$ <%= libro.price - ((libro.price * libro.discount) / 100 )%></span>
+              </div>
+              <p class="lead"><%= libro.description %></p>
+              <div class="d-flex">
+                  <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem" />
+                  <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                      <i class="bi-cart-fill me-1"></i>
+                      Añadir al carrito
+                  </button>
+              </div><br>
+              <div class="d-grid gap-2">
+                <button type="button" class="btn btn-lg btn-primary">Comprar</button>
+              </div>
             </div>
           </div>
         </div>
       </section>
+      <!-- Related items section-->
 
       <section class="book-author">
         <div class="container">
@@ -71,7 +61,7 @@
                     aria-expanded="true"
                     aria-controls="collapseOne"
                   >
-                    # Editorial:
+                    # Editorial: 
                   </button>
                 </h2>
                 <div
@@ -81,9 +71,7 @@
                   data-bs-parent="#accordionExample"
                 >
                   <div class="accordion-body">
-                    <strong>Nombre de la editorial del libro.</strong> Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Itaque
-                    impedit inventore totam. Provident ipsa temporibus.
+                    <strong><%= libro.editorial %> </strong> 
                   </div>
                 </div>
               </div>
@@ -108,8 +96,7 @@
                 >
                   <div class="accordion-body">
                     <strong>Temática del libro.</strong>
-                    It is hidden by default, until the collapse plugin adds the
-                    appropriate classes that we use...
+                    <%= libro.description %> 
                   </div>
                 </div>
               </div>
@@ -133,7 +120,7 @@
                   data-bs-parent="#accordionExample"
                 >
                   <div class="accordion-body">
-                    <strong>Fecha de publicación: </strong> Resumen ...
+                    <strong>Fecha de publicación: </strong> 
                   </div>
                 </div>
               </div>
@@ -157,11 +144,7 @@
                   data-bs-parent="#accordionExample"
                 >
                   <div class="accordion-body">
-                    <strong>Sinopsis: </strong> Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Hic qui ab consequatur facilis
-                    porro officiis fuga consectetur similique cupiditate,
-                    aliquid, magnam temporibus aperiam eaque rem ipsum inventore
-                    architecto. Harum, qui?
+                    <strong>Sinopsis: </strong> <%= libro.description %> 
                   </div>
                 </div>
               </div>
@@ -185,8 +168,7 @@
                   data-bs-parent="#accordionExample"
                 >
                   <div class="accordion-body">
-                    <strong>Formato e idioma: </strong> Lorem ipsum dolor sit
-                    amet consectetur adipisicing.
+                    <%= libro.format %> 
                   </div>
                 </div>
               </div>
@@ -210,7 +192,7 @@
                   data-bs-parent="#accordionExample"
                 >
                   <div class="accordion-body">
-                    <strong>ISBN: </strong> 4546456 316ASDQW
+                    <strong>ISBN: </strong> <%= libro.isbn %> 
                   </div>
                 </div>
               </div>
@@ -219,79 +201,124 @@
         </div>
       </section>
 
-      <section class="book-author-biography">
+      <section class="book-author-biography py-5">
         <div class="container">
-          <div class="author-bio">
-            <div class="author-bio_img">
-              <img
-                src="https://via.placeholder.com/550"
-                alt="Imágen del autor"
-              />
+          <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+              <h2 class="featurette-heading"><span class="text-muted">Autor: </span> <%= libro.autor %> </h2>
+              <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
             </div>
-            <div class="author-bio_desc">
-              <h3>Nombre y apellido del autor</h3>
-              <h5>Fecha de nacimiento</h5>
-
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum
-                aliquid vel quaerat beatae qui at incidunt quos. Nemo minus odio
-                optio. Maxime, soluta. Optio, maiores quos repellendus
-                repudiandae ea blanditiis.
-              </p>
-
-              <a href="#" class="btn btn-warning-booksarmy">Conocé más...</a>
+            <div class="col-md-5 order-md-1">
+              <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+      
             </div>
           </div>
         </div>
       </section>
 
-      <section class="book-anothers">
-        <div class="container">
-          <h2>Otros libros que pueden gustarte</h2>
-          <div class="slider-cards">
-            <a href="" class="slider-cards_item">
-              <img
-                src="/img/books/portadas/El principito - Antoine de Saint-Exupery.jpg"
-                alt="Slider 1"
-              />
-              <p>Librsadsadsadsadsao</p>
-            </a>
-            <a href="" class="slider-cards_item">
-              <img
-                src="/img/books/portadas/Diario de Anne Frank.jpg"
-                alt="Slider 1"
-              />
-              <p>Libro</p>
-            </a>
-            <a href="" class="slider-cards_item">
-              <img
-                src="/img/books/portadas/Rayuela-Cortazar.jpg"
-                alt="Slider 1"
-              />
-              <p>Libro</p>
-            </a>
-            <a href="" class="slider-cards_item">
-              <img
-                src="/img/books/portadas/Don Quijote de la Mancha-Miguel de Cervantes-2.jpg"
-                alt="Slider 1"
-              />
-              <p>Libro</p>
-            </a>
-            <a href="" class="slider-cards_item">
-              <img
-                src="/img/books/portadas/El principito - Antoine de Saint-Exupery.jpg"
-                alt="Slider 1"
-              />
-              <p>Libro</p>
-            </a>
-            <a href="" class="slider-cards_item">
-              <img
-                src="/img/books/portadas/HarryPotter-La piedra filosofal- Rowling.jpg"
-                alt="Slider 1"
-              />
-              <p>Libro</p>
-            </a>
-          </div>
+      <section class="py-5 bg-light">
+        <div class="container px-4 px-lg-5 mt-5">
+            <h2 class="fw-bolder mb-4">Related products</h2>
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Fancy Product</h5>
+                                <!-- Product price-->
+                                $40.00 - $80.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Special Item</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">$20.00</span>
+                                $18.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Sale Item</h5>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">$50.00</span>
+                                $25.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Popular Item</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <!-- Product price-->
+                                $40.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
       </section>
     </main>

@@ -207,9 +207,13 @@ main {
           box-shadow: 4px 16px 19px -3px rgba(0, 0, 0, 0.1);
         }
 
-        img {
-          width: 80%;
-          position: relative;
+        a {
+          width: 100%;
+          text-align: center;
+          img {
+            width: 80%;
+            position: relative;
+          }
         }
 
         .card-title {
@@ -285,23 +289,24 @@ main {
 
       &:first-child {
         background-color: $blue-color;
-        background-image: url("../img/reading-mountain.jpg");
+        background-image: url("../img/bg-hero2.jpg");
         background-size: cover;
         background-position: center center;
       }
     }
 
-    &__card {
+    &__card {      
       margin-bottom: 1rem;
       width: 100%;
       box-sizing: border-box;
-      padding: 1rem;
+      padding: 1.4rem;
       backdrop-filter: blur(16px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
       background-color: rgba(17, 25, 40, 0.75);
       border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.125);
       color: #fff;
+      text-align: center;
     }
   }
 
@@ -787,9 +792,13 @@ footer {
       }
 
       &__card {
+        display: flex;
+        flex-direction: column;
+        //align-items: center;
+        justify-content: space-evenly;
         align-self: center;
         width: 65%;
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
 
         h3,
         p {

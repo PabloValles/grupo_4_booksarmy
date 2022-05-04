@@ -5,7 +5,11 @@ const productsFilePath = path.join(__dirname, "../data/books.json");
 const libros = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const productModel = {
-  get: () => libros,
+  fileName: path.join(__dirname, "../data/books.json"),
+
+  getData: function () {
+    return JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+  },
   getById: (id) => libros.find((libro) => libro.id == id),
   create: (producto) => {
     let crear = libros.push(producto);
