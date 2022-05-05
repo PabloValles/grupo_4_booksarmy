@@ -5,7 +5,7 @@ const User = {
   fileName: path.join(__dirname, "../data/users.json"),
 
   getData: function () {
-    return JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
+    return JSON.parse(fs.readFileSync(this.fileName, "utf-8"));
   },
 
   generateId: function () {
@@ -33,3 +33,5 @@ const User = {
     return userFound;
   },
 };
+
+module.exports = User;

@@ -7,11 +7,16 @@ const { allowedNodeEnvironmentFlags } = require("process");
 const methodOverride = require("method-override"); // para poder usar los métodos PUT y DELETE
 
 /*======> Requerimos nuestros routers <======*/
+const usersRoute = require("./routers/users");
 const mainRouter = require("./routers/main");
 const productsRouter = require("./routers/products");
 
 /*======> Declaramos el puerto donde se ejecutará nuestra app <======*/
 const PORT = process.env.PORT || 3000;
+
+// Para poder enviar datos por POST
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 /*======> Utlizaremos ejs como motor de vistas <======*/
 app.set("view engine", "ejs");
@@ -24,6 +29,7 @@ app.use(express.static(publicPath));
 /*======> Declaramos las rutas <======*/
 app.use("/", mainRouter);
 app.use("/products", productsRouter);
+app.use("/users", usersRoute);
 
 /*======> Iniciamos nuestra app <======*/
 app.listen(PORT, () => console.log(`Server runing: http://localhost:${PORT}`));

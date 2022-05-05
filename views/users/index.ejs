@@ -1,0 +1,71 @@
+<%- include("../partials/head-pages") %>
+<body>
+  <header class="cart-header">
+    <div class="container"><%- include("../partials/nabvar") %></div>
+
+    <div class="hero-pages">
+      <div class="container hero-flex">
+        <div class="hero__title">
+          <img src="/img/about.png" alt="" />
+          <h1><span>Usuarios</span></h1>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="about-us py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h3>Usuarios</h3>
+            <p>Listado de usuarios</p>
+            
+            <div class="table-responsive">
+              <table class="table table-boordered">
+                <thead class="thead-inverse">
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>email</th>
+                    <th>Categoría</th>
+                    <th>#</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <% if (usuarios.length > 0){ %>
+                      <% usuarios.forEach(user => { %>
+                        <tr>
+                          <td><%= user.id %> </td>
+                          <td scope="row"><%= user.first_name %></td> </td>
+                          <td><%= user.first_name %></td>
+                          <td><%= user.first_name %></td>
+                          <td>
+                            <form action="users/delete" method="post">
+                              <a href="#" class="btn btn-primary"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                              <a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                            </form>
+                          </td>
+                        </tr>
+                      <% }) %>
+                    <% } else { %>
+                      <tr>
+                        <td colspan="5">No hay usuarios</td>
+                      </tr>
+                    <% } %>
+                    
+                  </tbody>
+              </table>
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>

@@ -1,11 +1,11 @@
 [
     {
         "id": 1,
-        "first_name": "Gaby",
-        "last_name": "Fetherston",
-        "email": "gfetherston0@si.edu",
-        "password": "pUq4ItcEea",
-        "category": "user",
+        "first_name": "booksarmy",
+        "last_name": "booksarmy",
+        "email": "booksarmy@dh.com",
+        "password": "1234",
+        "category": "admin",
         "image": "user_1.jpg"
     },
     {
