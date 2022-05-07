@@ -1,0 +1,68 @@
+<%- include("../partials/head-pages") %>
+<body>
+  <header class="cart-header">
+    <div class="container"><%- include("../partials/nabvar") %></div>
+
+  <main>
+    <section class="about-us py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h3>Crear usuario</h3>
+
+          </div>
+        </div>
+
+        <div class="row pb-5">
+          <form class="row g-3" method="POST" action="/users/create">
+            <div class="col-md-4">
+              <label for="first_name" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="first_name" name="first_name">
+              <div class="valid-feedback"></div>
+            </div>
+            <div class="col-md-4">
+              <label for="last_name" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="last_name" name="last_name">
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="email" class="form-label">Email</label>
+              <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend"> @ </span>
+                <input type="text" class="form-control" id="email" name="email">
+                <div class="invalid-feedback"></div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password">
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-md-4">
+              <label for="category" class="form-label">Categoría</label>
+              <select class="form-select" id="category" name="category">
+                <option selected disabled value="">Seleccione...</option>
+                <option value="admin">Administrador</option>
+                <option value="user">Usuario</option>
+              </select>
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-md-4">
+              <label for="image" class="form-label">Imágen de perfil</label>
+              <input type="file" class="form-control" name="image" id="image">
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Cargar usuario</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>

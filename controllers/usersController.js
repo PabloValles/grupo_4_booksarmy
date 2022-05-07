@@ -1,12 +1,8 @@
 const User = require("../models/User");
 
 const userController = {
-  all: function (req, res) {
-    return users;
-  },
   index: function (req, res) {
     const usuarios = User.findAll();
-    console.log(usuarios);
 
     return res.render("users/index", { usuarios });
   },
@@ -21,7 +17,12 @@ const userController = {
   },
 
   // Luego realizar el crude
-  create: function (req, res) {},
+  create: function (req, res) {
+    return res.render("users/create");
+  },
+  store: function (req, res) {
+    res.send(req.body);
+  },
   update: function (req, res) {},
   delete: function (req, res) {},
 
