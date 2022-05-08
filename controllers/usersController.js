@@ -21,7 +21,21 @@ const userController = {
     return res.render("users/create");
   },
   store: function (req, res) {
-    res.send(req.body);
+    let userCheck = User.findByField("email", req.body.email);
+
+    if (userCheck) {
+      let error = "Error el usuario ya existe";
+      return res.send(error);
+    }
+
+    let userToCreate = {
+      ...req.body,
+      image: req.file.filename,
+    };
+
+    let userNew = User.create(userToCreate);
+
+    return res.redirect("/users");
   },
   update: function (req, res) {},
   delete: function (req, res) {},

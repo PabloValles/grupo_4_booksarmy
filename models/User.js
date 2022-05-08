@@ -32,6 +32,19 @@ const User = {
     let userFound = allUsers.find((oneUser) => oneUser[field] === text);
     return userFound;
   },
+
+  create: function (userToCreate) {
+    let allUsers = this.findAll();
+    let newUser = {
+      id: this.generateId(),
+      ...userToCreate,
+    };
+
+    allUsers.push(newUser);
+    fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, " "));
+
+    return newUser;
+  },
 };
 
 module.exports = User;

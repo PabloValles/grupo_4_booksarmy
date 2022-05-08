@@ -23,7 +23,7 @@ app.set("view engine", "ejs");
 app.use(methodOverride("_method")); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 
 /*======> Definimos los archivos que serán estáticos <======*/
-const publicPath = path.resolve(__dirname, "./public");
+const publicPath = path.join(__dirname, "./public");
 app.use(express.static(publicPath));
 
 /*======> Declaramos las rutas <======*/

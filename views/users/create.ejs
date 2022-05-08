@@ -14,7 +14,7 @@
         </div>
 
         <div class="row pb-5">
-          <form class="row g-3" method="POST" action="/users/create">
+          <form class="row g-3" method="POST" action="/users/create" enctype="multipart/form-data">
             <div class="col-md-4">
               <label for="first_name" class="form-label">Nombre</label>
               <input type="text" class="form-control" id="first_name" name="first_name">
@@ -31,7 +31,7 @@
               <label for="email" class="form-label">Email</label>
               <div class="input-group">
                 <span class="input-group-text" id="inputGroupPrepend"> @ </span>
-                <input type="text" class="form-control" id="email" name="email">
+                <input type="email" class="form-control" id="email" name="email">
                 <div class="invalid-feedback"></div>
               </div>
             </div>
