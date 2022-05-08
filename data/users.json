@@ -178,41 +178,5 @@
   "password": "KidMQpYvl",
   "category": "user",
   "image": "user_20.jpg"
- },
- {
-  "id": 21,
-  "first_name": "Pablo",
-  "last_name": "Valles",
-  "email": "pablo@dh.com",
-  "password": "1234",
-  "category": "admin",
-  "image": "user_21.jpg"
- },
- {
-  "id": 22,
-  "first_name": "Ale",
-  "last_name": "Navarro",
-  "email": "ale@booksarmy.coma",
-  "password": "",
-  "category": "user",
-  "image": "1651964798996_img.jpg"
- },
- {
-  "id": 23,
-  "first_name": "prueba",
-  "last_name": "aa",
-  "email": "12ale@preubva",
-  "password": "1234",
-  "category": "user",
-  "image": "1651965436142_img.png"
- },
- {
-  "id": 24,
-  "first_name": "Hola mundo",
-  "last_name": "hola",
-  "email": "hola@q",
-  "password": "1234",
-  "category": "admin",
-  "image": "1651990574757_img.jpg"
  }
 ]
