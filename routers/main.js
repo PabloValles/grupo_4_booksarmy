@@ -8,5 +8,6 @@ router.get("/index", mainController.index);
 router.get("/login", mainController.login);
 router.get("/register", mainController.register);
 router.get("/about", mainController.about);
+router.get("/admin", mainController.admin);
 
 module.exports = router;

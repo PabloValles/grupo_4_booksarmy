@@ -332,6 +332,10 @@ main section.products-list .lh-tight {
   line-height: 1.25;
 }
 
+main section.admin, main section.bg-admin {
+  background-color: #F9FAFC;
+}
+
 main .featurette-divider {
   margin: 5rem 0;
   /* Space out the Bootstrap <hr> more */
@@ -355,6 +359,12 @@ main .featurette-heading {
 @media (min-width: 62em) {
   .featurette-heading {
     margin-top: 7rem;
+  }
+}
+
+@media (min-width: 768px) {
+  main section.admin {
+    height: 90vh;
   }
 }
 /*# sourceMappingURL=pages.css.map */

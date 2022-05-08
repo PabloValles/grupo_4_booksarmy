@@ -205,5 +205,14 @@
   "password": "1234",
   "category": "user",
   "image": "1651965436142_img.png"
+ },
+ {
+  "id": 24,
+  "first_name": "Hola mundo",
+  "last_name": "hola",
+  "email": "hola@q",
+  "password": "1234",
+  "category": "admin",
+  "image": "1651990574757_img.jpg"
  }
 ]

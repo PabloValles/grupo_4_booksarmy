@@ -1,0 +1,54 @@
+<%- include("partials/head-pages") %>
+<body>
+  <header class="cart-header">
+    <div class="container"><%- include("partials/nabvar") %></div>
+
+
+  <main>
+    <section class="admin py-5 mb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-">
+            <h3>Bienvenido # Usuario</h3>
+          </div>
+        </div>
+        <div class="row py-3">
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <img src="/img/icons/config.png" class="img-responsive mb-1" alt="" width="80px">
+                <h5 class="card-title">Configuración del perfil</h5>
+                <p class="card-text">Administra tu perfil</p>
+                <a href="/users/profile" class="btn btn-primary">Go to profile</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <img src="/img/icons/users.png" class="img-responsive mb-1" alt="" width="80px">
+                <h5 class="card-title">Configuración de usuarios</h5>
+                <p class="card-text">Administra los usuarios del sitio</p>
+                <a href="/users" class="btn btn-primary">Go to users</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <img src="/img/icons/shop.png" class="img-responsive mb-1" alt="" width="80px">
+                <h5 class="card-title">Configuración de productos</h5>
+                <p class="card-text">Administra los usuarios del sitio</p>
+                <a href="/products/admin" class="btn btn-primary">Go to products</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <%- include("partials/footer") %>
+</body>
+</html>
