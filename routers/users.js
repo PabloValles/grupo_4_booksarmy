@@ -9,4 +9,8 @@ router.get("/", usersController.index);
 router.get("/create", usersController.create);
 router.post("/create", uploadFile.single("image"), usersController.store);
 
+// Perfil & Update user
+router.get("/profile", usersController.profile);
+router.get("/edit/:id", usersController.edit);
+
 module.exports = router;

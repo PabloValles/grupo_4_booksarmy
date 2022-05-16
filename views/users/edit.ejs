@@ -1,0 +1,75 @@
+<%- include("../partials/head-pages") %>
+<body>
+  <header class="cart-header">
+    <div class="container"><%- include("../partials/nabvar") %></div>
+
+  <main>
+    <section class="admin py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-2">
+            <% if (user.image) { %>
+              <img src="/img/users/<%= user.image %>" class="img-thumbnail " alt="" width="100">
+              <% } else { %>
+              <img src="/img/users/default.png" class="img-thumbnail " alt="" width="100">
+              <% } %>
+          </div>
+          <div class="col-10">
+            <h4 class="mb-4"> <i class="fa fa-user" aria-hidden="true"></i> Usuario: <%= user.first_name +" "+user.last_name %> </h4>
+            <p> <i class="fa fa-envelope" aria-hidden="true"></i> Email: <%= user.email %></p>
+          </div>
+        </div>
+
+        <div class="row pb-4">
+          <form class="row g-3" method="POST" action="/users/update" enctype="multipart/form-data">
+            <div class="col-md-4">
+              <label for="first_name" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="first_name" name="first_name" value="<%= user.first_name %>">
+              <div class="valid-feedback"></div>
+            </div>
+            <div class="col-md-4">
+              <label for="last_name" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="last_name" name="last_name" value="<%= user.last_name %> ">
+              <div class="valid-feedback"></div>
+            </div>
+            <div class="col-md-4">
+              <label for="email" class="form-label">Email</label>
+              <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend"> @ </span>
+                <input type="email" class="form-control" id="email" name="email" value="<%= user.email %> ">
+                <div class="invalid-feedback"></div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password">
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-md-4">
+              <label for="category" class="form-label">Categoría</label>
+              <select class="form-select" id="category" name="category">
+                <option value="<%= user.category %>"><%= user.category %> </option>
+                <option disabled value="">Seleccione...</option>
+                <option value="admin">Administrador</option>
+                <option value="user">Usuario</option>
+              </select>
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-md-4">
+              <label for="image" class="form-label">Imágen de perfil</label>
+              <input type="file" class="form-control" name="image" id="image">
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-12 mt-4">
+              <button class="btn btn-warning" type="submit">Modificar usuario</button>
+              <a href="/users" class="btn btn-secondary">Volver</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>

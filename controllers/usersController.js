@@ -16,7 +16,7 @@ const userController = {
     return res.render("users/register");
   },
 
-  // Luego realizar el crude
+  // Luego realizar el crud
   create: function (req, res) {
     return res.render("users/create");
   },
@@ -36,6 +36,10 @@ const userController = {
     let userNew = User.create(userToCreate);
 
     return res.redirect("/users");
+  },
+  edit: function (req, res) {
+    user = User.findByPk(req.params.id);
+    return res.render("users/edit", { user });
   },
   update: function (req, res) {},
   delete: function (req, res) {},

@@ -6,7 +6,7 @@
   "email": "booksarmy@dh.com",
   "password": "1234",
   "category": "admin",
-  "image": "user_1.jpg"
+  "image": "default.png"
  },
  {
   "id": 2,
@@ -15,7 +15,7 @@
   "email": "swillarton1@latimes.com",
   "password": "VhMbHoSCT22",
   "category": "user",
-  "image": "user_2.jpg"
+  "image": "default.png"
  },
  {
   "id": 3,
@@ -24,7 +24,7 @@
   "email": "cbrendish2@twitpic.com",
   "password": "nqidln",
   "category": "user",
-  "image": "user_3.jpg"
+  "image": "default.png"
  },
  {
   "id": 4,
@@ -33,7 +33,7 @@
   "email": "irasell3@bluehost.com",
   "password": "qKRDfQk9yuru",
   "category": "user",
-  "image": "user_4.jpg"
+  "image": "default.png"
  },
  {
   "id": 5,
@@ -42,7 +42,7 @@
   "email": "vgowans4@behance.net",
   "password": "0ATGQJl",
   "category": "user",
-  "image": "user_5.jpg"
+  "image": "default.png"
  },
  {
   "id": 6,
@@ -51,7 +51,7 @@
   "email": "aspinage5@jigsy.com",
   "password": "eWu56mktz1f",
   "category": "user",
-  "image": "user_6.jpg"
+  "image": "default.png"
  },
  {
   "id": 7,
@@ -60,7 +60,7 @@
   "email": "hmorey6@arstechnica.com",
   "password": "ZOm1Rfs",
   "category": "user",
-  "image": "user_7.jpg"
+  "image": "default.png"
  },
  {
   "id": 8,
@@ -69,7 +69,7 @@
   "email": "gsleep7@hhs.gov",
   "password": "LW9JvwviJ",
   "category": "user",
-  "image": "user_8.jpg"
+  "image": "default.png"
  },
  {
   "id": 9,
@@ -78,7 +78,7 @@
   "email": "aflemyng8@e-recht24.de",
   "password": "spcwyEbsbJ",
   "category": "user",
-  "image": "user_9.jpg"
+  "image": "default.png"
  },
  {
   "id": 10,
@@ -87,7 +87,7 @@
   "email": "dockland9@etsy.com",
   "password": "8xyzTNnf4O6",
   "category": "user",
-  "image": "user_10.jpg"
+  "image": "default.png"
  },
  {
   "id": 11,
@@ -96,7 +96,7 @@
   "email": "tmacinherneya@yahoo.com",
   "password": "97zbX5jw",
   "category": "user",
-  "image": "user_11.jpg"
+  "image": "default.png"
  },
  {
   "id": 12,
@@ -105,7 +105,7 @@
   "email": "ilodwigb@go.com",
   "password": "gPCoTDLNnp",
   "category": "user",
-  "image": "user_12.jpg"
+  "image": "default.png"
  },
  {
   "id": 13,
@@ -114,7 +114,7 @@
   "email": "kkirckmanc@pcworld.com",
   "password": "8trKWtFvT",
   "category": "user",
-  "image": "user_13.jpg"
+  "image": "default.png"
  },
  {
   "id": 14,
@@ -123,7 +123,7 @@
   "email": "spyerd@comcast.net",
   "password": "3kUfmzzP3",
   "category": "user",
-  "image": "user_14.jpg"
+  "image": "default.png"
  },
  {
   "id": 15,
@@ -132,7 +132,7 @@
   "email": "apowyse@yellowpages.com",
   "password": "QNeT2LoZDkRX",
   "category": "user",
-  "image": "user_15.jpg"
+  "image": "default.png"
  },
  {
   "id": 16,
@@ -141,7 +141,7 @@
   "email": "bveversf@msn.com",
   "password": "K2NSiI5",
   "category": "user",
-  "image": "user_16.jpg"
+  "image": "default.png"
  },
  {
   "id": 17,
@@ -150,7 +150,7 @@
   "email": "fclemoesg@sitemeter.com",
   "password": "oyf1pTwZN",
   "category": "user",
-  "image": "user_17.jpg"
+  "image": "default.png"
  },
  {
   "id": 18,
@@ -159,7 +159,7 @@
   "email": "gbadderh@tamu.edu",
   "password": "IDLLOkGTLis",
   "category": "user",
-  "image": "user_18.jpg"
+  "image": "default.png"
  },
  {
   "id": 19,
@@ -168,7 +168,7 @@
   "email": "brumminsi@unicef.org",
   "password": "IkCDBT5bD",
   "category": "user",
-  "image": "user_19.jpg"
+  "image": "default.png"
  },
  {
   "id": 20,
@@ -177,6 +177,15 @@
   "email": "dpenasj@ovh.net",
   "password": "KidMQpYvl",
   "category": "user",
-  "image": "user_20.jpg"
+  "image": "default.png"
+ },
+ {
+  "id": 21,
+  "first_name": "pablo",
+  "last_name": "valles",
+  "email": "pablo@dh.com",
+  "password": "1234",
+  "category": "admin",
+  "image": "1652646345954_img.png"
  }
 ]
