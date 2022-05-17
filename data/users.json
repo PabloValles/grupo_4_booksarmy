@@ -1,20 +1,20 @@
 [
  {
   "id": 1,
-  "first_name": "booksarmy",
-  "last_name": "booksarmy",
-  "email": "booksarmy@dh.com",
+  "first_name": "admin",
+  "last_name": "admin",
+  "email": "admin@booksarmy.com",
   "password": "1234",
   "category": "admin",
-  "image": "default.png"
+  "image": "1652748485220_img.png"
  },
  {
   "id": 2,
   "first_name": "Sibylla",
-  "last_name": "Willarton",
+  "last_name": "Willarton ",
   "email": "swillarton1@latimes.com",
   "password": "VhMbHoSCT22",
-  "category": "user",
+  "category": "admin",
   "image": "default.png"
  },
  {
@@ -106,86 +106,5 @@
   "password": "gPCoTDLNnp",
   "category": "user",
   "image": "default.png"
- },
- {
-  "id": 13,
-  "first_name": "Kira",
-  "last_name": "Kirckman",
-  "email": "kkirckmanc@pcworld.com",
-  "password": "8trKWtFvT",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 14,
-  "first_name": "Skipper",
-  "last_name": "Pyer",
-  "email": "spyerd@comcast.net",
-  "password": "3kUfmzzP3",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 15,
-  "first_name": "Allie",
-  "last_name": "Powys",
-  "email": "apowyse@yellowpages.com",
-  "password": "QNeT2LoZDkRX",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 16,
-  "first_name": "Bibbye",
-  "last_name": "Vevers",
-  "email": "bveversf@msn.com",
-  "password": "K2NSiI5",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 17,
-  "first_name": "Farrel",
-  "last_name": "Clemoes",
-  "email": "fclemoesg@sitemeter.com",
-  "password": "oyf1pTwZN",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 18,
-  "first_name": "Glennie",
-  "last_name": "Badder",
-  "email": "gbadderh@tamu.edu",
-  "password": "IDLLOkGTLis",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 19,
-  "first_name": "Bing",
-  "last_name": "Rummins",
-  "email": "brumminsi@unicef.org",
-  "password": "IkCDBT5bD",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 20,
-  "first_name": "Dane",
-  "last_name": "Penas",
-  "email": "dpenasj@ovh.net",
-  "password": "KidMQpYvl",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 21,
-  "first_name": "pablo",
-  "last_name": "valles",
-  "email": "pablo@dh.com",
-  "password": "1234",
-  "category": "admin",
-  "image": "1652646345954_img.png"
  }
 ]

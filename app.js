@@ -4,6 +4,8 @@ const app = express();
 const path = require("path");
 const { allowedNodeEnvironmentFlags } = require("process");
 
+const Swal = require("sweetalert2");
+
 const methodOverride = require("method-override"); // para poder usar los métodos PUT y DELETE
 
 /*======> Requerimos nuestros routers <======*/

@@ -19,9 +19,8 @@
             <p> <i class="fa fa-envelope" aria-hidden="true"></i> Email: <%= user.email %></p>
           </div>
         </div>
-
         <div class="row pb-4">
-          <form class="row g-3" method="POST" action="/users/update" enctype="multipart/form-data">
+          <form class="row g-3" method="POST" action="/users/update/<%= user.id %>?_method=PUT" enctype="multipart/form-data">
             <div class="col-md-4">
               <label for="first_name" class="form-label">Nombre</label>
               <input type="text" class="form-control" id="first_name" name="first_name" value="<%= user.first_name %>">

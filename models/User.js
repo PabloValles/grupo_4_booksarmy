@@ -45,6 +45,44 @@ const User = {
 
     return newUser;
   },
+
+  update: function (userToUpdate) {
+    let allUsers = this.findAll();
+
+    let newUsers = allUsers.map((user) => {
+      if (user.id == userToUpdate.id) {
+        user = userToUpdate;
+      }
+
+      return user;
+    });
+
+    // Sobreescribimos la DB
+    let editUserDb = fs.writeFileSync(
+      this.fileName,
+      JSON.stringify(newUsers, null, " ")
+    );
+
+    if (editUserDb) {
+      return newUsers;
+    }
+
+    return null;
+  },
+
+  delete: function (userToDelete) {
+    let allUsers = this.findAll();
+
+    let newUsers = allUsers.filter((user) => user.id != userToDelete.id);
+
+    // Sobreescribimos la DB
+    let editUserDb = fs.writeFileSync(
+      this.fileName,
+      JSON.stringify(newUsers, null, " ")
+    );
+
+    return newUsers;
+  },
 };
 
 module.exports = User;

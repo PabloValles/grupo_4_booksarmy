@@ -22,8 +22,8 @@
               <thead class="bg-secondary text-white text-center">
                 <tr>
                   <th>ID</th>
-                  <th>Nombre</th>
-                  <th>email</th>
+                  <th>User</th>
+                  <th>Email</th>
                   <th>Categoría</th>
                   <th>#</th>
                 </tr>
@@ -35,11 +35,13 @@
                         <td><%= user.id %> </td>
                         <td scope="row"><%= user.first_name %></td> </td>
                         <td><%= user.email %></td>
-                        <td><%= user.category %></td>
                         <td>
-                          <form action="users/delete" method="post">
-                            <a href="users/edit/<%= user.id %>" class="btn btn-primary"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                            <a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                          <span class="badge <%= (user.category == "admin") ? "bg-success" : "bg-dark bg-gradient" %>"><%= user.category %> </span>
+                        </td>
+                        <td>
+                          <form action="/users/delete/<%= user.id %>/?_method=DELETE" method="post">
+                            <a href="/users/edit/<%= user.id %>" class="btn btn-primary"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                           </form>
                         </td>
                       </tr>

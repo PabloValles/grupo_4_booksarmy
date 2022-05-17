@@ -19,7 +19,8 @@
     "express": "^4.17.3",
     "method-override": "^3.0.0",
     "multer": "^1.4.4",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "sweetalert2": "^11.4.14"
   },
   "bugs": {
     "url": "https://github.com/PabloValles/grupo_4_booksarmy/issues"
