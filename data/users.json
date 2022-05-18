@@ -99,11 +99,20 @@
   "image": "default.png"
  },
  {
-  "id": 12,
-  "first_name": "Ilyse",
-  "last_name": "Lodwig",
-  "email": "ilodwigb@go.com",
-  "password": "gPCoTDLNnp",
+  "id": 13,
+  "first_name": "Alejandro",
+  "last_name": "Navarro ",
+  "email": "ale@booksarmy.com",
+  "password": "ale1234",
+  "category": "admin",
+  "image": "1652890039858_img.png"
+ },
+ {
+  "id": 14,
+  "first_name": "user",
+  "last_name": "user",
+  "email": "pablomartilaly@gmail.com",
+  "password": "1234",
   "category": "user",
   "image": "default.png"
  }

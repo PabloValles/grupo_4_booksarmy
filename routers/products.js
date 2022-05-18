@@ -21,14 +21,13 @@ const productsController = require("../controllers/productsController");
 
 // Modificar para vista solo de usuarios
 router.get("/", productsController.all);
-router.get("/detail/:id", productsController.detailsProduct);
 router.get("/cart", productsController.cart);
-
-// Solo los administradores pueden ingresar a estas rutas
-router.get("/admin/edit/:id", productsController.editProduct);
 router.get("/admin/", productsController.productList);
 router.get("/admin/create", productsController.createProduct);
 router.post("/admin/create", upload.single("image"), productsController.store);
+
+router.get("/detail/:id", productsController.detailsProduct);
+router.get("/admin/edit/:id", productsController.editProduct);
 router.put(
   "/admin/edit/:id",
   upload.single("imagen"),

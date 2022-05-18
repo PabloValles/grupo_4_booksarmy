@@ -19,7 +19,10 @@
         ><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i
       ></a>
       <i class="fa-solid fa-bell fa-lg"></i>
+
+      <% if (locals.isLogged) { %>
       <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+      <% } %>
     </div>
     <button class="btn btn-secondary-booksarmy" id="btn-navbar">
       <i class="fa-solid fa-bars"></i>
@@ -30,11 +33,41 @@
       <a href="/">Inicio</a>
       <a href="/about">Nosotros</a>
       <a href="/products">Libros</a>
+      <% if (locals.isLogged) { if (locals.userLogged.category === "admin" ){ %>
       <a href="/admin"><div class="text-danger">Administrador</div></a>
+      <% }} %>
     </div>
     <div class="contact">
+      <% if (locals.isLogged) { %>
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="fa fa-user" aria-hidden="true"></i> <%=
+          locals.userLogged.first_name %>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="/users/profile">Mi perfil</a></li>
+
+          <% if (locals.userLogged.category == "admin") { %>
+          <li><a class="dropdown-item" href="/admin">Administrador</a></li>
+          <% } %>
+
+          <li>
+            <a class="dropdown-item" href="/users/logout">
+              <i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar sesión
+            </a>
+          </li>
+        </ul>
+      </div>
+      <% } else { %>
       <a href="/login"><i class="fas fa-sign-in"></i> Ingresar</a>
       <a href="/register"><i class="fas fa-address-book"></i> Crear cuenta</a>
+      <% } %>
     </div>
   </div>
   <div class="navbar__bottom-bar-mobile">
@@ -42,11 +75,14 @@
       <li><a href="/">Inicio</a></li>
       <li><a href="/about">Nosotros</a></li>
       <li><a href="/products">Libros</a></li>
+      <% if (locals.isLogged) { if (locals.userLogged.category === "admin" ) {
+      %>
       <li>
         <a href="/admin">
           <div class="text-danger">Administrador</div>
         </a>
       </li>
+      <% }} %>
     </ul>
     <div class="form-mobile" id="form-mobile">
       <input
@@ -60,8 +96,36 @@
       </button>
     </div>
     <div class="contact">
+      <% if (locals.isLogged) { %>
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="fa fa-user" aria-hidden="true"></i> <%=
+          locals.userLogged.first_name %>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="/users/profile">Mi perfil</a></li>
+
+          <% if (locals.userLogged.category == "admin") { %>
+          <li><a class="dropdown-item" href="/admin">Administrador</a></li>
+          <% } %>
+
+          <li>
+            <a class="dropdown-item" href="/users/logout">
+              <i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar sesión
+            </a>
+          </li>
+        </ul>
+      </div>
+      <% } else { %>
       <a href="/login"><i class="fas fa-sign-in"></i> Ingresar</a>
       <a href="/register"><i class="fas fa-address-book"></i> Crear cuenta</a>
+      <% } %>
     </div>
   </div>
 </nav>

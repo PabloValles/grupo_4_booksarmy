@@ -3,10 +3,8 @@ const app = express();
 
 const path = require("path");
 const { allowedNodeEnvironmentFlags } = require("process");
-
-const Swal = require("sweetalert2");
-
 const methodOverride = require("method-override"); // para poder usar los métodos PUT y DELETE
+const session = require("express-session");
 
 /*======> Requerimos nuestros routers <======*/
 const usersRoute = require("./routers/users");
@@ -20,7 +18,18 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-/*======> Utlizaremos ejs como motor de vistas <======*/
+// Middleware de aplicación global para las SESIONES
+const userLoggedMiddleware = require("./middlewares/userLoggedMiddleware");
+app.use(
+  session({
+    secret: "Codigo secreto",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(userLoggedMiddleware);
+
+// Utlizaremos ejs como motor de vistas
 app.set("view engine", "ejs");
 app.use(methodOverride("_method")); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 

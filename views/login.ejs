@@ -31,7 +31,7 @@
           </p>
         </div>
 
-        <form action="#" method="POST">
+        <form action="/users/login" method="POST">
           <label for="email" class="inp">
             <input type="email" id="email" placeholder="&nbsp;" name="email" />
             <span class="label">
@@ -42,7 +42,12 @@
           </label>
 
           <label for="password" class="inp">
-            <input type="password" id="password" placeholder="&nbsp;" />
+            <input
+              type="password"
+              id="password"
+              placeholder="&nbsp;"
+              name="password"
+            />
             <span class="label">
               <i class="fa-solid fa-key"></i>
               Contraseña
@@ -59,7 +64,9 @@
             <a href="#">¿Olvidaste la contraseña?</a>
           </div>
 
-          <button class="btn btn-secondary-booksarmy">Ingresar</button>
+          <button type="submit" class="btn btn-secondary-booksarmy">
+            Ingresar
+          </button>
 
           <div class="form-group social-btns">
             <p>O continuá con</p>

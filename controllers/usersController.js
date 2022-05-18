@@ -7,15 +7,56 @@ const userController = {
     return res.render("users/index", { usuarios });
   },
   profile: function (req, res) {
-    return res.render("users/profile");
+    return res.render("users/profile", {
+      user: req.session.userLogged,
+    });
   },
   login: function (req, res) {
     return res.render("users/login");
   },
   register: function (req, res) {
-    return res.render("users/register");
-  },
+    let userCheck = User.findByField("email", req.body.email);
 
+    if (userCheck) {
+      let error = "Error el usuario ya existe";
+      return res.send(error);
+    }
+
+    let userToCreate = {
+      first_name: req.body.first_name,
+      last_name: req.body.first_name,
+      email: req.body.email,
+      password: req.body.password,
+      category: "user",
+      image: "default.png",
+    };
+
+    // Crear usuario
+    let userNew = User.create(userToCreate);
+
+    // Crear la sesión y redirigir al home
+    return res.redirect("/login");
+  },
+  loginProcess: function (req, res) {
+    let userToLogin = User.findByField("email", req.body.email);
+
+    if (userToLogin) {
+      // Comparar contraseña / Luego hacerlo con bcrypt
+      if (userToLogin.password === req.body.password) {
+        delete userToLogin.password;
+
+        // Crear la sesión
+        req.session.userLogged = userToLogin;
+
+        return res.redirect("/users/profile");
+      }
+
+      return res.send("La contraseña es incorrecta");
+    }
+
+    // Enviar error el usuario no existe
+    return res.send("el user NO EXISTE");
+  },
   // Luego realizar el crud
   create: function (req, res) {
     return res.render("users/create");
@@ -76,7 +117,16 @@ const userController = {
 
   // Funciones de login
   login: function (req, res) {},
-  logout: function (req, res) {},
+  logout: function (req, res) {
+    // Borramos la cookie
+    //res.clearCookie('userEmail');
+
+    // Eliminamos la sesión
+    req.session.destroy();
+
+    // Redireccionamos a la home
+    return res.redirect("/");
+  },
 };
 
 module.exports = userController;

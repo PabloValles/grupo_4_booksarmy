@@ -9,7 +9,10 @@
       <div class="container">
         <div class="row">
           <div class="col-">
-            <h3>Bienvenido # Usuario</h3>
+            <% if (locals.isLogged) { %>
+              
+              <h3>Usuario: <span class="badge bg-primary"><%= locals.userLogged.email %></span> </h3>
+            <% } %>
           </div>
         </div>
         <div class="row py-3">

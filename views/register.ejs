@@ -31,7 +31,7 @@
           </p>
         </div>
 
-        <form action="#" method="POST">
+        <form action="/users/register" method="POST">
           <label for="email" class="inp">
             <input type="email" id="email" placeholder="&nbsp;" name="email" />
             <span class="label">
@@ -42,7 +42,13 @@
           </label>
 
           <label for="user" class="inp">
-            <input type="text" id="user" placeholder="&nbsp;" name="user" />
+            <input
+              type="text"
+              id="user"
+              placeholder="&nbsp;"
+              name="first_name"
+              required
+            />
             <span class="label">
               <i class="fa fa-user fa-md" aria-hidden="true"></i>
               Usuario
@@ -51,7 +57,12 @@
           </label>
 
           <label for="password" class="inp">
-            <input type="password" id="password" placeholder="&nbsp;" />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="&nbsp;"
+            />
             <span class="label">
               <i class="fa-solid fa-key"></i>
               Contraseña
@@ -59,8 +70,13 @@
             <span class="focus-bg"></span>
           </label>
 
-          <label for="password" class="inp">
-            <input type="password" id="password" placeholder="&nbsp;" />
+          <label for="password_confirm" class="inp">
+            <input
+              type="password"
+              id="password_confirm"
+              name="password_confirm"
+              placeholder="&nbsp;"
+            />
             <span class="label">
               <i class="fa-solid fa-lock"></i>
               Confirmá tu contraseña
@@ -68,7 +84,9 @@
             <span class="focus-bg"></span>
           </label>
 
-          <button class="btn btn-secondary-booksarmy">Ingresar</button>
+          <button type="submit" class="btn btn-secondary-booksarmy">
+            Registrarse
+          </button>
 
           <div class="form-group social-btns">
             <p>O continuá con</p>
