@@ -2,118 +2,28 @@
  {
   "id": 1,
   "first_name": "admin",
-  "last_name": "admin",
+  "last_name": "admin  ",
   "email": "admin@booksarmy.com",
-  "password": "1234",
+  "password": "$2a$10$zi7meHhAtjzOMMKhdMCW5ubeBuFqTy2Noqq1ucJF/k.iQSODt9.PO",
   "category": "admin",
   "image": "1652748485220_img.png"
  },
  {
-  "id": 2,
-  "first_name": "Sibylla",
-  "last_name": "Willarton ",
-  "email": "swillarton1@latimes.com",
-  "password": "VhMbHoSCT22",
+  "id": 15,
+  "first_name": "lala",
+  "last_name": "lala",
+  "email": "lala@lala",
+  "password": "$2a$10$/tfOq0mapfkrRwLTaECFXe7YMtfoiIZP8nPqfkFpbUU8Zn8rAa7Yq",
+  "category": "user",
+  "image": "default.png"
+ },
+ {
+  "id": 16,
+  "first_name": "perfiladmin",
+  "last_name": "admin",
+  "email": "perfiladmin@gmail.com",
+  "password": "$2a$10$nm8g5olHuAEzNy1J/KGbL.3xbc7TMpYN.3d0kXcXiugSL/PyeKd4W",
   "category": "admin",
-  "image": "default.png"
- },
- {
-  "id": 3,
-  "first_name": "Carrie",
-  "last_name": "Brendish",
-  "email": "cbrendish2@twitpic.com",
-  "password": "nqidln",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 4,
-  "first_name": "Ilysa",
-  "last_name": "Rasell",
-  "email": "irasell3@bluehost.com",
-  "password": "qKRDfQk9yuru",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 5,
-  "first_name": "Vallie",
-  "last_name": "Gowans",
-  "email": "vgowans4@behance.net",
-  "password": "0ATGQJl",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 6,
-  "first_name": "Annnora",
-  "last_name": "Spinage",
-  "email": "aspinage5@jigsy.com",
-  "password": "eWu56mktz1f",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 7,
-  "first_name": "Hedvig",
-  "last_name": "Morey",
-  "email": "hmorey6@arstechnica.com",
-  "password": "ZOm1Rfs",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 8,
-  "first_name": "Genna",
-  "last_name": "Sleep",
-  "email": "gsleep7@hhs.gov",
-  "password": "LW9JvwviJ",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 9,
-  "first_name": "Adelice",
-  "last_name": "Flemyng",
-  "email": "aflemyng8@e-recht24.de",
-  "password": "spcwyEbsbJ",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 10,
-  "first_name": "Danyelle",
-  "last_name": "Ockland",
-  "email": "dockland9@etsy.com",
-  "password": "8xyzTNnf4O6",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 11,
-  "first_name": "Tadio",
-  "last_name": "MacInherney",
-  "email": "tmacinherneya@yahoo.com",
-  "password": "97zbX5jw",
-  "category": "user",
-  "image": "default.png"
- },
- {
-  "id": 13,
-  "first_name": "Alejandro",
-  "last_name": "Navarro ",
-  "email": "ale@booksarmy.com",
-  "password": "ale1234",
-  "category": "admin",
-  "image": "1652890039858_img.png"
- },
- {
-  "id": 14,
-  "first_name": "user",
-  "last_name": "user",
-  "email": "pablomartilaly@gmail.com",
-  "password": "1234",
-  "category": "user",
-  "image": "default.png"
+  "image": "1652903668384_img.png"
  }
 ]

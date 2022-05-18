@@ -1,3 +1,4 @@
+const bcryptjs = require("bcryptjs");
 const User = require("../models/User");
 
 const userController = {
@@ -26,7 +27,8 @@ const userController = {
       first_name: req.body.first_name,
       last_name: req.body.first_name,
       email: req.body.email,
-      password: req.body.password,
+      // armar el password
+      password: bcryptjs.hashSync(req.body.password, 10),
       category: "user",
       image: "default.png",
     };
@@ -42,7 +44,12 @@ const userController = {
 
     if (userToLogin) {
       // Comparar contraseña / Luego hacerlo con bcrypt
-      if (userToLogin.password === req.body.password) {
+      let isOkThePassword = bcryptjs.compareSync(
+        req.body.password,
+        userToLogin.password
+      );
+
+      if (isOkThePassword) {
         delete userToLogin.password;
 
         // Crear la sesión
@@ -71,6 +78,7 @@ const userController = {
 
     let userToCreate = {
       ...req.body,
+      password: bcryptjs.hashSync(req.body.password, 10),
       image: req.file.filename,
     };
 
@@ -84,9 +92,11 @@ const userController = {
   },
   update: function (req, res) {
     let userDB = User.findByPk(req.params.id);
-
     let userImg = req.file ? req.file.filename : userDB.image;
-    let userPass = req.body.password ? req.body.password : userDB.password;
+
+    let userPass = req.body.password
+      ? bcryptjs.hashSync(req.body.password, 10)
+      : userDB.password;
 
     let userToUpdate = {
       id: parseInt(req.params.id),
