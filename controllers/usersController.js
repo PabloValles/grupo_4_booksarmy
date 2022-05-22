@@ -64,6 +64,16 @@ const userController = {
     // Enviar error el usuario no existe
     return res.send("el user NO EXISTE");
   },
+  logout: function (req, res) {
+    // Borramos la cookie
+    //res.clearCookie('userEmail');
+
+    // Eliminamos la sesión
+    req.session.destroy();
+
+    // Redireccionamos a la home
+    return res.redirect("/");
+  },
   // Luego realizar el crud
   create: function (req, res) {
     return res.render("users/create");
@@ -123,19 +133,6 @@ const userController = {
     }
 
     return res.redirect("/users");
-  },
-
-  // Funciones de login
-  login: function (req, res) {},
-  logout: function (req, res) {
-    // Borramos la cookie
-    //res.clearCookie('userEmail');
-
-    // Eliminamos la sesión
-    req.session.destroy();
-
-    // Redireccionamos a la home
-    return res.redirect("/");
   },
 };
 

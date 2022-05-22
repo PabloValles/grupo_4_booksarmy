@@ -25,5 +25,23 @@
   "password": "$2a$10$nm8g5olHuAEzNy1J/KGbL.3xbc7TMpYN.3d0kXcXiugSL/PyeKd4W",
   "category": "admin",
   "image": "1652903668384_img.png"
+ },
+ {
+  "id": 17,
+  "first_name": "noemi",
+  "last_name": "noemi ",
+  "email": "noemi@booksarmy.com",
+  "password": "$2a$10$/ADFrNA79E32Uk5rocyPKuT3jC7Sz3NkGIt8t50kwmMEimUH/s58e",
+  "category": "admin",
+  "image": "default.png"
+ },
+ {
+  "id": 18,
+  "first_name": "visitante",
+  "last_name": "1234",
+  "email": "1234@1234",
+  "password": "$2a$10$C9F75qaBk4R1xepL1.3FdOKeHkTl3jqxt96E0HPZ5xIOTDv6zwKvy",
+  "category": "user",
+  "image": "1653248863433_img.png"
  }
 ]
