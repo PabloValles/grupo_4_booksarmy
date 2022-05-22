@@ -5,11 +5,12 @@ const usersController = require("../controllers/usersController");
 const uploadFile = require("../middlewares/multerMiddleware");
 const authMiddleware = require("../middlewares/authMiddleware");
 const guestMiddleware = require("../middlewares/guestMiddleware");
+const validateUserRegister = require("../middlewares/validateUserRegister");
 
 // Modificar para vista solo de usuarios
 router.get("/", usersController.index);
 router.get("/create", usersController.create);
-router.post("/register", usersController.register);
+router.post("/register", validateUserRegister, usersController.register);
 router.post("/login", usersController.loginProcess);
 router.post("/create", uploadFile.single("image"), usersController.store);
 

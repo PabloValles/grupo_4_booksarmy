@@ -9,9 +9,9 @@
       src="https://kit.fontawesome.com/79d4a4a910.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/login.css" />
   </head>
   <body>
     <header>
@@ -33,12 +33,22 @@
 
         <form action="/users/register" method="POST">
           <label for="email" class="inp">
-            <input type="email" id="email" placeholder="&nbsp;" name="email" />
+            <input
+              type="email"
+              id="email"
+              placeholder="&nbsp;"
+              name="email"
+              value="<%= locals.oldData ? oldData.email : null %>"
+            />
             <span class="label">
               <i class="fa-solid fa-envelope"></i>
               Dirección de correo electrónico
             </span>
-            <span class="focus-bg"></span>
+            <span class="focus-bg">
+              <% if (locals.errors && errors.email) { %>
+              <div style="color: red"><%= errors.email.msg %></div>
+              <% } %>
+            </span>
           </label>
 
           <label for="user" class="inp">
@@ -47,13 +57,17 @@
               id="user"
               placeholder="&nbsp;"
               name="first_name"
-              required
+              value="<%= locals.oldData ? oldData.first_name : null %>"
             />
             <span class="label">
               <i class="fa fa-user fa-md" aria-hidden="true"></i>
               Usuario
             </span>
-            <span class="focus-bg"></span>
+            <span class="focus-bg">
+              <% if (locals.errors && errors.first_name) { %>
+              <div style="color: red"><%= errors.first_name.msg %></div>
+              <% } %>
+            </span>
           </label>
 
           <label for="password" class="inp">
@@ -97,7 +111,7 @@
         </form>
       </div>
       <div class="login-img">
-        <img src="img/register/Saly-16.png" alt="" />
+        <img src="/img/register/Saly-16.png" alt="" />
       </div>
     </main>
   </body>

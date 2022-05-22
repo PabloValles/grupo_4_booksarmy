@@ -43,5 +43,14 @@
   "password": "$2a$10$C9F75qaBk4R1xepL1.3FdOKeHkTl3jqxt96E0HPZ5xIOTDv6zwKvy",
   "category": "user",
   "image": "1653248863433_img.png"
+ },
+ {
+  "id": 19,
+  "first_name": "1",
+  "last_name": "1",
+  "email": "1@1.com",
+  "password": "$2a$10$aqvQw/7B13ebJDbhsy5JbOFL.hJXdciP5rNrQMPnkvv6TPxFDuqL2",
+  "category": "user",
+  "image": "default.png"
  }
 ]

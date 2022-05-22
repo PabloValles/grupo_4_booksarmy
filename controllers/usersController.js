@@ -1,5 +1,6 @@
 const bcryptjs = require("bcryptjs");
 const User = require("../models/User");
+const { validationResult } = require("express-validator");
 
 const userController = {
   index: function (req, res) {
@@ -16,11 +17,27 @@ const userController = {
     return res.render("users/login");
   },
   register: function (req, res) {
+    let validacion = validationResult(req);
+
+    if (validacion.errors.length > 0) {
+      console.log(validacion.errors);
+      return res.render("register", {
+        errors: validacion.mapped(),
+        oldData: req.body,
+      });
+    }
+
     let userCheck = User.findByField("email", req.body.email);
 
     if (userCheck) {
-      let error = "Error el usuario ya existe";
-      return res.send(error);
+      return res.render("register", {
+        errors: {
+          email: {
+            msg: "Este email ya está registrado",
+          },
+        },
+        oldData: req.body,
+      });
     }
 
     let userToCreate = {
