@@ -46,11 +46,11 @@
  },
  {
   "id": 19,
-  "first_name": "1",
-  "last_name": "1",
-  "email": "1@1.com",
-  "password": "$2a$10$aqvQw/7B13ebJDbhsy5JbOFL.hJXdciP5rNrQMPnkvv6TPxFDuqL2",
+  "first_name": "prueba",
+  "last_name": "prueba",
+  "email": "prueba@mail.com",
+  "password": "$2a$10$awgvtSOfNoeFhoiFAcpBeeWP8YMNxO3jpP81aj6k7gUNGdpzVyH3i",
   "category": "user",
-  "image": "default.png"
+  "image": "1653603190210_img.png"
  }
 ]
