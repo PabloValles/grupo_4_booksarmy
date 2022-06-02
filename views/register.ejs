@@ -81,7 +81,11 @@
               <i class="fa-solid fa-key"></i>
               Contraseña
             </span>
-            <span class="focus-bg"></span>
+            <span class="focus-bg">
+              <% if (locals.errors && errors.password) { %>
+              <div style="color: red"><%= errors.password.msg %></div>
+              <% } %>
+            </span>
           </label>
 
           <label for="password_confirm" class="inp">

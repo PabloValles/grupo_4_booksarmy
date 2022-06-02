@@ -60,7 +60,7 @@ const userController = {
     let userToLogin = User.findByField("email", req.body.email);
 
     if (userToLogin) {
-      // Comparar contraseña / Luego hacerlo con bcrypt
+      // Comparar contraseña
       let isOkThePassword = bcryptjs.compareSync(
         req.body.password,
         userToLogin.password
