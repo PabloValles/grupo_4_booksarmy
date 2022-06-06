@@ -5,7 +5,13 @@ const db = require("../database/models/index");
 
 const userController = {
   index: function (req, res) {
-    db.User.findAll().then((u) => res.render("users/index", { usuarios: u }));
+    db.User.findAll({
+      include: [
+        {
+          association: "categorias",
+        },
+      ],
+    }).then((u) => res.render("users/index", { usuarios: u }));
   },
   profile: function (req, res) {
     return res.render("users/profile", {
