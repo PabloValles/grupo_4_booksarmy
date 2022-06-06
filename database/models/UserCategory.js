@@ -1,27 +1,29 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   let alias = "UserCategory";
   let cols = {
     id: {
-      type: dataTypes.int(11).UNSIGNED,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
       autoIncrement: true,
     },
     name: {
-      type: dataTypes.STRING(100),
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
   };
   let config = {
-    timestamps: true,
-    deletedAt: false,
+    tableName: "user_categories",
+    timestamps: false,
   };
 
   const UserCategory = sequelize.define(alias, cols, config);
 
-  // Terminar asociaciones MAÑANAA
-  UserCategory.associate = (models) => {
-    // Relación HASMAHY
+  UserCategory.associate = function (models) {
+    UserCategory.hasMany(models.User, {
+      as: "usuarios",
+      foreignKey: "category_id",
+    });
   };
 
   return UserCategory;

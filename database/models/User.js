@@ -1,47 +1,49 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   let alias = "User";
   let cols = {
     id: {
-      type: dataTypes.int(11).UNSIGNED,
+      type: DataTypes.INTEGER,
       primaryKey: true,
-      allowNull: false,
       autoIncrement: true,
+      allowNull: false,
     },
     first_name: {
-      type: dataTypes.STRING(100),
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
     last_name: {
-      type: dataTypes.STRING(100),
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
     email: {
-      type: dataTypes.STRING(100),
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
     password: {
-      type: dataTypes.STRING(100),
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
     category_id: {
-      type: dataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     image: {
-      type: dataTypes.STRING(100),
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
   };
   let config = {
-    timestamps: true,
-    deletedAt: false,
+    tableName: "users",
+    timestamps: false,
   };
 
   const User = sequelize.define(alias, cols, config);
 
-  // Terminar asociaciones MAÑANAA
-  User.associate = (models) => {
-    // Relación Belong To
+  User.associate = function (models) {
+    User.belongsTo(models.UserCategory, {
+      as: "categoria",
+      foreignKey: "category_id",
+    });
   };
 
   return User;

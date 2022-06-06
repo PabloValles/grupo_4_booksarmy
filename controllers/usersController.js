@@ -1,12 +1,11 @@
 const bcryptjs = require("bcryptjs");
 const User = require("../models/User");
 const { validationResult } = require("express-validator");
+const db = require("../database/models/index");
 
 const userController = {
   index: function (req, res) {
-    const usuarios = User.findAll();
-
-    return res.render("users/index", { usuarios });
+    db.User.findAll().then((u) => res.render("users/index", { usuarios: u }));
   },
   profile: function (req, res) {
     return res.render("users/profile", {

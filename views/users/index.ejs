@@ -36,7 +36,7 @@
                         <td scope="row"><%= user.first_name %></td> </td>
                         <td><%= user.email %></td>
                         <td>
-                          <span class="badge <%= (user.category == "admin") ? "bg-success" : "bg-dark bg-gradient" %>"><%= user.category %> </span>
+                          < class="badge <%= (user.category_id == 1) ? "bg-success" : "bg-dark bg-gradient" %>"><%= user.category_id %> </span>
                         </td>
                         <td>
                           <form action="/users/delete/<%= user.id %>/?_method=DELETE" method="post">
