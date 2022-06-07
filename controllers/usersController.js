@@ -119,11 +119,16 @@ const userController = {
     return res.redirect("/users");
   },
   edit: function (req, res) {
-    let user = User.findByPk(req.params.id);
-    return res.render("users/edit", { user });
+    const user = db.User.findByPk(req.params.id);
+    const categorias = db.categorias.findAll();
+
+    Promise.all([user, categorias]).then(([usuarios, categorias]) => {
+      return res.render("users/edit", { user: usuarios, categorias });
+    });
   },
   update: function (req, res) {
     let userDB = User.findByPk(req.params.id);
+
     let userImg = req.file ? req.file.filename : userDB.image;
 
     let userPass = req.body.password
