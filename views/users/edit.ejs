@@ -47,7 +47,7 @@
             <div class="col-md-4">
               <label for="category" class="form-label">Categoría</label>
               <%= user.category_id %> 
-              <select class="form-select" id="category" name="category">
+              <select class="form-select" id="category" name="category_id">
                 <% categorias.forEach(cat => { %>
 
                   <% if (cat.id === user.category_id) { %>

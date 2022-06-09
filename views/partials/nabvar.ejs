@@ -33,7 +33,7 @@
       <a href="/">Inicio</a>
       <a href="/about">Nosotros</a>
       <a href="/products">Libros</a>
-      <% if (locals.isLogged) { if (locals.userLogged.category === "admin" ){ %>
+      <% if (locals.isLogged) { if (locals.userLogged.category_id === 1 ){ %>
       <a href="/admin"><div class="text-danger">Administrador</div></a>
       <% }} %>
     </div>
@@ -53,7 +53,7 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="/users/profile">Mi perfil</a></li>
 
-          <% if (locals.userLogged.category == "admin") { %>
+          <% if (locals.userLogged.category_id === 1) { %>
           <li><a class="dropdown-item" href="/admin">Administrador</a></li>
           <% } %>
 
@@ -75,8 +75,7 @@
       <li><a href="/">Inicio</a></li>
       <li><a href="/about">Nosotros</a></li>
       <li><a href="/products">Libros</a></li>
-      <% if (locals.isLogged) { if (locals.userLogged.category === "admin" ) {
-      %>
+      <% if (locals.isLogged) { if (locals.userLogged.category_id === 1 ) { %>
       <li>
         <a href="/admin">
           <div class="text-danger">Administrador</div>
@@ -111,7 +110,7 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="/users/profile">Mi perfil</a></li>
 
-          <% if (locals.userLogged.category == "admin") { %>
+          <% if (locals.userLogged.category_id === 1) { %>
           <li><a class="dropdown-item" href="/admin">Administrador</a></li>
           <% } %>
 

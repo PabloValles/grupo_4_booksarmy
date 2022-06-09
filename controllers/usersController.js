@@ -32,59 +32,65 @@ const userController = {
       });
     }
 
-    let userCheck = User.findByField("email", req.body.email);
-
-    if (userCheck) {
-      return res.render("register", {
-        errors: {
-          email: {
-            msg: "Este email ya está registrado",
+    db.User.findAll({
+      where: {
+        email: req.body.email,
+      },
+    }).then((user) => {
+      if (user.length > 0) {
+        return res.render("register", {
+          errors: {
+            email: {
+              msg: "Este email ya está registrado",
+            },
           },
-        },
-        oldData: req.body,
-      });
-    }
-
-    let userToCreate = {
-      first_name: req.body.first_name,
-      last_name: req.body.first_name,
-      email: req.body.email,
-      // armar el password
-      password: bcryptjs.hashSync(req.body.password, 10),
-      category: "user",
-      image: "default.png",
-    };
-
-    // Crear usuario
-    let userNew = User.create(userToCreate);
-
-    // Crear la sesión y redirigir al home
-    return res.redirect("/login");
-  },
-  loginProcess: function (req, res) {
-    let userToLogin = User.findByField("email", req.body.email);
-
-    if (userToLogin) {
-      // Comparar contraseña
-      let isOkThePassword = bcryptjs.compareSync(
-        req.body.password,
-        userToLogin.password
-      );
-
-      if (isOkThePassword) {
-        delete userToLogin.password;
-
-        // Crear la sesión
-        req.session.userLogged = userToLogin;
-
-        return res.redirect("/users/profile");
+          oldData: req.body,
+        });
       }
 
-      return res.send("La contraseña es incorrecta");
-    }
+      let userToCreate = {
+        first_name: req.body.first_name,
+        last_name: req.body.first_name,
+        email: req.body.email,
+        // armar el password
+        password: bcryptjs.hashSync(req.body.password, 10),
+        category_id: 2,
+        image: "default.png",
+      };
 
-    // Enviar error el usuario no existe
-    return res.send("el user NO EXISTE");
+      // Crear usuario
+      User.create(userToCreate);
+      db.User.create(userToCreate);
+
+      // Crear la sesión y redirigir al home
+      return res.redirect("/login");
+    });
+  },
+  loginProcess: function (req, res) {
+    db.User.findAll({
+      where: { email: req.body.email },
+    }).then((userToLogin) => {
+      if (userToLogin.length > 0) {
+        let isOkThePassword = bcryptjs.compareSync(
+          req.body.password,
+          userToLogin[0].password
+        );
+
+        if (isOkThePassword) {
+          delete userToLogin[0].password;
+
+          // Crear la sesión
+          req.session.userLogged = userToLogin[0];
+
+          return res.redirect("/users/profile");
+        }
+
+        return res.send("La contraseña es incorrecta");
+      }
+
+      // Enviar error el usuario no existe
+      return res.send("el user NO EXISTE");
+    });
   },
   logout: function (req, res) {
     // Borramos la cookie
@@ -97,26 +103,39 @@ const userController = {
     return res.redirect("/");
   },
   // Luego realizar el crud
-  create: function (req, res) {
-    return res.render("users/create");
-  },
+  create: (req, res) => res.render("users/create"),
+
   store: function (req, res) {
-    let userCheck = User.findByField("email", req.body.email);
+    //let userCheck = User.findByField("email", req.body.email);
 
-    if (userCheck) {
-      let error = "Error el usuario ya existe";
-      return res.send(error);
-    }
+    db.User.findAll({
+      where: {
+        email: req.body.email,
+      },
+    }).then((user) => {
+      if (user.length > 0) {
+        let error = "Error el usuario ya existe";
+        return res.send(error);
+      }
 
-    let userToCreate = {
-      ...req.body,
-      password: bcryptjs.hashSync(req.body.password, 10),
-      image: req.file.filename,
-    };
+      let img_user = "default.png";
 
-    let userNew = User.create(userToCreate);
+      if (req.file) {
+        img_user = req.file.filename;
+      }
 
-    return res.redirect("/users");
+      let userToCreate = {
+        ...req.body,
+        password: bcryptjs.hashSync(req.body.password, 10),
+        category_id: parseInt(req.body.category_id),
+        image: img_user,
+      };
+
+      User.create(userToCreate);
+      db.User.create(userToCreate);
+
+      return res.redirect("/users");
+    });
   },
   edit: function (req, res) {
     const user = db.User.findByPk(req.params.id);
@@ -127,39 +146,42 @@ const userController = {
     });
   },
   update: function (req, res) {
-    let userDB = User.findByPk(req.params.id);
+    db.User.findByPk(req.params.id).then((usuario) => {
+      let userImg = req.file ? req.file.filename : usuario.image;
 
-    let userImg = req.file ? req.file.filename : userDB.image;
+      let userPass = req.body.password
+        ? bcryptjs.hashSync(req.body.password, 10)
+        : usuario.password;
 
-    let userPass = req.body.password
-      ? bcryptjs.hashSync(req.body.password, 10)
-      : userDB.password;
+      let userToUpdate = {
+        id: parseInt(req.params.id),
+        ...req.body,
+        password: userPass,
+        category_id: parseInt(req.body.category_id),
+        image: userImg,
+      };
 
-    let userToUpdate = {
-      id: parseInt(req.params.id),
-      ...req.body,
-      password: userPass,
-      image: userImg,
-    };
+      db.User.update(userToUpdate, {
+        where: {
+          id: req.params.id,
+        },
+      });
+      User.update(userToUpdate);
 
-    let response = User.update(userToUpdate);
-
-    if (response == null) {
-      // Enviar Error
-    }
-
-    return res.redirect("/users");
+      return res.redirect("/users");
+    });
   },
   delete: function (req, res) {
     let userToDelete = User.findByPk(req.params.id);
 
-    let response = User.delete(userToDelete);
+    db.User.findByPk(req.params.id).then((user) => {
+      User.delete(userToDelete);
+      db.User.destroy({
+        where: { id: req.params.id },
+      });
 
-    if (response == null) {
-      // Enviar Error
-    }
-
-    return res.redirect("/users");
+      return res.redirect("/users");
+    });
   },
 };
 
