@@ -1,14 +1,5 @@
 [
  {
-  "id": 1,
-  "first_name": "admin",
-  "last_name": "admin  ",
-  "email": "admin@booksarmy.com",
-  "password": "$2a$10$zi7meHhAtjzOMMKhdMCW5ubeBuFqTy2Noqq1ucJF/k.iQSODt9.PO",
-  "category": "admin",
-  "image": "1652748485220_img.png"
- },
- {
   "id": 15,
   "first_name": "lala",
   "last_name": "lala",
@@ -46,38 +37,83 @@
  },
  {
   "id": 19,
-  "first_name": "prueba",
-  "last_name": "prueba",
-  "email": "prueba@mail.com",
-  "password": "$2a$10$awgvtSOfNoeFhoiFAcpBeeWP8YMNxO3jpP81aj6k7gUNGdpzVyH3i",
-  "category": "user",
-  "image": "1653603190210_img.png"
- },
- {
-  "id": 20,
   "first_name": "Pablo",
   "last_name": "Valles",
-  "email": "valles.pablo@hotmail.com",
-  "password": "$2a$10$0EiP0koldGetfQjRFM5a2ultdkeEifjXNgUnNrZrm4YhsJHW172Yq",
+  "email": "admin@booksarmy.com",
+  "password": "$2a$10$Zoa0xW9QgT359j/CZzsS9.Cs7xV.E2.0lmQjcEGn344NQQoEs5CEC",
   "category_id": 1,
+  "image": "1654955489051_img.png"
+ },
+ {
+  "id": 24,
+  "first_name": "admin",
+  "last_name": "admin",
+  "email": "admin@booksarmy.com",
+  "password": "$2a$10$Zoa0xW9QgT359j/CZzsS9.Cs7xV.E2.0lmQjcEGn344NQQoEs5CEC",
+  "category_id": 2,
   "image": "default.png"
  },
  {
-  "id": 22,
-  "first_name": "Ale",
+  "id": 25,
+  "first_name": "1",
+  "last_name": "1",
+  "email": "1@1.com",
+  "password": "$2a$10$sZpj.U4SrENOkbpNLMc2Pes5ke/fXIQExLtiwBQV4/BbkeL2eFdgy",
+  "category_id": 2,
+  "image": "1654953004086_img.jpg"
+ },
+ {
+  "id": 26,
+  "first_name": "Alejandro",
   "last_name": "Navarro",
   "email": "ale@booksarmy.com",
-  "password": "$2a$10$RX8wRzzej9Ftud0j.qEgLeTle/jqyLRMgz6H2rg0GN3G6r5P/3k3e",
+  "password": "$2a$10$HJhgBGdt53YX.OcyoT5JDeeyWsp0tLFexSNxIfRbuWL51foboZsNa",
+  "category_id": 1,
+  "image": "1654953309685_img.jpg"
+ },
+ {
+  "id": 27,
+  "first_name": "Redford",
+  "last_name": "Fonso",
+  "email": "rfonso0@army.mil",
+  "password": "$2a$10$VmTM8STZtrc7sMREK2mR6u3eOd.Up1M2GpergejpTizKvWoyS3zfS",
+  "category_id": 2,
+  "image": "1654954933707_img.png"
+ },
+ {
+  "id": 28,
+  "first_name": "Billy",
+  "last_name": "Grog",
+  "email": "bgrog1@dropbox.com",
+  "password": "$2a$10$hXUkYFtuE3/.vzKdkGtPJOtenCIeha6KWfbFatcFMx3wrz.4SzbJ6",
+  "category_id": 2,
+  "image": "1654954981925_img.png"
+ },
+ {
+  "id": 29,
+  "first_name": "1",
+  "last_name": "1",
+  "email": "1@1.com",
+  "password": "$2a$10$icHzxmo2FXkDzqkxoWLore9qcO7BJEGmmh.SRiXXHFIMIcLza5CxC",
+  "category_id": 2,
+  "image": "1654958965302_img.png"
+ },
+ {
+  "id": 30,
+  "first_name": "2",
+  "last_name": "2",
+  "email": "2@2",
+  "password": "$2a$10$uQDGAruLKdZbjekN18E7huHcYI846Vd82FgMyiHhFNXFFdBQaG04O",
   "category_id": 2,
   "image": "default.png"
  },
  {
-  "id": 23,
-  "first_name": "pablo 2",
-  "last_name": "pablo 2",
-  "email": "pablomartilaly@gmail.com",
-  "password": "$2a$10$mGpLwwAFCZiEJOz.KSTeZu5K8Y.GD9V7mtirjMhMPYtH8ePuAI9/i",
+  "id": 31,
+  "first_name": "3",
+  "last_name": "3",
+  "email": "3@3.com",
+  "password": "$2a$10$0etYbBfDoCvlAeUOK9P5GOLlm7I2kTGmn27q8Fjcx6whaymXHCqKW",
   "category_id": 2,
-  "image": "default.png"
+  "image": "1654959020326_img.png"
  }
 ]

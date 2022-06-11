@@ -3,24 +3,68 @@
   <header class="cart-header">
     <div class="container"><%- include("../partials/nabvar") %></div>
 
-  <main>
-    <section class="about-us py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
+  <main class="mb-5 pb-5 bg-light">
+    <div class="container mb-5 pb-5">
+      <div class="row mt-5">
 
-            <h3>Usuario: <%= user.first_name %> </h3>
-            
-            <img src="/img/users/<%= user.image %>" alt="" width="200">
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <!-- Card-->
+          <div class="card rounded shadow-sm border-0">
+            <div class="card-body p-4">
+              <img src="/img/users/<%= user.image %>" alt="" class="img-fluid d-block mx-auto mb-3">
+              <h5> <a href="#" class="text-dark"><%= user.first_name %> <%= user.last_name %></a></h5>
+              <p class="small text-muted font-italic"><%= user.email %></p>
+              <ul class="list-inline small">
+                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+              </ul>
 
-            <p><%= user.last_name %> </p>
-            <p><%= user.email %> </p>
-
-            <p>OJO! TERMINAR VISTA</p>
+              <button type="button" class="btn btn-warning">
+                <% if (user.category_id == 1) { %>
+                  <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Administrador
+                <% } else { %>
+                  Bienvenido usuario usted a hecho: <span class="badge text-bg-secondary">0 </span> compras este mes
+                <% } %>
+              </button>
+            </div>
           </div>
         </div>
+
+        <div class="col-md-6 col-lg-6">
+          <h2>Perfil de usuario</h2>
+
+          <ul class="list-group">
+            <li class="list-group-item">Nombre: <%= user.first_name %> </li>
+            <li class="list-group-item">Apellido: <%= user.last_name %></li>
+            <li class="list-group-item">email: <%= user.email %> </li>
+            <li class="list-group-item">
+              <% if (user.category_id == 1) { %>
+                Usuario: Administrador
+                <% } else { %>
+                Cantidad de compras: <span>55</span>
+              <% } %>
+            </li>
+          </ul>
+
+          <ul class="icon-list ps-0 mt-4">
+            <li class="d-flex align-items-start mb-1">
+              <a href="/users/edit/<%= user.id %> " class="btn btn-primary btn-sm"> <i class="fas fa-edit fa-lg"></i> Editar perfil</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <div class="d-flex justify-content-end">
+            <a class="btn btn-outline-dark btn-sm " href="/admin" role="button"> Panel de control </a>
+          </div>
+        </div>
+
       </div>
-    </section>
+      
+    </div>
   </main>
 
   <%- include("../partials/footer") %>

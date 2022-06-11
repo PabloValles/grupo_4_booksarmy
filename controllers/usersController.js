@@ -172,16 +172,18 @@ const userController = {
     });
   },
   delete: function (req, res) {
-    let userToDelete = User.findByPk(req.params.id);
+    console.log("desde el controlador", req.params.id);
 
-    db.User.findByPk(req.params.id).then((user) => {
-      User.delete(userToDelete);
-      db.User.destroy({
-        where: { id: req.params.id },
-      });
+    db.User.findByPk(req.params.id)
+      .then((user) => {
+        User.delete(user);
+        db.User.destroy({
+          where: { id: req.params.id },
+        });
 
-      return res.redirect("/users");
-    });
+        return res.redirect("/users");
+      })
+      .catch((err) => console.log(err));
   },
 };
 
