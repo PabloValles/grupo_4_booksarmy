@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
   const Author = sequelize.define(alias, cols, config);
 
   Author.associate = function (models) {
-    Author.hasMany(models.libros, {
+    Author.hasMany(models.Books, {
       as: "books",
       foreignKey: "autor_id",
     });

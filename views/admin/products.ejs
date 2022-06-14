@@ -21,14 +21,14 @@
           <div class="row mt-2">
             <div class="col-12">
               <div class="table-responsive">
-                <table class="table table-sm align-middle">
+                <table class="table table-sm align-middle table-bordered table-striped">
                   <thead class="bg-secondary text-white text-center">
                     <tr>
                       <th scope="col">Portada</th>
                       <th scope="col">Nombre</th>
                       <th scope="col">Autor</th>
                       <th scope="col">Stock</th>
-                      <th scope="col">#</th>
+                      <th scope="col" width="100">#</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -42,12 +42,18 @@
                         />
                       </td>
                       <td><a href="/products/detail/<%= libro.id %>"><%= libro.name %></a> </td>
-                      <td><%= libro.autor %></td>
+                      <td>
+                        <% if (libro.authors.last_name != "") { %>
+                          <%= libro.authors.last_name %>
+                        <% } else { %>
+                            <%= libro.authors.first_name %>
+                        <% } %> 
+                      </td>
                       <td><%= libro.stock %></td>
                       <td> 
                         <form action="/products/admin/delete/<%= libro.id %>/?_method=DELETE" method="POST" style="margin-bottom: 0;">
-                          <a href="/products/admin/edit/<%= libro.id %> " class="btn btn-primary btn-xs"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                          <button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>                            
+                          <a href="/products/admin/edit/<%= libro.id %> " class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                          <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>                            
                         </form>
                       </td>
                     </tr>

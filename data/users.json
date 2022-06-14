@@ -36,15 +36,6 @@
   "image": "1653248863433_img.png"
  },
  {
-  "id": 19,
-  "first_name": "Pablo",
-  "last_name": "Valles",
-  "email": "admin@booksarmy.com",
-  "password": "$2a$10$Zoa0xW9QgT359j/CZzsS9.Cs7xV.E2.0lmQjcEGn344NQQoEs5CEC",
-  "category_id": 1,
-  "image": "1654955489051_img.png"
- },
- {
   "id": 24,
   "first_name": "admin",
   "last_name": "admin",

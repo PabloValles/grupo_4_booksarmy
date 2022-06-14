@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const productModel = require("../models/productModel");
+const db = require("../database/models/index");
 
 const productsFilePath = path.join(__dirname, "../data/books.json");
 const libros = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
@@ -12,8 +13,11 @@ let productsController = {
     return librosArray;
   },
   all: function (req, res) {
-    let librosThis = productModel.getData();
-    res.render("products/products", { librosThis });
+    db.Books.findAll({
+      include: [{ association: "authors" }, { association: "booksFormat" }],
+    }).then(function (result) {
+      return res.render("products/products", { librosThis: result });
+    });
   },
   cart: function (req, res) {
     res.render("products/productCart");
@@ -25,14 +29,32 @@ let productsController = {
 
   // ADMIN methods
   productList: function (req, res) {
-    res.render("admin/products", { libros });
+    db.Books.findAll({
+      include: [{ association: "authors" }, { association: "booksFormat" }],
+    }).then(function (result) {
+      return res.render("admin/products", { libros: result });
+    });
   },
   createProduct: function (req, res) {
     res.render("admin/create", { libros });
   },
   editProduct: function (req, res) {
-    let libroObjeto = productModel.getById(req.params.id);
-    res.render("admin/edit", { libro: libroObjeto });
+    // obtener todos los autores
+    let autores = db.autores.findAll();
+    let libroEditar = db.Books.findByPk(req.params.id, {
+      include: [{ association: "authors" }, { association: "booksFormat" }],
+    });
+
+    Promise.all([libroEditar, autores])
+      .then(([book, autores]) => {
+        return res.render("admin/edit", {
+          libro: book,
+          autores: autores,
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   },
   store: function (req, res) {
     // recibir datos del formulario

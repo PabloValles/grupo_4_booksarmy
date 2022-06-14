@@ -110,14 +110,17 @@
 
                 <div class="col-md-4">
                   <label for="name-autor" class="form-label">Autor</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="name-autor"
-                    name="autor"
-                    value="<%= libro.autor %>"
-                    required
-                  />
+                  <select name="autor" id="name-autor" class="form-control">
+                    
+                    <% autores.forEach(autor => { %>
+                      <% if (autor.id == libro.authors.id) { %>
+                        <option value="<%= autor.id %>" selected><%= autor.first_name +" "+autor.last_name %></option> 
+                      <% } else { %>
+                        <option value="<%= autor.id %>"><%= autor.first_name +" "+autor.last_name %></option>
+                      <% } %>
+                    <% }) %>
+                  </select>
+
                   <div class="valid-feedback">Looks good!</div>
                 </div>
                 <div class="col-md-4">

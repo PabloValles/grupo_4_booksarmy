@@ -1,10 +1,15 @@
 const path = require("path");
 const productModel = require("../models/productModel");
-let libros = productModel.getData();
+const db = require("../database/models/index");
 
 let mainController = {
   index: function (req, res) {
-    res.render("index", { libros });
+    db.Books.findAll({
+      include: [{ association: "authors" }, { association: "booksFormat" }],
+      //limit: 6
+    }).then(function (result) {
+      return res.render("index", { libros: result });
+    });
   },
   login: function (req, res) {
     res.render("login");

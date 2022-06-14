@@ -20,8 +20,8 @@ module.exports = (sequelize, DataTypes) => {
   const Format = sequelize.define(alias, cols, config);
 
   Format.associate = function (models) {
-    Format.belongsToMany(models.libros, {
-      as: "libros",
+    Format.belongsToMany(models.Books, {
+      as: "booksFormat",
       through: "book_format", // Nombre de tabla o alias del modelo????
       foreignKey: "format_id",
       otherKey: "book_id",
