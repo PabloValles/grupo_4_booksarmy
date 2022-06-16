@@ -202,15 +202,34 @@
                   <div class="valid-feedback">Looks good!</div>
                 </div>
                 <div class="col-md-3">
-                  <label for="formato" class="form-label">Formato</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="formato"
-                    name="format"
-                    value="<%= libro.format %>"
-                    required
-                  />
+                  <div class="mb-3">
+                    <label for="" class="form-label">Formatos</label>
+                    <select multiple class="form-select" name="format" id="formato" aria-label="CitFormatosy">
+                      <% formatos.forEach(formato => { %>
+                        <!-- Verificamos si el libro tiene más de 1 formato-->
+                        <% if (libro.booksFormat.length > 1) { %>
+
+                          <% for( let i = 0; i < libro.booksFormat.length; i++ ) { %>
+                            <% if (formato.id == libro.booksFormat[i].id) { %>
+                              <option value="<%= formato.id %>" selected><%= formato.type %> </option>
+                              <% }%>
+                          <% } %>
+
+                        <% } else { %>
+
+                          <% if (formato.id == libro.booksFormat[0].id) { %>
+                            <option value="<%= formato.id %>" selected><%= formato.type %> </option>
+                          <% } else { %>
+                            <option value="<%= formato.id %>"><%= formato.type %> </option>
+                          <% } %>
+
+                        <% } %>
+
+
+                      <% }) %>
+                    </select>
+                  </div>
+
                   <div class="valid-feedback">Looks good!</div>
                 </div>
                 <div class="d-grid gap-2 d-md-block mt-4">

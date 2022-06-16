@@ -23,8 +23,26 @@ let productsController = {
     res.render("products/productCart");
   },
   detailsProduct: function (req, res) {
-    let libroObjeto = productModel.getById(req.params.id);
-    res.render("products/productDetail", { libro: libroObjeto });
+    let autores = db.autores.findAll();
+    let libros = db.Books.findAll({
+      include: [{ association: "authors" }, { association: "booksFormat" }],
+    });
+    let libroEditar = db.Books.findByPk(req.params.id, {
+      include: [{ association: "authors" }, { association: "booksFormat" }],
+    });
+
+    Promise.all([libroEditar, autores, libros])
+      .then(([book, autores, libros]) => {
+        //return res.send(book.booksFormat);
+        return res.render("products/productDetail", {
+          libro: book,
+          autores: autores,
+          listaLibros: libros,
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   },
 
   // ADMIN methods
@@ -41,15 +59,17 @@ let productsController = {
   editProduct: function (req, res) {
     // obtener todos los autores
     let autores = db.autores.findAll();
+    let formatos = db.formatos.findAll();
     let libroEditar = db.Books.findByPk(req.params.id, {
       include: [{ association: "authors" }, { association: "booksFormat" }],
     });
 
-    Promise.all([libroEditar, autores])
-      .then(([book, autores]) => {
+    Promise.all([libroEditar, autores, formatos])
+      .then(([book, autores, formatos]) => {
         return res.render("admin/edit", {
           libro: book,
           autores: autores,
+          formatos: formatos,
         });
       })
       .catch((e) => {
