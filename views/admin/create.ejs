@@ -48,7 +48,6 @@
                 <label for="genero" class="form-label">Géneros</label>
                 <select
                   multiple
-                  class="form-select"
                   name="gender"
                   id="genero"
                 >
@@ -97,14 +96,16 @@
               </div>
 
               <div class="col-md-4">
-                <label for="name-autor" class="form-label">Autor</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name-autor"
-                  name="autor"
-                  required
-                />
+                <div class="mb-3">
+                  <label for="" class="form-label">Autor</label>
+                  <select name="autor" id="name-autor" autocomplete="off">
+                    <option value="">Seleccione un autor...</option>
+                    <% autores.forEach(autor => { %>
+                      <option value="<%= autor.id %>"><%= autor.first_name +" "+autor.last_name%></option>
+                    <% }) %>
+                  </select>
+                </div>
+                
                 <div class="valid-feedback">Looks good!</div>
               </div>
               <div class="col-md-4">
@@ -139,7 +140,7 @@
               <div class="col-md-2">
                 <label for="precio" class="form-label">Precio</label>
                 <input
-                  type="text"
+                  type="number"
                   class="form-control"
                   id="precio"
                   name="price"
@@ -148,20 +149,9 @@
                 <div class="valid-feedback">Looks good!</div>
               </div>
               <div class="col-md-2">
-                <label for="stock" class="form-label">Stock</label>
+                <label for="discount" class="form-label">Descuento en %</label>
                 <input
-                  type="text"
-                  class="form-control"
-                  id="stock"
-                  name="stock"
-                  required
-                />
-                <div class="valid-feedback">Looks good!</div>
-              </div>
-              <div class="col-md-2">
-                <label for="discount" class="form-label">Descuento</label>
-                <input
-                  type="text"
+                  type="number"
                   class="form-control"
                   id="discount"
                   name="discount"
@@ -169,26 +159,39 @@
                 />
                 <div class="valid-feedback">Looks good!</div>
               </div>
-              <div class="col-md-3">
-                <label for="material" class="form-label">Material</label>
+              <div class="col-md-2">
+                <label for="stock" class="form-label">Stock</label>
                 <input
-                  type="text"
+                  type="number"
                   class="form-control"
-                  id="material"
-                  name="material"
+                  id="stock"
+                  name="stock"
+                  value="2"
                   required
                 />
                 <div class="valid-feedback">Looks good!</div>
               </div>
+              
               <div class="col-md-3">
-                <label for="formato" class="form-label">Formato</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="formato"
-                  name="format"
-                  required
-                />
+                <div class="mb-3">
+                  <label for="formato" class="form-label">Formato</label>
+                  <select class="form-control" name="format" id="formato" multiple>
+                    <option value="1">Papel</option>
+                    <option value="2">Ebook</option>
+                  </select>
+                </div>
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <label for="material" class="form-label">material</label>
+                  <select class="form-control" name="material" id="material">
+                    <option>Papel offset</option>
+                    <option>Papel ahuesado o marfil</option>
+                    <option>Papel estucado</option>
+                    <option>Formato Digital</option>
+                  </select>
+                </div>
                 <div class="valid-feedback">Looks good!</div>
               </div>
               <div class="d-grid gap-2 d-md-block mt-4">
@@ -204,5 +207,6 @@
   </main>
 
   <%- include("../partials/footer") %>
+  <script src="/js/productSelects.js"></script>
 </body>
 </html>

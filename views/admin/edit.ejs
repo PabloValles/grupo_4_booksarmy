@@ -11,7 +11,7 @@
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                <li class="breadcrumb-item"><a href="/products/admin">Admin</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Libro: <%= libro.name %></li>
               </ol>
             </nav>
@@ -46,23 +46,17 @@
                 </div>
                 <div class="col-md-4">
                   <label for="genero" class="form-label">Géneros</label>
+                  <% let generos = libro['gender'] %>
+                  <% let arrayGeneros = generos.split(',') %> 
                   <select
                     multiple
-                    class="form-select"
                     name="gender"
                     id="genero"
                   > 
-                    <% let generos = libro['gender'] %> 
-
-                    <% if (Array.isArray(generos)) { %>
-                      <% generos.forEach(genero => { %>
-                        <option value="<%= genero %>" selected><%= genero %></option>
-                      <% }) %>
-                    <% } else {%>
-                      <option value="<%= libro['gender'] %>" selected><%= libro['gender'] %></option>  
-                    <% } %>
-                      
-                    <option></option>
+                    
+                    <% arrayGeneros.forEach(genero => { %>
+                      <option value="<%= genero %>" selected><%= genero %></option>
+                    <% }) %>
                     <option value="Acción">Acción</option>
                     <option value="Comedia">Comedia</option>
                     <option value="Drama">Drama</option>
@@ -110,7 +104,7 @@
 
                 <div class="col-md-4">
                   <label for="name-autor" class="form-label">Autor</label>
-                  <select name="autor" id="name-autor" class="form-control">
+                  <select name="autor" id="name-autor">
                     
                     <% autores.forEach(autor => { %>
                       <% if (autor.id == libro.authors.id) { %>
@@ -156,7 +150,7 @@
                 <div class="col-md-2">
                   <label for="precio" class="form-label">Precio</label>
                   <input
-                    type="text"
+                    type="number"
                     class="form-control"
                     id="precio"
                     name="precio"
@@ -168,7 +162,7 @@
                 <div class="col-md-2">
                   <label for="stock" class="form-label">Stock</label>
                   <input
-                    type="text"
+                    type="number"
                     class="form-control"
                     id="stock"
                     name="stock"
@@ -180,7 +174,7 @@
                 <div class="col-md-2">
                   <label for="discount" class="form-label">Descuento</label>
                   <input
-                    type="text"
+                    type="number"
                     class="form-control"
                     id="discount"
                     name="discount"
@@ -190,15 +184,21 @@
                   <div class="valid-feedback">Looks good!</div>
                 </div>
                 <div class="col-md-3">
-                  <label for="material" class="form-label">Material</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="material"
-                    name="material"
-                    value="<%= libro.material %>"
-                    required
-                  />
+                  <div class="mb-3">
+                    <label for="material" class="form-label">material</label>
+                    <select class="form-control" name="material" id="material">
+                      <% let arrayFormatos = ["Papel offset", "Papel ahuesado o marfil", "Papel estucado", "Formato Digital"] %> 
+                      <% arrayFormatos.forEach((formato) => { %>
+                        
+                        <% if (formato == libro.material) { %>
+                          <option selected><%= formato %> </option>
+                        <% } else { %>
+                          <option><%= formato %> </option>
+                          <% } %>
+                      
+                      <% }) %>
+                    </select>
+                  </div>
                   <div class="valid-feedback">Looks good!</div>
                 </div>
                 <div class="col-md-3">
@@ -245,5 +245,7 @@
     </main>
 
     <%- include("../partials/footer") %>
+
+    <script src="/js/productSelects.js"></script>
   </body>
 </html>

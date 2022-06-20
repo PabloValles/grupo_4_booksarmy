@@ -8,10 +8,6 @@ const libros = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 const librosArray = "";
 
 let productsController = {
-  get: function () {
-    librosArray = productModel.getData();
-    return librosArray;
-  },
   all: function (req, res) {
     db.Books.findAll({
       include: [{ association: "authors" }, { association: "booksFormat" }],
@@ -54,11 +50,20 @@ let productsController = {
     });
   },
   createProduct: function (req, res) {
-    res.render("admin/create", { libros });
+    let autores = db.autores.findAll({
+      order: [["last_name", "ASC"]],
+    });
+    let formatos = db.formatos.findAll();
+
+    Promise.all([autores, formatos]).then(([autores, formatos]) => {
+      return res.render("admin/create", { autores, formatos });
+    });
   },
   editProduct: function (req, res) {
     // obtener todos los autores
-    let autores = db.autores.findAll();
+    let autores = db.autores.findAll({
+      order: [["last_name", "ASC"]],
+    });
     let formatos = db.formatos.findAll();
     let libroEditar = db.Books.findByPk(req.params.id, {
       include: [{ association: "authors" }, { association: "booksFormat" }],
@@ -79,64 +84,171 @@ let productsController = {
   store: function (req, res) {
     // recibir datos del formulario
     let image = "default-img.png";
-
     // Si se envio una imagen, reemplaza la variable image
     if (req.file) {
       image = req.file.filename;
     }
 
-    // Obtener el id a cargar
-    let idProximo = libros[libros.length - 1].id + 1;
-
     // Armamos el objeto producto
-    let libro = {
-      id: idProximo,
-      ...req.body,
-      image: image,
-    };
-    //Redireccionar a productos
-    libros.push(libro);
-    fs.writeFileSync(productsFilePath, JSON.stringify(libros), "utf-8");
+    let {
+      name,
+      autor,
+      description,
+      gender,
+      editorial,
+      isbn,
+      price,
+      discount,
+      stock,
+      format,
+      material,
+    } = req.body;
 
-    res.redirect("../");
-  },
-  update: function (req, res) {
-    const editBook = libros.find((book) => book.id == req.params.id);
-    let imagen = editBook.image;
-
-    if (req.file) {
-      imagen = req.file.filename;
+    if (Array.isArray(gender)) {
+      gender = gender.join();
+      console.log(gender);
     }
 
-    //armar objeto libro
-    let nuevoLibro = {
-      id: parseInt(req.params.id),
-      name: req.body.name,
-      autor: req.body.autor,
-      description: req.body.description,
-      gender: req.body.gender,
-      image: imagen,
-      editorial: req.body.editorial,
-      isbn: req.body.isbn,
-      price: req.body.precio,
-      discount: req.body.discount,
-      stock: req.body.stock,
-      material: req.body.material,
-      format: req.body.format,
-    };
+    db.Books.create({
+      name,
+      autor_id: autor,
+      description,
+      gender,
+      image,
+      editorial,
+      isbn,
+      price,
+      discount,
+      stock,
+      material,
+    })
+      .then((libro) => {
+        let id_libro = libro.id;
+        let formatos;
+        if (format.length > 1) {
+          formatos = [
+            {
+              book_id: id_libro,
+              format_id: format[0],
+            },
+            {
+              book_id: id_libro,
+              format_id: format[1],
+            },
+          ];
+        } else {
+          formatos = [
+            {
+              book_id: id_libro,
+              format_id: format,
+            },
+          ];
+        }
 
-    // Creamos array de libros nuevos
-    const newLibros = libros.map((book) => {
-      if (book.id == req.params.id) {
-        book = nuevoLibro;
-      }
-      return book;
-    });
+        db.libroFormato.bulkCreate(formatos).then((result) => {
+          console.log("!formato del libro cargado");
+          return res.redirect("/products/admin/");
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log("Errorrrr!");
+      });
+  },
+  update: function (req, res) {
+    db.Books.findByPk(req.params.id)
+      .then(function (book) {
+        let imagen = book.image;
 
-    // Sobreescribir el objeto dentro del array libros
-    fs.writeFileSync(productsFilePath, JSON.stringify(newLibros), "utf-8");
+        if (req.file) {
+          imagen = req.file.filename;
+        }
 
-    res.redirect("/products/admin");
+        let gender = req.body.gender;
+        if (Array.isArray(gender)) {
+          gender = gender.join();
+        }
+        //armar objeto libro
+        let nuevoLibro = {
+          id: parseInt(req.params.id),
+          name: req.body.name,
+          autor_id: parseInt(req.body.autor),
+          description: req.body.description,
+          gender: gender,
+          image: imagen,
+          editorial: req.body.editorial,
+          isbn: req.body.isbn,
+          price: req.body.precio,
+          discount: req.body.discount,
+          stock: req.body.stock,
+          material: req.body.material,
+          format: req.body.format,
+        };
+
+        db.Books.update(nuevoLibro, {
+          where: { id: req.params.id },
+        }).then((result) => {
+          if (nuevoLibro.format.length > 1) {
+            formatos = [
+              {
+                book_id: nuevoLibro.id,
+                format_id: nuevoLibro.format[0],
+              },
+              {
+                book_id: nuevoLibro.id,
+                format_id: nuevoLibro.format[1],
+              },
+            ];
+          } else {
+            formatos = [
+              {
+                book_id: nuevoLibro.id,
+                format_id: parseInt(nuevoLibro.format),
+              },
+            ];
+          }
+
+          console.log("ID DEL LIBRO => ", nuevoLibro.id);
+          //return res.send(formatos);
+
+          if (formatos.length == 1) {
+            db.libroFormato
+              .update(
+                {
+                  book_id: nuevoLibro.id,
+                  format_id: parseInt(nuevoLibro.format),
+                },
+                {
+                  where: { book_id: nuevoLibro.id },
+                }
+              )
+              .then((info) => {
+                console.log("MODIFICARRRRRRRRRRRRRRRRRRRRR");
+                return res.send("MODIFICADO CORRECTAMENTE");
+              })
+              .catch((err) => {
+                console.log("ERROR", err);
+              });
+          } else {
+            let eliminar = db.libroFormato.destroy({
+              where: { book_id: nuevoLibro.id },
+            });
+
+            let insertar = db.libroFormato.bulkCreate(formatos);
+
+            Promise.all([eliminar, insertar])
+              .then(function ([eliminar, insertar]) {
+                return res.send({ eliminar, insertar });
+              })
+              .catch((err) => console.log(err));
+          }
+
+          return res.redirect("/products/admin/edit/" + req.params.id);
+        });
+
+        //res.redirect("/products/admin");
+      })
+      .catch((e) => console.error(e));
   },
   delete: function (req, res) {
     //const bookToDelete = libros.find((book) => book.id == req.params.id);

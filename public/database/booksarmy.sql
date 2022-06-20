@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-06-2022 a las 15:34:16
--- Versión del servidor: 10.4.18-MariaDB
--- Versión de PHP: 8.0.3
+-- Tiempo de generación: 19-06-2022 a las 20:13:21
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `booksarmy`
 --
-CREATE DATABASE IF NOT EXISTS `booksarmy` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `booksarmy` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `booksarmy`;
 
 -- --------------------------------------------------------
@@ -29,14 +29,17 @@ USE `booksarmy`;
 -- Estructura de tabla para la tabla `author`
 --
 
-CREATE TABLE IF NOT EXISTS `author` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `author` (
+  `id` int(11) NOT NULL,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
   `bio` text DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
+  `image` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELACIONES PARA LA TABLA `author`:
+--
 
 --
 -- Volcado de datos para la tabla `author`
@@ -74,8 +77,8 @@ INSERT INTO `author` (`id`, `first_name`, `last_name`, `bio`, `image`) VALUES
 -- Estructura de tabla para la tabla `books`
 --
 
-CREATE TABLE IF NOT EXISTS `books` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `books` (
+  `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `autor_id` int(11) DEFAULT NULL,
   `description` text DEFAULT NULL,
@@ -88,10 +91,14 @@ CREATE TABLE IF NOT EXISTS `books` (
   `stock` int(11) DEFAULT NULL,
   `format` varchar(255) NOT NULL,
   `material` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `books_autor_id_foreign` (`autor_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELACIONES PARA LA TABLA `books`:
+--   `autor_id`
+--       `author` -> `id`
+--
 
 --
 -- Volcado de datos para la tabla `books`
@@ -130,14 +137,58 @@ INSERT INTO `books` (`id`, `name`, `autor_id`, `description`, `gender`, `image`,
 -- Estructura de tabla para la tabla `book_format`
 --
 
-CREATE TABLE IF NOT EXISTS `book_format` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `book_format` (
+  `id` int(11) NOT NULL,
   `book_id` int(11) DEFAULT NULL,
-  `format_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `book_format_format_id_foreign` (`format_id`),
-  KEY `book_format_book_id_foreign` (`book_id`)
+  `format_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELACIONES PARA LA TABLA `book_format`:
+--   `book_id`
+--       `books` -> `id`
+--   `format_id`
+--       `format` -> `id`
+--
+
+--
+-- Volcado de datos para la tabla `book_format`
+--
+
+INSERT INTO `book_format` (`id`, `book_id`, `format_id`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 2, 1),
+(4, 2, 2),
+(5, 3, 1),
+(6, 3, 2),
+(7, 4, 1),
+(8, 4, 2),
+(9, 5, 1),
+(10, 6, 1),
+(11, 7, 2),
+(12, 8, 1),
+(13, 9, 2),
+(14, 10, 1),
+(15, 11, 1),
+(16, 11, 2),
+(17, 13, 1),
+(18, 14, 2),
+(19, 15, 2),
+(20, 16, 1),
+(21, 16, 2),
+(22, 17, 1),
+(23, 18, 1),
+(24, 19, 2),
+(25, 20, 1),
+(26, 21, 2),
+(27, 22, 1),
+(28, 23, 1),
+(29, 24, 2),
+(30, 25, 1),
+(31, 25, 2),
+(32, 26, 1),
+(33, 26, 2);
 
 -- --------------------------------------------------------
 
@@ -145,11 +196,14 @@ CREATE TABLE IF NOT EXISTS `book_format` (
 -- Estructura de tabla para la tabla `format`
 --
 
-CREATE TABLE IF NOT EXISTS `format` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `format` (
+  `id` int(11) NOT NULL,
+  `type` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELACIONES PARA LA TABLA `format`:
+--
 
 --
 -- Volcado de datos para la tabla `format`
@@ -165,29 +219,32 @@ INSERT INTO `format` (`id`, `type`) VALUES
 -- Estructura de tabla para la tabla `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `users_category_id_foreign` (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
+  `image` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELACIONES PARA LA TABLA `users`:
+--   `category_id`
+--       `user_categories` -> `id`
+--
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `category_id`, `image`) VALUES
-(1, 'admin', 'admin  ', 'admin@booksarmy.com', '$2a$10$zi7meHhAtjzOMMKhdMCW5ubeBuFqTy2Noqq1ucJF/k.iQSODt9.PO', 1, '1652748485220_img.png'),
+(1, 'admin', 'admin  ', 'admin@booksarmy.com', '$2a$10$pwDwm21is/AbZHew6sViquBiW8oq9FYtjy6OlJc/.bxBtedKeWibm', 1, '1655164111912_img.png'),
 (2, 'lala', 'lala', 'lala@lala', '$2a$10$/tfOq0mapfkrRwLTaECFXe7YMtfoiIZP8nPqfkFpbUU8Zn8rAa7Yq', 1, 'default.png'),
 (3, 'perfiladmin', 'admin', 'perfiladmin@gmail.com', '$2a$10$nm8g5olHuAEzNy1J/KGbL.3xbc7TMpYN.3d0kXcXiugSL/PyeKd4W', 1, '1652903668384_img.png'),
 (4, 'noemi', 'noemi ', 'noemi@booksarmy.com', '$2a$10$/ADFrNA79E32Uk5rocyPKuT3jC7Sz3NkGIt8t50kwmMEimUH/s58e', 1, 'default.png'),
-(5, 'visitante', '1234', '1234@1234', '$2a$10$C9F75qaBk4R1xepL1.3FdOKeHkTl3jqxt96E0HPZ5xIOTDv6zwKvy', 2, '1653248863433_img.png'),
-(6, 'prueba', 'prueba', 'prueba@mail.com', '$2a$10$awgvtSOfNoeFhoiFAcpBeeWP8YMNxO3jpP81aj6k7gUNGdpzVyH3i', 2, '1653603190210_img.png');
+(5, 'Visitantee', '1234', '1234@1234', '$2a$10$C9F75qaBk4R1xepL1.3FdOKeHkTl3jqxt96E0HPZ5xIOTDv6zwKvy', 2, '1653248863433_img.png');
 
 -- --------------------------------------------------------
 
@@ -195,11 +252,14 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `cate
 -- Estructura de tabla para la tabla `user_categories`
 --
 
-CREATE TABLE IF NOT EXISTS `user_categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `user_categories` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELACIONES PARA LA TABLA `user_categories`:
+--
 
 --
 -- Volcado de datos para la tabla `user_categories`
@@ -208,6 +268,90 @@ CREATE TABLE IF NOT EXISTS `user_categories` (
 INSERT INTO `user_categories` (`id`, `name`) VALUES
 (1, 'admin'),
 (2, 'user');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `author`
+--
+ALTER TABLE `author`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `books`
+--
+ALTER TABLE `books`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `books_autor_id_foreign` (`autor_id`);
+
+--
+-- Indices de la tabla `book_format`
+--
+ALTER TABLE `book_format`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `book_format_format_id_foreign` (`format_id`),
+  ADD KEY `book_format_book_id_foreign` (`book_id`);
+
+--
+-- Indices de la tabla `format`
+--
+ALTER TABLE `format`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `users_category_id_foreign` (`category_id`);
+
+--
+-- Indices de la tabla `user_categories`
+--
+ALTER TABLE `user_categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `author`
+--
+ALTER TABLE `author`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT de la tabla `books`
+--
+ALTER TABLE `books`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT de la tabla `book_format`
+--
+ALTER TABLE `book_format`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- AUTO_INCREMENT de la tabla `format`
+--
+ALTER TABLE `format`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT de la tabla `user_categories`
+--
+ALTER TABLE `user_categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
