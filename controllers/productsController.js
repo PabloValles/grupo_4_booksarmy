@@ -260,13 +260,24 @@ let productsController = {
       .catch((e) => console.error(e));
   },
   delete: function (req, res) {
-    //const bookToDelete = libros.find((book) => book.id == req.params.id);
+    console.log("DESDE EL CONTROLADOR ELIMINANDO LIBROOOOOOOO");
+    // Eliminar aqui
+    /*
+    db.Books.findByPk(req.params.id)
+      .then((bookToDelete) => {
+        db.User.destroy({
+          where: { id: req.params.id },
+        });
 
-    const newArrBooks = libros.filter((book) => book.id != req.params.id);
+        db.libroFormato.destroy({
+          where: { book_id: req.params.id },
+        });
 
-    fs.writeFileSync(productsFilePath, JSON.stringify(newArrBooks), "utf-8");
-
-    res.redirect("/products/admin");
+        return res.redirect("/products/admin");
+      })
+      .catch((err) => console.log(err));
+      */
+    return res.send("Eliminando");
   },
 };
 
