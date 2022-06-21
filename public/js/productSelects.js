@@ -9,3 +9,7 @@ new TomSelect("#name-autor", {
 new TomSelect("#genero", {
   maxItems: 4,
 });
+
+new TomSelect("#formato", {
+  maxItems: 2,
+});

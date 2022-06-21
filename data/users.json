@@ -106,5 +106,14 @@
   "password": "$2a$10$0etYbBfDoCvlAeUOK9P5GOLlm7I2kTGmn27q8Fjcx6whaymXHCqKW",
   "category_id": 2,
   "image": "1654959020326_img.png"
+ },
+ {
+  "id": 32,
+  "first_name": "visitante3000",
+  "last_name": "visitante3000",
+  "email": "visitante3000@email.com.ar",
+  "password": "$2a$10$XiN/nioAu1NGv7Fzk8Jy2.NGChUayvIKMwntiMnxonqDH9UApXmJu",
+  "category_id": 2,
+  "image": "default.png"
  }
 ]

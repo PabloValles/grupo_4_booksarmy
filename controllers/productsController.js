@@ -11,6 +11,7 @@ let productsController = {
   all: function (req, res) {
     db.Books.findAll({
       include: [{ association: "authors" }, { association: "booksFormat" }],
+      order: [["name", "ASC"]],
     }).then(function (result) {
       return res.render("products/products", { librosThis: result });
     });
@@ -45,6 +46,7 @@ let productsController = {
   productList: function (req, res) {
     db.Books.findAll({
       include: [{ association: "authors" }, { association: "booksFormat" }],
+      order: [["name", "ASC"]],
     }).then(function (result) {
       return res.render("admin/products", { libros: result });
     });
@@ -188,59 +190,66 @@ let productsController = {
         db.Books.update(nuevoLibro, {
           where: { id: req.params.id },
         }).then((result) => {
-          if (nuevoLibro.format.length > 1) {
-            formatos = [
-              {
-                book_id: nuevoLibro.id,
-                format_id: nuevoLibro.format[0],
-              },
-              {
-                book_id: nuevoLibro.id,
-                format_id: nuevoLibro.format[1],
-              },
-            ];
-          } else {
-            formatos = [
-              {
-                book_id: nuevoLibro.id,
-                format_id: parseInt(nuevoLibro.format),
-              },
-            ];
-          }
+          console.log("FORMATO", nuevoLibro.format);
 
-          console.log("ID DEL LIBRO => ", nuevoLibro.id);
-          //return res.send(formatos);
-
-          if (formatos.length == 1) {
-            db.libroFormato
-              .update(
+          if (nuevoLibro.format != undefined) {
+            if (nuevoLibro.format.length > 1) {
+              formatos = [
+                {
+                  book_id: nuevoLibro.id,
+                  format_id: nuevoLibro.format[0],
+                },
+                {
+                  book_id: nuevoLibro.id,
+                  format_id: nuevoLibro.format[1],
+                },
+              ];
+            } else {
+              formatos = [
                 {
                   book_id: nuevoLibro.id,
                   format_id: parseInt(nuevoLibro.format),
                 },
-                {
-                  where: { book_id: nuevoLibro.id },
-                }
-              )
-              .then((info) => {
-                console.log("MODIFICARRRRRRRRRRRRRRRRRRRRR");
-                return res.send("MODIFICADO CORRECTAMENTE");
-              })
-              .catch((err) => {
-                console.log("ERROR", err);
+              ];
+            }
+
+            console.log("ID DEL LIBRO => ", nuevoLibro.id);
+            console.log("ID DEL FORMATO => ", nuevoLibro.format);
+            console.log("LENGHT =>", nuevoLibro.format.length);
+            //return res.send(formatos);
+
+            if (formatos.length == 1) {
+              db.libroFormato
+                .update(
+                  {
+                    book_id: nuevoLibro.id,
+                    format_id: parseInt(nuevoLibro.format),
+                  },
+                  {
+                    where: { book_id: nuevoLibro.id },
+                  }
+                )
+                .then((info) => {
+                  console.log("Modificado correctamente");
+                  return res.send("MODIFICADO CORRECTAMENTE");
+                })
+                .catch((err) => {
+                  console.log("ERROR", err);
+                });
+            } else {
+              return res.send(formatos);
+              let eliminar = db.libroFormato.destroy({
+                where: { book_id: nuevoLibro.id },
               });
-          } else {
-            let eliminar = db.libroFormato.destroy({
-              where: { book_id: nuevoLibro.id },
-            });
 
-            let insertar = db.libroFormato.bulkCreate(formatos);
+              let insertar = db.libroFormato.bulkCreate(formatos);
 
-            Promise.all([eliminar, insertar])
-              .then(function ([eliminar, insertar]) {
-                return res.send({ eliminar, insertar });
-              })
-              .catch((err) => console.log(err));
+              Promise.all([eliminar, insertar])
+                .then(function ([eliminar, insertar]) {
+                  return res.send({ eliminar, insertar });
+                })
+                .catch((err) => console.log(err));
+            }
           }
 
           return res.redirect("/products/admin/edit/" + req.params.id);

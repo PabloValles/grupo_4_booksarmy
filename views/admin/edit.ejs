@@ -204,25 +204,31 @@
                 <div class="col-md-3">
                   <div class="mb-3">
                     <label for="" class="form-label">Formatos</label>
-                    <select multiple class="form-select" name="format" id="formato" aria-label="CitFormatosy">
+                    <select multiple name="format" id="formato" aria-label="CitFormatosy" required="required">
                       <% formatos.forEach(formato => { %>
-                        <!-- Verificamos si el libro tiene más de 1 formato-->
-                        <% if (libro.booksFormat.length > 1) { %>
+                        <% if (libro.booksFormat.length > 0) { %>
+                          
+                          <!-- Verificamos si el libro tiene más de 1 formato-->
+                          <% if (libro.booksFormat.length > 1) { %>
 
-                          <% for( let i = 0; i < libro.booksFormat.length; i++ ) { %>
-                            <% if (formato.id == libro.booksFormat[i].id) { %>
-                              <option value="<%= formato.id %>" selected><%= formato.type %> </option>
-                              <% }%>
-                          <% } %>
+                            <% for( let i = 0; i < libro.booksFormat.length; i++ ) { %>
+                              <% if (formato.id == libro.booksFormat[i].id) { %>
+                                <option value="<%= formato.id %>" selected><%= formato.type %> </option>
+                                <% }%>
+                            <% } %>
 
-                        <% } else { %>
-
-                          <% if (formato.id == libro.booksFormat[0].id) { %>
-                            <option value="<%= formato.id %>" selected><%= formato.type %> </option>
                           <% } else { %>
-                            <option value="<%= formato.id %>"><%= formato.type %> </option>
+
+                            <% if (formato.id == libro.booksFormat[0].id) { %>
+                              <option value="<%= formato.id %>" selected><%= formato.type %> </option>
+                            <% } else { %>
+                              <option value="<%= formato.id %>"><%= formato.type %> </option>
+                            <% } %>
+
                           <% } %>
 
+                        <% } else {%>
+                          <option value="<%= formato.id %>"><%= formato.type %> </option>
                         <% } %>
 
 
