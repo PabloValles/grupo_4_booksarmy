@@ -182,71 +182,73 @@ let productsController = {
 
         db.Books.update(nuevoLibro, {
           where: { id: req.params.id },
-        }).then((result) => {
-          console.log("FORMATO", nuevoLibro.format);
+        })
+          .then((result) => {
+            console.log("FORMATO", nuevoLibro.format);
 
-          if (nuevoLibro.format != undefined) {
-            if (nuevoLibro.format.length > 1) {
-              formatos = [
-                {
-                  book_id: nuevoLibro.id,
-                  format_id: nuevoLibro.format[0],
-                },
-                {
-                  book_id: nuevoLibro.id,
-                  format_id: nuevoLibro.format[1],
-                },
-              ];
-            } else {
-              formatos = [
-                {
-                  book_id: nuevoLibro.id,
-                  format_id: parseInt(nuevoLibro.format),
-                },
-              ];
-            }
-
-            console.log("ID DEL LIBRO => ", nuevoLibro.id);
-            console.log("ID DEL FORMATO => ", nuevoLibro.format);
-            console.log("LENGHT =>", nuevoLibro.format.length);
-            //return res.send(formatos);
-
-            if (formatos.length == 1) {
-              db.libroFormato
-                .update(
+            if (nuevoLibro.format != undefined) {
+              if (nuevoLibro.format.length > 1) {
+                formatos = [
+                  {
+                    book_id: nuevoLibro.id,
+                    format_id: nuevoLibro.format[0],
+                  },
+                  {
+                    book_id: nuevoLibro.id,
+                    format_id: nuevoLibro.format[1],
+                  },
+                ];
+              } else {
+                formatos = [
                   {
                     book_id: nuevoLibro.id,
                     format_id: parseInt(nuevoLibro.format),
                   },
-                  {
-                    where: { book_id: nuevoLibro.id },
-                  }
-                )
-                .then((info) => {
-                  console.log("Modificado correctamente");
-                  return res.send("MODIFICADO CORRECTAMENTE");
-                })
-                .catch((err) => {
-                  console.log("ERROR", err);
+                ];
+              }
+
+              console.log("ID DEL LIBRO => ", nuevoLibro.id);
+              console.log("ID DEL FORMATO => ", nuevoLibro.format);
+              console.log("LENGHT =>", nuevoLibro.format.length);
+              //return res.send(formatos);
+
+              if (formatos.length == 1) {
+                db.libroFormato
+                  .update(
+                    {
+                      book_id: nuevoLibro.id,
+                      format_id: parseInt(nuevoLibro.format),
+                    },
+                    {
+                      where: { book_id: nuevoLibro.id },
+                    }
+                  )
+                  .then((info) => {
+                    console.log("Modificado correctamente");
+                    return res.send("MODIFICADO CORRECTAMENTE");
+                  })
+                  .catch((err) => {
+                    console.log("ERROR", err);
+                  });
+              } else {
+                return res.send(formatos);
+                let eliminar = db.libroFormato.destroy({
+                  where: { book_id: nuevoLibro.id },
                 });
-            } else {
-              return res.send(formatos);
-              let eliminar = db.libroFormato.destroy({
-                where: { book_id: nuevoLibro.id },
-              });
 
-              let insertar = db.libroFormato.bulkCreate(formatos);
+                let insertar = db.libroFormato.bulkCreate(formatos);
 
-              Promise.all([eliminar, insertar])
-                .then(function ([eliminar, insertar]) {
-                  return res.send({ eliminar, insertar });
-                })
-                .catch((err) => console.log(err));
+                Promise.all([eliminar, insertar])
+                  .then(function ([eliminar, insertar]) {
+                    return res.send({ eliminar, insertar });
+                  })
+                  .catch((err) => console.log(err));
+              }
             }
-          }
 
-          return res.redirect("/products/admin/edit/" + req.params.id);
-        });
+            return res.redirect("/products/admin/edit/" + req.params.id);
+          })
+          .catch((err) => console.log(err));
 
         //res.redirect("/products/admin");
       })
