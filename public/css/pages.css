@@ -348,8 +348,12 @@ main .featurette-heading {
   letter-spacing: -.05rem;
 }
 
+.ts-control {
+  padding: 10.5px 8px !important;
+}
+
 /* RESPONSIVE CSS
-  -------------------------------------------------- */
+-------------------------------------------------- */
 @media (min-width: 40em) {
   .featurette-heading {
     font-size: 50px;

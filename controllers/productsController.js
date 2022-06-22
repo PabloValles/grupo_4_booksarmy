@@ -1,11 +1,4 @@
-const fs = require("fs");
-const path = require("path");
-const productModel = require("../models/productModel");
 const db = require("../database/models/index");
-
-const productsFilePath = path.join(__dirname, "../data/books.json");
-const libros = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
-const librosArray = "";
 
 let productsController = {
   all: function (req, res) {
@@ -261,23 +254,25 @@ let productsController = {
   },
   delete: function (req, res) {
     console.log("DESDE EL CONTROLADOR ELIMINANDO LIBROOOOOOOO");
-    // Eliminar aqui
-    /*
+
     db.Books.findByPk(req.params.id)
       .then((bookToDelete) => {
-        db.User.destroy({
-          where: { id: req.params.id },
-        });
-
-        db.libroFormato.destroy({
+        let eliminarFormatoLibro = db.libroFormato.destroy({
           where: { book_id: req.params.id },
         });
 
-        return res.redirect("/products/admin");
+        let eliminarLibro = db.Books.destroy({
+          where: { id: req.params.id },
+        });
+
+        Promise.all([eliminarFormatoLibro, eliminarLibro])
+          .then(([libroFormatoEliminado, libroEliminado]) => {
+            console.log([libroEliminado, libroFormatoEliminado]);
+            return res.status(200).json(libroFormatoEliminado);
+          })
+          .catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));
-      */
-    return res.send("Eliminando");
   },
 };
 

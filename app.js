@@ -46,4 +46,6 @@ app.use("/products", productsRouter);
 app.use("/users", usersRoute);
 
 /*======> Iniciamos nuestra app <======*/
-app.listen(PORT, () => console.log(`Server runing: http://localhost:${PORT}`));
+app.listen(PORT, () =>
+  console.log(`🚀 Server runing: http://localhost:${PORT}`)
+);

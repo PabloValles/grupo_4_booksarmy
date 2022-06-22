@@ -237,28 +237,30 @@ main {
  
 }
 
+.ts-control{
+  padding: 10.5px 8px !important;
+}
 
+/* RESPONSIVE CSS
+-------------------------------------------------- */
 
- /* RESPONSIVE CSS
-  -------------------------------------------------- */
+@media (min-width: 40em) {
 
-  @media (min-width: 40em) {
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
 
-    .featurette-heading {
-      font-size: 50px;
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+
+@media (min-width: $grid-breakpoint-md){
+  main{
+    section.admin{
+      height: 90vh;
     }
   }
-
-  @media (min-width: 62em) {
-    .featurette-heading {
-      margin-top: 7rem;
-    }
-  }
-
-  @media (min-width: $grid-breakpoint-md){
-    main{
-      section.admin{
-        height: 90vh;
-      }
-    }
-  }
+}

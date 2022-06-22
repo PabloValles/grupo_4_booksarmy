@@ -23,26 +23,23 @@ window.addEventListener("load", function (e) {
             "success"
           );
 
-          let ruta =
-            "/products/admin/delete/30" + libro_id + "/?_method=DELETE";
+          let ruta = `/products/admin/delete/${libro_id}/?_method=DELETE`;
+
           let settings = {
             method: "POST",
-            headers: {
-              contentType: "aplication/json",
-            },
+            headers: { contentType: "application/json" },
+            //body: libro_id,
           };
           fetch(ruta, settings)
-            .then((response) => response.json())
+            .then((response) => response)
             .then((info) => {
+              console.log("eliminado Correctamente", info);
               window.location.href = "/products/admin";
-              console.log("eliminado Correctamente");
             })
-            .catch((e) => {
-              //window.location.href = "/products/admin";
-              console.error("Errorrrr", e);
-            });
+            .catch((e) => console.error("Errorrrr", e));
         }
       });
     });
   }
 });
+//
