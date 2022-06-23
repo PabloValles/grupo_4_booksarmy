@@ -123,6 +123,7 @@ let productsController = {
     } = req.body;
 
     if (Array.isArray(gender)) {
+      // Si es un array lo convertimos a string para guardarlo en la DB
       gender = gender.join();
       console.log(gender);
     }

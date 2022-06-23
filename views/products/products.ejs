@@ -89,6 +89,14 @@
             </div>
             <div class="col-9">
               <div class="row">
+                  <% if (!librosThis.length > 0) { %>
+                    <div class="alert alert-warning" role="alert">
+                      <h4 class="alert-heading">Sin resultados</h4>
+                      <h3> Lo siento no hay resultados para la búsqueda</h3>                    
+                      <hr>
+                      <p class="mb-0">Alert Description</p>
+                    </div>
+                  <% } %>
                   <% librosThis.forEach(libro => { %>
                   <div class="col-4 mb-5">
                     <div class="card h-100">
