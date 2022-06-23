@@ -1,4 +1,5 @@
 const db = require("../database/models/index");
+const { Op } = require("sequelize");
 
 let productsController = {
   all: function (req, res) {
@@ -33,6 +34,28 @@ let productsController = {
       .catch((e) => {
         console.log(e);
       });
+  },
+  find: function (req, res) {
+    // Ver si se mando algo
+    const busqueda = req.query.search;
+
+    if (busqueda == "") return res.send("NO HAS BUSCADO NADA");
+    console.log(busqueda);
+
+    db.Books.findAll({
+      where: {
+        name: { [Op.like]: `%${busqueda}%` },
+      },
+      include: [{ association: "authors" }, { association: "booksFormat" }],
+      order: [["name", "ASC"]],
+    })
+      .then((resultado) => {
+        return res.render("products/products", {
+          librosThis: resultado,
+          busqueda,
+        });
+      })
+      .catch((err) => console.log("Erroor en la busqueda", err));
   },
 
   // ADMIN methods

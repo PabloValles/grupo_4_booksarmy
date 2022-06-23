@@ -15,6 +15,11 @@ window.addEventListener("load", function (e) {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Si, eliminar!",
+        backdrop: `
+          rgba(0,0,123,0.4)
+          left top
+          no-repeat
+        `,
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire(

@@ -4,15 +4,17 @@
       <a href="/"><img src="/img/logos/Logo 6-green.svg" alt="" /></a>
     </div>
     <div class="form">
-      <input
-        type="search"
-        name="search"
-        id="search"
-        placeholder="Buscar libros, autores, géneros..."
-      />
-      <button class="btn">
-        <i class="fas fa-search fa-lg"></i>
-      </button>
+      <form action="/products/search" method="get">
+        <input
+          type="search"
+          name="search"
+          id="search"
+          placeholder="Buscar libros, autores, géneros..."
+        />
+        <button class="btn" type="submit">
+          <i class="fas fa-search fa-lg"></i>
+        </button>
+      </form>
     </div>
     <div class="icons">
       <a href="products/cart"
@@ -84,15 +86,17 @@
       <% }} %>
     </ul>
     <div class="form-mobile" id="form-mobile">
-      <input
-        type="search"
-        name="search"
-        id="search"
-        placeholder="Buscar libors, autores, géneros..."
-      />
-      <button class="btn">
-        <i class="fas fa-search fa-lg"></i>
-      </button>
+      <form action="/products/search" method="get">
+        <input
+          type="search"
+          name="search"
+          id="search"
+          placeholder="Buscar libros, autores, géneros..."
+        />
+        <button class="btn" type="submit">
+          <i class="fas fa-search fa-lg"></i>
+        </button>
+      </form>
     </div>
     <div class="contact">
       <% if (locals.isLogged) { %>

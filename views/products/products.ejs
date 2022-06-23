@@ -7,9 +7,13 @@
 
       <div class="hero-pages">
         <div class="container hero-flex">
-          <div class="hero__title">
+          <div class="hero__title pt-2">
             <img src="/img/book.png" alt="target" />
-            <h1><span>Todos</span> nuestros libros</h1>
+            <% if (locals.busqueda) { %>
+              <h1><span>Busqueda: </span> "<%= busqueda %>"</h1>
+            <% } else {%>
+              <h1><span>Nuestros</span> libros</h1>
+            <% }%>
           </div>
         </div>
       </div>
@@ -28,53 +32,55 @@
                 <ul class="list-unstyled ps-0">
                   <li class="mb-1">
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                      Home
+                      Autores
                     </button>
                     <div class="collapse show" id="home-collapse">
                       <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark rounded">Overview</a></li>
-                        <li><a href="#" class="link-dark rounded">Updates</a></li>
-                        <li><a href="#" class="link-dark rounded">Reports</a></li>
+                        <% librosThis.forEach(libro => { %>
+                          <li><a href="#" class="link-dark rounded" id="filter_author" onclick="filtrar(this)" data-name="<%= libro.authors.last_name %>"><%= libro.authors.first_name + " " + libro.authors.last_name %> </a></li>
+                        <% }) %>
                       </ul>
                     </div>
                   </li>
                   <li class="mb-1">
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                      Dashboard
+                      Géneros
                     </button>
-                    <div class="collapse" id="dashboard-collapse">
+                    <div class="collapse show" id="dashboard-collapse">
                       <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark rounded">Overview</a></li>
-                        <li><a href="#" class="link-dark rounded">Weekly</a></li>
-                        <li><a href="#" class="link-dark rounded">Monthly</a></li>
-                        <li><a href="#" class="link-dark rounded">Annually</a></li>
+                        <li><a href="#" class="link-dark rounded">Acción </a></li>
+                        <li><a href="#" class="link-dark rounded">Ciencia Ficción </a></li>
+                        <li><a href="#" class="link-dark rounded">Comedia </a></li>
+                        <li><a href="#" class="link-dark rounded">Documentales </a></li>
+                        <li><a href="#" class="link-dark rounded">Drama </a></li>
+                        <li><a href="#" class="link-dark rounded">Novelas </a></li>
+                        <li><a href="#" class="link-dark rounded">Suspenso </a></li>
+                        <li><a href="#" class="link-dark rounded">Terror </a></li>
                       </ul>
                     </div>
                   </li>
                   <li class="mb-1">
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-                      Orders
+                      Formato
                     </button>
-                    <div class="collapse" id="orders-collapse">
+                    <div class="collapse show" id="orders-collapse">
                       <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark rounded">New</a></li>
-                        <li><a href="#" class="link-dark rounded">Processed</a></li>
-                        <li><a href="#" class="link-dark rounded">Shipped</a></li>
-                        <li><a href="#" class="link-dark rounded">Returned</a></li>
+                        <li><a href="#" class="link-dark rounded">Papel</a></li>
+                        <li><a href="#" class="link-dark rounded">Ebook</a></li>
                       </ul>
                     </div>
                   </li>
                   <li class="border-top my-3"></li>
                   <li class="mb-1">
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                      Account
+                      Precios
                     </button>
                     <div class="collapse" id="account-collapse">
                       <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark rounded">New...</a></li>
-                        <li><a href="#" class="link-dark rounded">Profile</a></li>
-                        <li><a href="#" class="link-dark rounded">Settings</a></li>
-                        <li><a href="#" class="link-dark rounded">Sign out</a></li>
+                        <li><a href="#" class="link-dark rounded">Menos de $1.000</a></li>
+                        <li><a href="#" class="link-dark rounded">Entre $1.000 y $2.000</a></li>
+                        <li><a href="#" class="link-dark rounded">Entre $2.000 y $5.000</a></li>
+                        <li><a href="#" class="link-dark rounded">Más de $5.000</a></li>
                       </ul>
                     </div>
                   </li>
@@ -122,6 +128,12 @@
       </section>
     </main>
 
-    <%- include("../partials/footer")  %> 
+    <%- include("../partials/footer")  %>
+    <script>
+
+      function filtrar(autor){
+        console.log(autor.getAttribute("data-name"))
+      }
+    </script>
   </body>
 </html>

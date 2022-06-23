@@ -22,6 +22,7 @@ const productsController = require("../controllers/productsController");
 // Modificar para vista solo de usuarios
 router.get("/", productsController.all);
 router.get("/cart", productsController.cart);
+router.get("/search", productsController.find);
 router.get("/admin/", productsController.productList);
 router.get("/admin/create", productsController.createProduct);
 router.post("/admin/create", upload.single("image"), productsController.store);
