@@ -45,7 +45,11 @@ Estamos orientados al público joven y adulto mediante la venta retail con una g
 ## 🔗 Tablero de Trabajo en Trello
 [Nuestro tablero: ](https://trello.com/b/zsOqHoZ2/grupo-4-booksarmy) ✔️
 
-## 🔗 Base de datos: Podes encontrar el dump SQL dentro de la carpeta /public/database/booksarmy.sql ✔️
+## 🔗 Base de datos: 
+- Podes encontrar el dump SQL dentro de la carpeta /public/database/booksarmy.sql ✔️
+### Para ingresar como administrador:
+- User: admin@booksarmy.com
+- Pass: 123456
 
 <div align="center">
  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="45px"> <br/><br/><br/>
