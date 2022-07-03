@@ -1,5 +1,4 @@
 const bcryptjs = require("bcryptjs");
-const User = require("../models/User");
 const { validationResult } = require("express-validator");
 const db = require("../database/models/index");
 
@@ -59,7 +58,6 @@ const userController = {
       };
 
       // Crear usuario
-      User.create(userToCreate);
       db.User.create(userToCreate);
 
       // Crear la sesión y redirigir al home
@@ -67,6 +65,12 @@ const userController = {
     });
   },
   loginProcess: function (req, res) {
+    let validation = validationResult(req);
+
+    if (validation.errors.length > 0) {
+      console.log(validation.errors);
+    }
+
     db.User.findAll({
       where: { email: req.body.email },
     }).then((userToLogin) => {
@@ -131,9 +135,7 @@ const userController = {
         image: img_user,
       };
 
-      User.create(userToCreate);
       db.User.create(userToCreate);
-
       return res.redirect("/users");
     });
   },
