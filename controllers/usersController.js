@@ -69,6 +69,10 @@ const userController = {
 
     if (validation.errors.length > 0) {
       console.log(validation.errors);
+      return res.render("login", {
+        errors: validation.mapped(),
+        oldData: req.body,
+      });
     }
 
     db.User.findAll({
@@ -87,6 +91,15 @@ const userController = {
           req.session.userLogged = userToLogin[0];
 
           return res.redirect("/users/profile");
+        } else {
+          return res.render("login", {
+            errors: {
+              password: {
+                msg: "Contraseña inválida",
+              },
+            },
+            oldData: req.body,
+          });
         }
 
         return res.send("La contraseña es incorrecta");
