@@ -101,12 +101,16 @@ const userController = {
             oldData: req.body,
           });
         }
-
-        return res.send("La contraseña es incorrecta");
       }
 
-      // Enviar error el usuario no existe
-      return res.send("el user NO EXISTE");
+      return res.render("login", {
+        errors: {
+          email: {
+            msg: "El usuario no existe",
+          },
+        },
+        oldData: req.body,
+      });
     });
   },
   logout: function (req, res) {
