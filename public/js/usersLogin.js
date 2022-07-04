@@ -2,7 +2,6 @@ window.addEventListener("load", function () {
   let form = document.querySelector("#frm_login");
 
   form.addEventListener("submit", function (e) {
-    e.preventDefault();
     let errores = [];
     let email = document.querySelector("#email");
     let ulErrores = document.querySelector(".errores ul");
