@@ -44,6 +44,9 @@
         </div>
 
         <form action="/users/login" method="POST" id="frm_login">
+          <div class="errores">
+            <ul></ul>
+          </div>
           <% if (locals.errors) { %>
           <div class="alert alert-danger" role="alert">
             <strong
@@ -122,5 +125,7 @@
     </main>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="/js/usersLogin.js" defer></script>
   </body>
 </html>
