@@ -127,7 +127,15 @@ const userController = {
   create: (req, res) => res.render("users/create"),
 
   store: function (req, res) {
-    //let userCheck = User.findByField("email", req.body.email);
+    let validacion = validationResult(req);
+
+    if (validacion.errors.length > 0) {
+      console.log(validacion.errors);
+      return res.render("users/create", {
+        errors: validacion.mapped(),
+        oldData: req.body,
+      });
+    }
 
     db.User.findAll({
       where: {
@@ -136,7 +144,14 @@ const userController = {
     }).then((user) => {
       if (user.length > 0) {
         let error = "Error el usuario ya existe";
-        return res.send(error);
+        return res.render("users/create", {
+          errors: {
+            email: {
+              msg: "El usuario ya existe",
+            },
+          },
+          oldData: req.body,
+        });
       }
 
       let img_user = "default.png";
@@ -185,7 +200,6 @@ const userController = {
           id: req.params.id,
         },
       });
-      User.update(userToUpdate);
 
       return res.redirect("/users");
     });
@@ -195,7 +209,6 @@ const userController = {
 
     db.User.findByPk(req.params.id)
       .then((user) => {
-        User.delete(user);
         db.User.destroy({
           where: { id: req.params.id },
         });
