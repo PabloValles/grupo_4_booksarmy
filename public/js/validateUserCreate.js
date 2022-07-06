@@ -8,7 +8,6 @@ window.addEventListener("load", function (e) {
   }
 
   form.addEventListener("submit", function (e) {
-    e.preventDefault();
     let errores = [];
     let first_name = document.querySelector("#first_name");
     let email = document.querySelector("#email");
@@ -16,10 +15,6 @@ window.addEventListener("load", function (e) {
     let image = document.querySelector("#image");
     let ulErrores = document.querySelector(".errores ul");
 
-    console.log(image);
-    console.log(checkFileExtension(image));
-
-    /*
     if (validator.isEmpty(first_name.value)) {
       errores.push("Debes un ingresar un nombre");
     } else if (first_name.value.length <= 2) {
@@ -38,20 +33,44 @@ window.addEventListener("load", function (e) {
       errores.push("La contraseña debe tener más de 8 caracteres");
     }
 
+    if (!image.value) {
+      console.log("debes seleccionar una imagen");
+      errores.push("Debes seleccionar una imagen");
+    } else if (image.value) {
+      let formatosPermitidos = ["jpg", "jpeg", "png", "gif"];
+      let formatoImagenSubida = checkFileExtension(image);
+
+      let verificacion = formatosPermitidos.find(
+        (format) => format === formatoImagenSubida
+      );
+
+      if (verificacion) {
+        console.log("formato válido");
+      } else {
+        errores.push("Los formatos aceptados son: jpg, jpeg, png o gif ");
+      }
+    }
+
     if (errores.length > 0) {
       e.preventDefault();
-      console.log(errores);
 
+      ulErrores.parentElement.classList.remove("hidden");
       errores.forEach((err) => {
         console.log(ulErrores);
         ulErrores.innerHTML += `<li> ${err} </li>`;
       });
+      setTimeout(function () {
+        ulErrores.innerHTML = "";
+        ulErrores.parentElement.classList.add("hidden");
+      }, 6000);
 
       Swal.fire({
         icon: "error",
         title: "Oops...",
         text: `Errores: ${errores}`,
       });
-    }*/
+    } else {
+      form.submit();
+    }
   });
 });
