@@ -1,4 +1,5 @@
 const db = require("../database/models/index");
+const { validationResult } = require("express-validator");
 const { Op } = require("sequelize");
 
 let productsController = {
@@ -100,11 +101,46 @@ let productsController = {
       });
   },
   store: function (req, res) {
+    let validation = validationResult(req);
+
+    if (validation.errors.length > 0) {
+      console.log(validation.errors);
+
+      return res.send(validation.errors);
+
+      /*return res.render("login", {
+        errors: validation.mapped(),
+        oldData: req.body,
+      });*/
+    }
     // recibir datos del formulario
     let image = "default-img.png";
     // Si se envio una imagen, reemplaza la variable image
     if (req.file) {
-      image = req.file.filename;
+      let file_ext = req.file.filename.split(".").pop();
+      let file_ext_admited = ["jpg", "jpeg", "gif", "png"];
+      let comprobar = file_ext_admited.includes(file_ext);
+
+      if (comprobar) {
+        console.log("IMAGEN CORRECTAAAAAAA");
+        image = req.file.filename;
+      } else {
+        return res.send({
+          errors: {
+            image: {
+              msg: "El formato debe ser JPG, JPEG, PNG o GIF",
+            },
+          },
+        });
+      }
+    } else {
+      return res.send({
+        errors: {
+          image: {
+            msg: "No has añadido ninguna imágen",
+          },
+        },
+      });
     }
 
     // Armamos el objeto producto

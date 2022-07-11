@@ -11,7 +11,9 @@ const validateCreateProduct = [
   body("description")
     .isLength({ min: 20 })
     .withMessage("La descripcion debe tener al menos 20 carácteres"),
-  body("password").notEmpty().withMessage("Por favor ingrese una contraseña"),
+  body("gender").notEmpty().withMessage("El género no puede estar vacio"),
+  body("format").notEmpty().withMessage("El formato no puede estar vacio"),
+  body("autor").notEmpty().withMessage("Debes seleccionar un autor"),
 ];
 
 module.exports = validateCreateProduct;
