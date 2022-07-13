@@ -102,17 +102,29 @@ let productsController = {
   },
   store: function (req, res) {
     let validation = validationResult(req);
+    let autores = db.autores.findAll({
+      order: [["last_name", "ASC"]],
+    });
+    let formatos = db.formatos.findAll();
 
     if (validation.errors.length > 0) {
-      console.log(validation.errors);
+      console.log("ERRORES MAPEADOS", validation.mapped());
+      console.log("OLD-DATA", req.body);
 
-      return res.send(validation.errors);
+      //return res.send(validation.errors);
 
-      /*return res.render("login", {
-        errors: validation.mapped(),
-        oldData: req.body,
-      });*/
+      Promise.all([autores, formatos]).then(([autores, formatos]) => {
+        return res.render("admin/create", {
+          autores,
+          formatos,
+          errors: validation.mapped(),
+          oldData: req.body,
+        });
+      });
+
+      return;
     }
+
     // recibir datos del formulario
     let image = "default-img.png";
     // Si se envio una imagen, reemplaza la variable image
@@ -125,24 +137,33 @@ let productsController = {
         console.log("IMAGEN CORRECTAAAAAAA");
         image = req.file.filename;
       } else {
-        return res.send({
-          errors: {
-            image: {
-              msg: "El formato debe ser JPG, JPEG, PNG o GIF",
-            },
-          },
+        console.log("ERROR: IMAGEN INCORRECTA");
+        Promise.all([autores, formatos]).then(([autores, formatos]) => {
+          return res.render("admin/create", {
+            autores,
+            formatos,
+            errors: validation.mapped(),
+            oldData: req.body,
+          });
         });
+
+        return;
       }
     } else {
-      return res.send({
-        errors: {
-          image: {
-            msg: "No has añadido ninguna imágen",
-          },
-        },
+      console.log("ERROR: SIN IMAGEN");
+      Promise.all([autores, formatos]).then(([autores, formatos]) => {
+        return res.render("admin/create", {
+          autores,
+          formatos,
+          errors: validation.mapped(),
+          oldData: req.body,
+        });
       });
+
+      return;
     }
 
+    return;
     // Armamos el objeto producto
     let {
       name,

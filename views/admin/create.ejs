@@ -29,6 +29,12 @@
               <i class="fa-solid fa-circle-plus fa-2xl"></i>
               <h4>Formulario para agregar un libro</h4>
             </div>
+            <% if (locals.errors) { %>
+              <div class="alert alert-danger" role="alert">
+                <strong>Opps !</strong> Algo ha salido mal.
+              </div>
+            <% } %>
+            
             <form method="post" action="/products/admin/create" enctype="multipart/form-data" class="row g-3 needs-validation mb-5 py-4" novalidate>
               <div class="col-md-8">
                 <label for="name-product" class="form-label"
@@ -36,13 +42,18 @@
                 >
                 <input
                   type="text"
-                  class="form-control"
+                  class="<%= (locals.errors && errors.name) ? `form-control is-invalid` : `form-control` %>" 
                   id="name-product"
                   name="name"
                   placeholder="Ejemplo: La Divina Comedia"
+                  value="<%= locals.oldData ? oldData.name : null %>"
                   required
                 />
-                <div class="valid-feedback">Looks good!</div>
+                <% if (locals.errors && errors.name){ %>
+                  <span class="focus-bg">
+                    <div style="color: red"><%= errors.name.msg %></div>
+                  </span>
+                <% } %>
               </div>
               <div class="col-md-4">
                 <label for="genero" class="form-label">Géneros</label>
@@ -51,6 +62,19 @@
                   name="gender"
                   id="genero"
                 >
+                <% if (oldData.gender) { %>
+                  <% if (!Array.isArray(oldData.gender)) { %>
+                    <% let arr_generos = oldData.gender.split(',') %>
+                    <% arr_generos.forEach(genero => { %>
+                      <option value="<%= genero %>" selected="selected"><%= genero %></option> 
+                    <% }) %>
+                  <% } else { %>
+                    <% oldData.gender.forEach(genero => { %>
+                      <option value="<%= genero %>" selected="selected"><%= genero %></option> 
+                    <% }) %>
+                  <% } %>                  
+                <% } %>
+                
                 <option value="Acción">Acción</option>
                 <option value="Comedia">Comedia</option>
                 <option value="Drama">Drama</option>
@@ -60,7 +84,11 @@
                 <option value="Suspenso">Suspenso</option>
                 <option value="Documentales">Documentales</option>
                 </select>
-                <div class="valid-feedback">Looks good!</div>
+                <% if (locals.errors && errors.gender){ %>
+                  <span class="focus-bg">
+                    <div style="color: red"><%= errors.gender.msg %></div>
+                  </span>
+                <% } %>
               </div>
 
               <div class="col-md-8">
@@ -69,11 +97,16 @@
                     >Descripción</label
                   >
                   <textarea
-                    class="form-control"
+                  class="<%= (locals.errors && errors.description) ? `form-control is-invalid` : `form-control` %>" 
                     name="description"
                     id="description"
                     rows="3"
-                  ></textarea>
+                  ><%= locals.oldData ? oldData.description : null %></textarea>
+                  <% if (locals.errors && errors.description){ %>
+                    <span class="focus-bg">
+                      <div style="color: red"><%= errors.description.msg %></div>
+                    </span>
+                  <% } %>
                 </div>
               </div>
               <div class="col-md-4">
@@ -83,12 +116,17 @@
                   >
                   <input
                     type="file"
-                    class="form-control"
+                    class="<%= (locals.errors && errors.image) ? `is-invalid` : `form-control` %>" 
                     name="image"
                     id="imagen"
                     placeholder="Suba una o más imágenes"
                     aria-describedby="fileHelpId"
                   />
+                  <% if (locals.errors && errors.image){ %>
+                    <span class="focus-bg">
+                      <div style="color: red"><%= errors.image.msg %></div>
+                    </span>
+                  <% } %>
                   <small id="fileHelpId" class="form-text text-muted"
                     >Necesita ayuda?</small
                   >
@@ -104,6 +142,11 @@
                       <option value="<%= autor.id %>"><%= autor.first_name +" "+autor.last_name%></option>
                     <% }) %>
                   </select>
+                  <% if (locals.errors && errors.autor){ %>
+                    <span class="focus-bg">
+                      <div style="color: red"><%= errors.autor.msg %></div>
+                    </span>
+                  <% } %>
                 </div>
                 
                 <div class="valid-feedback">Looks good!</div>
@@ -180,7 +223,11 @@
                     <option value="2">Ebook</option>
                   </select>
                 </div>
-                <div class="valid-feedback">Looks good!</div>
+                <% if (locals.errors && errors.format){ %>
+                  <span class="focus-bg">
+                    <div style="color: red"><%= errors.format.msg %></div>
+                  </span>
+                <% } %>
               </div>
               <div class="col-md-3">
                 <div class="mb-3">
