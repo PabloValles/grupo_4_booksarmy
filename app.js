@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 
 const path = require("path");
@@ -11,9 +12,13 @@ const methodOverride = require("method-override");
 const usersRoute = require("./routers/users");
 const mainRouter = require("./routers/main");
 const productsRouter = require("./routers/products");
+const apiUsersRoute = require("./routers/api/users");
+const apiProductsRoute = require("./routers/api/products");
 
 // Declaramos el puerto donde se ejecutará nuestra app
 const PORT = process.env.PORT || 3000;
+
+app.use(cors());
 
 // Para poder enviar datos por POST
 app.use(express.urlencoded({ extended: false }));
@@ -44,6 +49,8 @@ app.use(express.static(publicPath));
 app.use("/", mainRouter);
 app.use("/products", productsRouter);
 app.use("/users", usersRoute);
+app.use("/api/users", apiUsersRoute);
+app.use("/api/products", apiProductsRoute);
 
 /*======> Iniciamos nuestra app <======*/
 app.listen(PORT, () =>
