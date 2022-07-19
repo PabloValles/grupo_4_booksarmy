@@ -9,7 +9,7 @@ const productsAPIController = {
     })
       .then(function (prods) {
         return res.status(200).json({
-          totals: prods.length,
+          total: prods.length,
           data: prods,
           status: 200,
         });
