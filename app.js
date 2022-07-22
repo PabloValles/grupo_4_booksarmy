@@ -14,6 +14,7 @@ const mainRouter = require("./routers/main");
 const productsRouter = require("./routers/products");
 const apiUsersRoute = require("./routers/api/users");
 const apiProductsRoute = require("./routers/api/products");
+const apiAuthorRoute = require("./routers/api/authors");
 
 // Declaramos el puerto donde se ejecutará nuestra app
 const PORT = process.env.PORT || 3000;
@@ -51,6 +52,7 @@ app.use("/products", productsRouter);
 app.use("/users", usersRoute);
 app.use("/api/users", apiUsersRoute);
 app.use("/api/products", apiProductsRoute);
+app.use("/api/authors", apiAuthorRoute);
 
 /*======> Iniciamos nuestra app <======*/
 app.listen(PORT, () =>
