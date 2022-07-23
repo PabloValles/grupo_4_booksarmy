@@ -312,7 +312,7 @@ let productsController = {
                     console.log("ERROR", err);
                   });
               } else {
-                return res.send(formatos);
+                //return res.send(formatos);
                 let eliminar = db.libroFormato.destroy({
                   where: { book_id: nuevoLibro.id },
                 });
