@@ -37,7 +37,7 @@ const productsAPIController = {
             formats: book.booksFormat,
             url: "/api/products/:id",
           },
-          urlImagen: book.image,
+          urlImagen: "http://localhost:3000/img/uploads/" + book.image,
           status: 200,
         });
       })
