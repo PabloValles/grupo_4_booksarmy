@@ -62,19 +62,21 @@
                   name="gender"
                   id="genero"
                 >
-                <% if (oldData.gender) { %>
-                  <% if (!Array.isArray(oldData.gender)) { %>
-                    <% let arr_generos = oldData.gender.split(',') %>
-                    <% arr_generos.forEach(genero => { %>
-                      <option value="<%= genero %>" selected="selected"><%= genero %></option> 
-                    <% }) %>
-                  <% } else { %>
-                    <% oldData.gender.forEach(genero => { %>
-                      <option value="<%= genero %>" selected="selected"><%= genero %></option> 
-                    <% }) %>
-                  <% } %>                  
+                <% if (locals.oldData) { %>
+                  <% if (oldData.gender) { %>
+                    <% if (!Array.isArray(oldData.gender)) { %>
+                      <% let arr_generos = oldData.gender.split(',') %>
+                      <% arr_generos.forEach(genero => { %>
+                        <option value="<%= genero %>" selected="selected"><%= genero %></option> 
+                      <% }) %>
+                    <% } else { %>
+                      <% oldData.gender.forEach(genero => { %>
+                        <option value="<%= genero %>" selected="selected"><%= genero %></option> 
+                      <% }) %>
+                    <% } %>                  
+                  <% } %>
                 <% } %>
-                
+                  
                 <option value="Acción">Acción</option>
                 <option value="Comedia">Comedia</option>
                 <option value="Drama">Drama</option>

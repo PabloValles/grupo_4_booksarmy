@@ -16,9 +16,9 @@ const usersAPIController = {
 
   show: function (req, res) {
     Users.findByPk(req.params.id)
-      .then((users) => {
+      .then((user) => {
         res.status(200).json({
-          data: users,
+          data: user,
           status: 200,
         });
       })
