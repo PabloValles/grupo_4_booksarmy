@@ -163,7 +163,7 @@ let productsController = {
       return;
     }
 
-    return;
+    //return;
     // Armamos el objeto producto
     let {
       name,
@@ -220,7 +220,7 @@ let productsController = {
             },
           ];
         }
-
+        console.log("Cargando  EL LIBROOOOOOOOOOOOOOOOOOOOOOO");
         db.libroFormato.bulkCreate(formatos).then((result) => {
           console.log("!formato del libro cargado");
           return res.redirect("/products/admin/");
